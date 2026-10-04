@@ -19,6 +19,7 @@
     lang: localStorage.getItem("fling.lang") || "zh",
     theme: localStorage.getItem("fling.theme") || "dark",
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
+    view: "gallery",
     shown: 0, filtered: [], io: null,
     detailSlug: null, listScroll: 0,
     lbList: [], lbIndex: -1,
@@ -188,8 +189,13 @@
       $("heroTitle").textContent = t("heroTitle");
     }
     $("heroLead").textContent = t("heroLead");
-    $("heroCta").textContent = t("heroCta");
     $("navRepoText").textContent = t("navRepo");
+    $("catsTitle").textContent = t("catsTitle");
+    $("tagsTitle").textContent = t("tagsTitle");
+    Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
+      var key = tab.dataset.view === "cats" ? "tabCats" : "tabGallery";
+      tab.textContent = t(key);
+    });
     $("statGames").textContent = t("statGames");
     $("statOptions").textContent = t("statOptions");
     $("statVersions").textContent = t("statVersions");
@@ -278,6 +284,25 @@
 
   function setCat(c) { state.cat = c; syncUrl(); refresh(); }
   function setTag(tag) { state.tag = tag; syncUrl(); refresh(); }
+
+  /* ---------------- 视图切换（图鉴 / 分类） ---------------- */
+  function applyView() {
+    Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
+      var on = tab.dataset.view === state.view;
+      tab.classList.toggle("on", on);
+      tab.setAttribute("aria-pressed", on);
+    });
+    $("heroSec").hidden = state.view === "cats";
+    $("viewCats").hidden = state.view !== "cats";
+  }
+  function setView(v) {
+    if (v !== "gallery" && v !== "cats") v = "gallery";
+    if (state.view === v) return;
+    state.view = v;
+    applyView();
+    syncUrl();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   /* ---------------- 卡片 ---------------- */
   function cardNode(rec, delayIdx) {
@@ -670,6 +695,7 @@
     if (state.tag !== "__all__") p.set("tag", state.tag);
     if (state.sort !== "recent") p.set("sort", state.sort);
     if (state.lang !== "zh") p.set("lang", state.lang);
+    if (state.view !== "gallery") p.set("view", state.view);
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
   }
@@ -680,6 +706,7 @@
     if (p.get("cat")) state.cat = p.get("cat");
     if (p.get("tag")) state.tag = p.get("tag");
     if (["recent", "options", "versions", "name"].indexOf(p.get("sort")) > -1) state.sort = p.get("sort");
+    if (p.get("view") === "cats") state.view = "cats";
   }
 
   /* ---------------- 事件 ---------------- */
@@ -715,6 +742,10 @@
 
     $("sortSelect").addEventListener("change", function (ev) {
       state.sort = ev.target.value; refresh();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
+      tab.addEventListener("click", function () { setView(tab.dataset.view); });
     });
     $("emptyReset").addEventListener("click", function () {
       state.q = ""; input.value = ""; $("searchClear").hidden = true;
@@ -763,6 +794,7 @@
     }
     readUrl();
     $("sortSelect").value = state.sort;
+    applyView(); // 应用初始视图（含 ?view=cats 深链）
     prepare();
     bind();
     renderStaticText();

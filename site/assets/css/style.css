@@ -172,6 +172,28 @@ svg { fill: currentColor; }
   background: var(--bg);
 }
 .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+
+/* 导航视图切换（主题按钮左侧） */
+.nav-tabs {
+  display: flex; gap: 3px; flex-shrink: 0;
+  padding: 3px;
+  border: 1px solid var(--line-strong); border-radius: 9px;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+.nav-tab {
+  height: 30px; padding: 0 16px;
+  border: 0; border-radius: 6px;
+  background: transparent; color: var(--text-2);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: .02em;
+  transition: all .15s;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.on {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+  color: #fff;
+  box-shadow: 0 3px 10px -3px var(--glow-blue);
+}
 .icon-btn {
   width: 36px; height: 36px; border-radius: var(--radius);
   border: 1px solid var(--line-strong); background: var(--surface);
@@ -475,6 +497,26 @@ svg { fill: currentColor; }
   border-radius: 4px; padding: 2.5px 8px;
 }
 [data-theme="light"] .mini-tag { color: var(--blue-600); background: var(--blue-100); border-color: transparent; }
+
+/* ---------------- 分类视图 ---------------- */
+.cats-view { padding-top: 26px; }
+.cats-view .hero-stats { max-width: none; margin-bottom: 26px; }
+.cats-block { margin-bottom: 22px; }
+.cats-title {
+  margin: 0 0 12px; font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px;
+}
+.cats-title::before {
+  content: "//"; font: 700 14px/1 var(--font-num); color: var(--cyan-400); letter-spacing: -.05em;
+}
+.cats-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line-strong), transparent); }
+.cats-tags .tag-scroller.wrap {
+  flex-wrap: wrap; overflow-x: visible; gap: 8px;
+  padding-bottom: 0;
+}
+/* 分类视图里 chips 放大一号，作为主导航 */
+.cats-view .chip { height: 38px; padding: 0 18px; font-size: 13.5px; }
+.cats-view .chip .chip-n { font-size: 11.5px; }
 
 /* ---------------- 状态区 ---------------- */
 .load-error {
