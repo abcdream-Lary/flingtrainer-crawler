@@ -79,6 +79,9 @@ jobs:
           fi
           python run.py crawl "${ARGS[@]}" 2>&1 | tee crawl-run.log
 
+      - name: 生成展示站数据
+        run: python scripts/build_web_data.py
+
       - name: 写入运行摘要
         if: always()
         run: |

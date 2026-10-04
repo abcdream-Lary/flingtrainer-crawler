@@ -460,6 +460,45 @@ python scripts/push_via_api.py --repo <owner>/<repo>
 
 ---
 
+## 十二、展示网站
+
+`site/` 内是一个**零依赖纯静态**的修改器展示站（双击 `index.html` 即可打开，
+无需服务器、无需构建、无任何 npm 依赖），设计语言参考 fnUI（fnOS 官网）：
+克莱因蓝主色 `#0047E1` + 青色点缀、白底细描边卡片、克制圆角与 hover 上浮，
+并支持深浅色主题切换。
+
+功能：
+
+- **双语界面**：默认中文，卡片主标题为中文游戏名、下方小字英文原名；
+  点击右上角 `EN` 整体反转为主英文。语言记忆在 localStorage，也可用 `?lang=en`
+- **汉化映射**：游戏名/分类/标签的中文来自人工维护的
+  `site/assets/js/catalog.js`（键 = slug）。**只收录有把握的译名**，
+  没有官方译名的游戏回退显示英文原名，绝不机器翻译或猜测
+- **搜索**：中英文任一语言均可命中（中文查 `catalog` 译名，英文查原名/slug），
+  快捷键 `/` 聚焦搜索框
+- **筛选**：分类 + 标签双层 chips，计数实时；排序支持最近更新/选项最多/版本最多/名称
+- **详情弹窗**：修改器截图、全部功能选项（含 tooltip 说明）、
+  当前版本 + 全部历史下载版本（版本徽标、文件名、日期、大小、下载数）、原站链接
+- 无限滚动加载、搜索防抖、URL 参数同步（`?q=&cat=&tag=&sort=&lang=`）
+
+数据流：爬虫产出 `data/json/trainers.json` →
+`python scripts/build_web_data.py` 生成 `site/assets/js/data.js`（内联数据，
+规避 file:// 的 CORS 限制）→ GitHub Actions 每次采集完成后自动重建并随数据一起提交。
+
+本地预览：
+
+```bash
+python scripts/build_web_data.py     # 数据变更后重建
+cd site && python -m http.server 8123   # 或直接双击 index.html
+```
+
+部署 GitHub Pages：仓库 `Settings → Pages → Build and deployment →
+Source: Deploy from a branch`，目录选 `/docs` 或根目录均可
+（若选根目录，站点入口即 `https://<owner>.github.io/<repo>/site/`；
+也可把 `site/` 内容复制到 `gh-pages` 分支根目录得到干净域名）。
+
+---
+
 ## 十一、已知边界
 
 - 版本号是从下载文件名里**按规则解析**的启发式结果（如 `v1.0-v1.0.20`、
