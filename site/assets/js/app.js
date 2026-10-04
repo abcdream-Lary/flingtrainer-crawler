@@ -571,11 +571,6 @@
     var actions = el("div", "d-actions");
     if (latest && latest.url) {
       actions.appendChild(dlAnchor(latest.url, "btn btn-primary d-dl", t("detailDownloadNow") + " ↓"));
-      var site = el("a", "btn btn-ghost", t("detailGoSite") + " ↗");
-      site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
-      site.target = "_blank";
-      site.rel = "noopener";
-      actions.appendChild(site);
     }
     var site = el("a", "btn btn-ghost", t("detailOpenSite") + " →");
     site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
