@@ -103,6 +103,36 @@
     return m ? m[1] + "+" : "";
   }
 
+  /* 复制直链到剪贴板（clipboard API 优先，file:// 等环境降级 execCommand） */
+  function copyText(text, btn) {
+    function done() {
+      if (!btn) return;
+      var old = btn.textContent;
+      btn.textContent = t("copied");
+      btn.classList.add("ok");
+      setTimeout(function () {
+        btn.textContent = old;
+        btn.classList.remove("ok");
+      }, 1400);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { legacyCopy(text); done(); });
+    } else {
+      legacyCopy(text);
+      done();
+    }
+  }
+  function legacyCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) { /* 忽略 */ }
+    document.body.removeChild(ta);
+  }
+
   /* ---------------- 图片加载链：原图 → 代理 → 占位 ---------------- */
   function attachImg(img, src, onFail) {
     var triedProxy = false;
@@ -553,7 +583,14 @@
       dl.href = latest.url;
       dl.target = "_blank";
       dl.rel = "noopener";
+      dl.referrerPolicy = "no-referrer";
+      dl.title = t("dlTip");
       actions.appendChild(dl);
+      var copyMain = el("button", "btn btn-ghost d-copy-main", t("copyLink"));
+      copyMain.type = "button";
+      copyMain.title = latest.url;
+      copyMain.addEventListener("click", function () { copyText(latest.url, copyMain); });
+      actions.appendChild(copyMain);
     }
     var site = el("a", "btn btn-ghost", t("detailOpenSite") + " →");
     site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
@@ -633,11 +670,20 @@
         tr.appendChild(el("td", null, d.count == null ? "—" : num(d.count)));
         var tdAct = el("td");
         if (d.url) {
+          var act = el("div", "dl-act");
           var a = el("a", "dl-btn", t("detailAction") + " ↓");
           a.href = d.url;
           a.target = "_blank";
           a.rel = "noopener";
-          tdAct.appendChild(a);
+          a.referrerPolicy = "no-referrer";
+          a.title = t("dlTip");
+          act.appendChild(a);
+          var copy = el("button", "dl-copy", t("copyLink"));
+          copy.type = "button";
+          copy.title = d.url;
+          copy.addEventListener("click", function () { copyText(d.url, copy); });
+          act.appendChild(copy);
+          tdAct.appendChild(act);
         } else {
           tdAct.appendChild(el("span", "dl-none", "—"));
         }

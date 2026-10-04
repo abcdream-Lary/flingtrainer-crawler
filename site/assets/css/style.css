@@ -788,6 +788,18 @@ svg { fill: currentColor; }
 [data-theme="light"] .dl-btn { color: var(--blue-600); background: var(--blue-100); border-color: transparent; }
 .dl-btn:hover { background: var(--blue-600); border-color: var(--blue-600); color: #fff; box-shadow: 0 4px 14px -4px var(--glow-blue); }
 .dl-none { color: var(--text-3); }
+.dl-act { display: flex; align-items: center; gap: 6px; }
+.dl-copy {
+  height: 28px; padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface); color: var(--text-2);
+  font: 600 12px/1 var(--font-num);
+  transition: all .15s;
+}
+.dl-copy:hover { border-color: var(--cyan-400); color: var(--cyan-400); }
+.dl-copy.ok { border-color: var(--cyan-400); color: var(--cyan-400); }
+.d-copy-main { padding: 0 16px; }
 
 /* 说明 */
 .note-list { display: grid; gap: 10px; }
