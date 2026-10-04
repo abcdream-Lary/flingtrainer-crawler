@@ -106,17 +106,12 @@ a { color: inherit; }
 svg { fill: currentColor; }
 ::selection { background: rgba(52, 205, 254, .3); }
 
-/* ---------------- 全局定制滚动条 ---------------- */
-* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--line-strong);
-  border-radius: 999px;
-  border: 2.5px solid var(--bg);
-}
-::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
-::-webkit-scrollbar-corner { background: transparent; }
+/* ---------------- 滚动条：全部隐藏（仍可用滚轮/触控板/键盘滚动） ---------------- */
+* { scrollbar-width: none; -ms-overflow-style: none; }
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner { width: 0; height: 0; display: none; background: transparent; }
 
 /* ---------------- 顶部导航 ---------------- */
 .nav {

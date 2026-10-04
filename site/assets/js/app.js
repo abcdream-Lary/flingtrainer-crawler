@@ -10,7 +10,7 @@
   var CATALOG = window.FLING_CATALOG || { categories: [], entries: {} };
   var I18N = window.FLING_I18N || { zh: {}, en: {} };
   var TR = window.FLING_TRANSLATOR || { option: function () { return null; } };
-  var PER_OPTIONS = [20, 30, 50, 100];
+  var PER_OPTIONS = [24, 32, 52];
   var ORIGIN = "https://flingtrainer.com";
   var IMG_PROXY = "https://wsrv.nl/?url=";   // 加载失败的图片代理兜底
 
@@ -20,7 +20,7 @@
     theme: localStorage.getItem("fling.theme") || "light",
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
     view: "gallery",
-    page: 1, per: 30,
+    page: 1, per: 24,
     filtered: [],
     detailSlug: null, listScroll: 0,
     lbList: [], lbIndex: -1,
@@ -500,7 +500,7 @@
   }
 
   function setPer(n) {
-    if (PER_OPTIONS.indexOf(n) === -1) n = 30;
+    if (PER_OPTIONS.indexOf(n) === -1) n = 24;
     if (state.per === n) return;
     state.per = n;
     state.page = 1;
@@ -849,7 +849,7 @@
     if (state.sort !== "recent") p.set("sort", state.sort);
     if (state.lang !== "zh") p.set("lang", state.lang);
     if (state.view !== "gallery") p.set("view", state.view);
-    if (state.per !== 30) p.set("per", String(state.per));
+    if (state.per !== 24) p.set("per", String(state.per));
     if (state.page > 1) p.set("page", String(state.page));
     p.set("ref", REF_TAG); // 源站下载校验需要，保持常驻
     var qs = p.toString();
