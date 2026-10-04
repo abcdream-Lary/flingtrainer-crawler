@@ -118,6 +118,8 @@ jobs:
           if [ -n "$(git status --porcelain data)" ]; then
             git add data
             git commit -m "chore(data): 更新采集数据 $(date -u +%Y-%m-%d)"
+            # 期间若有人向 main 推送过（如展示站改动），先变基再推，避免 fetch first 被拒
+            git pull --rebase --autostash origin main
             git push
             echo "已提交数据变更"
           else
