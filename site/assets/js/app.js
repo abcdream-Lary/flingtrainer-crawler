@@ -243,6 +243,7 @@
     $("langToggle").textContent = t("langButton");
     $("browseCta").textContent = t("browseCta");
     $("perPageLabel").textContent = t("perPage");
+    $("lbHint").textContent = t("lbHint");
     $("searchInput").placeholder = t("searchPlaceholder");
     $("searchInput").setAttribute("aria-label", t("searchPlaceholder"));
 
@@ -700,7 +701,11 @@
         if (!url) return;
         var fig = el("figure", "d-screen");
         var img = makeImg(url, primaryName(rec));
-        img.addEventListener("click", function () { openLightbox(rec, idx); });
+        img.addEventListener("click", function () {
+          // 用图集里的真实下标打开，避免封面占据首位导致错位
+          var gi = galleryOf(rec).indexOf(url);
+          openLightbox(rec, gi < 0 ? 0 : gi);
+        });
         fig.appendChild(img);
         sw.appendChild(fig);
       });
@@ -742,12 +747,57 @@
     }
   }
 
-  /* ---------------- Lightbox ---------------- */
+  /* ---------------- Lightbox（滚轮缩放 / 拖动平移 / 双击切换） ---------------- */
+  var lb = { scale: 1, tx: 0, ty: 0, dragging: false, startX: 0, startY: 0, baseX: 0, baseY: 0 };
+  var LB_MIN = 1, LB_MAX = 8;
+
+  function lbApply() {
+    var img = $("lbImg");
+    img.style.transform = "translate(" + lb.tx + "px," + lb.ty + "px) scale(" + lb.scale + ")";
+    img.classList.toggle("zoomed", lb.scale > 1.001);
+    $("lbZoom").textContent = Math.round(lb.scale * 100) + "%";
+  }
+  function lbReset() {
+    lb.scale = 1; lb.tx = 0; lb.ty = 0;
+    var img = $("lbImg");
+    img.style.transform = "";
+    img.classList.remove("zoomed");
+    $("lbZoom").textContent = "100%";
+  }
+  /* 以屏幕上某点为锚点缩放（cx/cy 为相对图片变换原点的坐标） */
+  function lbZoomAt(factor, cx, cy) {
+    var next = Math.min(LB_MAX, Math.max(LB_MIN, lb.scale * factor));
+    if (Math.abs(next - lb.scale) < 0.001) return;
+    var k = next / lb.scale;
+    if (cx == null) { cx = 0; cy = 0; }
+    lb.tx = cx - k * (cx - lb.tx);
+    lb.ty = cy - k * (cy - lb.ty);
+    lb.scale = next;
+    if (lb.scale <= 1.001) { lb.tx = 0; lb.ty = 0; } // 回到适应窗口时归位
+    lbApply();
+  }
+  /* 屏幕上一点 → 相对图片变换原点（中心）的坐标 */
+  function lbPoint(ev) {
+    var img = $("lbImg");
+    var r = img.getBoundingClientRect();
+    var centerX = r.left + r.width / 2;
+    var centerY = r.top + r.height / 2;
+    return { x: ev.clientX - (centerX - lb.tx), y: ev.clientY - (centerY - lb.ty) };
+  }
+  function lbZoomCenter(factor) { lbZoomAt(factor, 0, 0); }
+  function lbFitReal() { // 1:1 原始尺寸
+    var img = $("lbImg");
+    if (!img.naturalWidth) return;
+    var r = img.getBoundingClientRect();
+    var fitted = r.width / lb.scale; // 反推适应窗口时的显示宽度
+    lbZoomAt(Math.max(LB_MIN, Math.min(LB_MAX, img.naturalWidth / fitted)), 0, 0);
+  }
+
   function openLightbox(rec, idx) {
     var urls = galleryOf(rec);
     if (!urls.length) return;
     state.lbList = urls;
-    state.lbIndex = idx;
+    state.lbIndex = Math.max(0, Math.min(idx, urls.length - 1));
     showLb();
     $("lightbox").hidden = false;
     document.body.style.overflow = "hidden";
@@ -757,8 +807,16 @@
     var url = state.lbList[state.lbIndex];
     var img = $("lbImg");
     img.referrerPolicy = "no-referrer";
+    img.style.visibility = "visible";
+    lbReset();
+    if (img.dataset.broken === "1") { img.dataset.broken = "0"; }
     attachImg(img, url, function () {
-      img.replaceWith(el("div", "lb-fallback", "!"));
+      img.style.visibility = "hidden";
+      var fb = document.querySelector(".lb-fallback");
+      if (!fb) {
+        fb = el("div", "lb-fallback", "!");
+        $("lbStage").appendChild(fb);
+      }
     });
     img.alt = "";
     $("lbCount").textContent = (state.lbIndex + 1) + " / " + state.lbList.length;
@@ -771,6 +829,9 @@
     document.body.style.overflow = "";
     state.lbList = [];
     state.lbIndex = -1;
+    var fb = document.querySelector(".lb-fallback");
+    if (fb) fb.remove();
+    lbReset();
   }
   function lbMove(step) {
     if (!state.lbList.length) return;
@@ -838,6 +899,9 @@
       if (!$("lightbox").hidden) {
         if (ev.key === "ArrowLeft") lbMove(-1);
         if (ev.key === "ArrowRight") lbMove(1);
+        if (ev.key === "+" || ev.key === "=") lbZoomCenter(1.25);
+        if (ev.key === "-" || ev.key === "_") lbZoomCenter(1 / 1.25);
+        if (ev.key === "0") lbReset();
       }
     });
 
@@ -878,6 +942,54 @@
     $("lbNext").addEventListener("click", function () { lbMove(1); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-lb-close]"), function (n) {
       n.addEventListener("click", closeLightbox);
+    });
+
+    /* 缩放工具条 */
+    $("lbZoomIn").addEventListener("click", function () { lbZoomCenter(1.25); });
+    $("lbZoomOut").addEventListener("click", function () { lbZoomCenter(1 / 1.25); });
+    $("lbFit").addEventListener("click", lbReset);
+    $("lbOne").addEventListener("click", lbFitReal);
+
+    /* 滚轮缩放（以光标为锚点） */
+    $("lightbox").addEventListener("wheel", function (ev) {
+      if ($("lightbox").hidden) return;
+      ev.preventDefault();
+      var p = lbPoint(ev);
+      lbZoomAt(ev.deltaY < 0 ? 1.12 : 1 / 1.12, p.x, p.y);
+    }, { passive: false });
+
+    /* 拖动平移（放大后生效） */
+    var lbImg = $("lbImg");
+    lbImg.addEventListener("pointerdown", function (ev) {
+      if (lb.scale <= 1.001) return;
+      lb.dragging = true;
+      lb.startX = ev.clientX; lb.startY = ev.clientY;
+      lb.baseX = lb.tx; lb.baseY = lb.ty;
+      lbImg.classList.add("dragging");
+      lbImg.setPointerCapture(ev.pointerId);
+      ev.preventDefault();
+    });
+    lbImg.addEventListener("pointermove", function (ev) {
+      if (!lb.dragging) return;
+      lb.tx = lb.baseX + (ev.clientX - lb.startX);
+      lb.ty = lb.baseY + (ev.clientY - lb.startY);
+      lbApply();
+    });
+    function lbEndDrag(ev) {
+      if (!lb.dragging) return;
+      lb.dragging = false;
+      lbImg.classList.remove("dragging");
+      try { lbImg.releasePointerCapture(ev.pointerId); } catch (e) { /* 忽略 */ }
+    }
+    lbImg.addEventListener("pointerup", lbEndDrag);
+    lbImg.addEventListener("pointercancel", lbEndDrag);
+
+    /* 双击：还原 / 放大到 2 倍（以点击处为锚点） */
+    lbImg.addEventListener("dblclick", function (ev) {
+      ev.preventDefault();
+      if (lb.scale > 1.001) { lbReset(); return; }
+      var p = lbPoint(ev);
+      lbZoomAt(2, p.x, p.y);
     });
 
     var toTop = $("toTop");

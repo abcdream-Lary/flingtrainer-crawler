@@ -821,7 +821,7 @@ svg { fill: currentColor; }
 /* ============================================================
    Lightbox
    ============================================================ */
-.lightbox { position: fixed; inset: 0; z-index: 2100; display: grid; place-items: center; padding: 34px; }
+.lightbox { position: fixed; inset: 0; z-index: 2100; }
 .lb-mask {
   position: absolute; inset: 0;
   background: rgba(4, 7, 14, .88);
@@ -829,16 +829,32 @@ svg { fill: currentColor; }
   animation: lbIn .2s ease;
 }
 @keyframes lbIn { from { opacity: 0; } }
+/* 舞台：flex 居中 + 明确的可用尺寸，保证图片始终完整可见 */
+.lb-stage {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 56px 72px;
+  overflow: hidden;
+  pointer-events: none; /* 空白处点击穿透到遮罩 → 关闭 */
+}
 .lb-img {
-  position: relative; z-index: 1;
   max-width: 100%; max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
   border-radius: 10px;
   border: 1px solid rgba(120, 160, 255, .25);
   box-shadow: 0 30px 90px -20px rgba(0, 0, 0, .8), 0 0 60px -18px var(--glow-cyan);
-  animation: lbZoom .25s cubic-bezier(.2, .8, .3, 1);
   background: #0A0E1A;
+  transform-origin: center center;
+  will-change: transform;
+  pointer-events: auto;
+  cursor: zoom-in;
+  user-select: none; -webkit-user-select: none;
+  animation: lbZoom .25s cubic-bezier(.2, .8, .3, 1);
 }
-@keyframes lbZoom { from { opacity: 0; transform: scale(.94); } }
+.lb-img.zoomed { cursor: grab; }
+.lb-img.dragging { cursor: grabbing; transition: none; }
+@keyframes lbZoom { from { opacity: 0; } }
 .lb-fallback {
   position: relative; z-index: 1;
   width: 320px; height: 200px; display: grid; place-items: center;
@@ -868,6 +884,43 @@ svg { fill: currentColor; }
   border: 1px solid rgba(255, 255, 255, .18);
   padding: 7px 15px; border-radius: 999px;
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+/* 缩放工具条 */
+.lb-tools {
+  position: absolute; z-index: 2; bottom: 20px; left: 24px;
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(10, 16, 30, .7);
+  border: 1px solid rgba(255, 255, 255, .18);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.lb-tool {
+  min-width: 30px; height: 30px; padding: 0 10px;
+  border: 0; border-radius: 999px;
+  background: transparent; color: #fff;
+  font: 700 14px/1 var(--font-num);
+  display: grid; place-items: center;
+  transition: background .15s;
+}
+.lb-tool:hover { background: var(--blue-600); }
+.lb-tool.lb-fit, .lb-tool.lb-one { font-size: 12px; }
+.lb-zoom {
+  min-width: 46px; text-align: center;
+  font: 700 12px/1 var(--font-num); color: #fff;
+  letter-spacing: .04em;
+}
+.lb-hint {
+  position: absolute; z-index: 2; right: 24px; bottom: 26px;
+  font: 500 11.5px/1.4 var(--font-num); color: rgba(255, 255, 255, .72);
+  letter-spacing: .03em;
+  pointer-events: none;
+}
+@media (max-width: 860px) {
+  .lb-stage { padding: 64px 16px 96px; }
+  .lb-hint { display: none; }
+  .lb-tools { left: 50%; transform: translateX(-50%); }
+  .lb-count { bottom: 62px; }
 }
 
 /* ---------------- 页脚 / 其他 ---------------- */

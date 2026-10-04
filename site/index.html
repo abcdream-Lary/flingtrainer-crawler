@@ -137,14 +137,24 @@
 <!-- ======== 详情子页面（hash 路由 #/t/<slug>） ======== -->
 <section class="detail" id="detailView" hidden aria-label="修改器详情"></section>
 
-<!-- ======== 图片放大查看（lightbox） ======== -->
+<!-- ======== 图片放大查看（lightbox：支持滚轮缩放 / 拖动平移） ======== -->
 <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog">
   <div class="lb-mask" data-lb-close></div>
-  <img class="lb-img" id="lbImg" alt="">
+  <div class="lb-stage" id="lbStage">
+    <img class="lb-img" id="lbImg" alt="" draggable="false">
+  </div>
   <button class="lb-btn lb-close" id="lbClose" data-lb-close aria-label="关闭">&times;</button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="上一张">‹</button>
   <button class="lb-btn lb-next" id="lbNext" aria-label="下一张">›</button>
+  <div class="lb-tools">
+    <button class="lb-tool" id="lbZoomOut" aria-label="缩小">−</button>
+    <span class="lb-zoom" id="lbZoom">100%</span>
+    <button class="lb-tool" id="lbZoomIn" aria-label="放大">＋</button>
+    <button class="lb-tool lb-fit" id="lbFit" aria-label="适应窗口">适应</button>
+    <button class="lb-tool lb-one" id="lbOne" aria-label="原始尺寸">1:1</button>
+  </div>
   <span class="lb-count" id="lbCount"></span>
+  <span class="lb-hint" id="lbHint"></span>
 </div>
 
 <button class="to-top" id="toTop" hidden aria-label="回到顶部">↑</button>
