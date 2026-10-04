@@ -489,8 +489,12 @@ python scripts/push_via_api.py --repo <owner>/<repo>
   三层规则词库，中文界面下 85% 以上的选项描述自动翻译（如
   `Num 2 – Infinite Machine Gun Ammo` → 无限机枪弹药），每条保留英文原注；
   **未命中的短语保留英文原文，绝不臆造**
-- **下载链接直达**：下载版本表新增「链接」列，每个历史版本均可点击跳转
-  官网下载页（仅展示链接，遵循 robots.txt 不代理文件请求）
+- **下载链接直达**：详情页「下载最新版」与每个历史版本均可一键下载。
+  源站自 2026/10 起对新版文件做了 Referer 子串校验（Referer 需含
+  `flingtrainer.com`），本站在页面 URL 常驻 `?ref=flingtrainer.com` 并用
+  `unsafe-url` 策略发送完整 Referer 以通过校验；若环境无法发送 Referer
+  （如 file:// 本地打开），可改用「到源站页面」在源站内下载。
+  仅使用源站链接，不代理、不镜像文件（遵循 robots.txt 不对文件发起爬取请求）
 - **预览图放大**：详情页截图与预览图墙均可点击进入 lightbox 全屏查看，
   支持左右键/按钮切换、Esc 关闭
 - **图片加载兜底**：源站图片加载失败时自动切换 wsrv.nl 图片代理重试，

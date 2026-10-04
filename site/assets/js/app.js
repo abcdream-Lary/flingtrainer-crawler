@@ -103,34 +103,25 @@
     return m ? m[1] + "+" : "";
   }
 
-  /* 复制直链到剪贴板（clipboard API 优先，file:// 等环境降级 execCommand） */
-  function copyText(text, btn) {
-    function done() {
-      if (!btn) return;
-      var old = btn.textContent;
-      btn.textContent = t("copied");
-      btn.classList.add("ok");
-      setTimeout(function () {
-        btn.textContent = old;
-        btn.classList.remove("ok");
-      }, 1400);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { legacyCopy(text); done(); });
-    } else {
-      legacyCopy(text);
-      done();
-    }
+  /* 源站对新版文件做 Referer 子串校验：Referer 必须包含 "flingtrainer.com"。
+   * 策略：页面 URL 固定带 ?ref=flingtrainer.com，下载链接用 unsafe-url 发送完整
+   * Referer（跨源默认只发 origin，会缺路径与查询串），从而一键直下可用。
+   */
+  var REF_TAG = "flingtrainer.com";
+  function ensureRef() {
+    var p = new URLSearchParams(location.search);
+    if (p.get("ref") === REF_TAG) return;
+    p.set("ref", REF_TAG);
+    history.replaceState(null, "", location.pathname + "?" + p.toString() + (location.hash || ""));
   }
-  function legacyCopy(text) {
-    var ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) { /* 忽略 */ }
-    document.body.removeChild(ta);
+  function dlAnchor(href, cls, text) {
+    var a = el("a", cls, text);
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.referrerPolicy = "unsafe-url"; // 关键：跨源也发送完整 URL（含 ?ref=flingtrainer.com）
+    a.title = t("dlTip");
+    return a;
   }
 
   /* ---------------- 图片加载链：原图 → 代理 → 占位 ---------------- */
@@ -579,17 +570,12 @@
 
     var actions = el("div", "d-actions");
     if (latest && latest.url) {
-      var dl = el("a", "btn btn-primary d-dl", t("detailGoSite"));
-      dl.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
-      dl.target = "_blank";
-      dl.rel = "noopener";
-      dl.title = t("dlTip");
-      actions.appendChild(dl);
-      var copyMain = el("button", "btn btn-ghost d-copy-main", t("copyLink"));
-      copyMain.type = "button";
-      copyMain.title = latest.url;
-      copyMain.addEventListener("click", function () { copyText(latest.url, copyMain); });
-      actions.appendChild(copyMain);
+      actions.appendChild(dlAnchor(latest.url, "btn btn-primary d-dl", t("detailDownloadNow") + " ↓"));
+      var site = el("a", "btn btn-ghost", t("detailGoSite") + " ↗");
+      site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
+      site.target = "_blank";
+      site.rel = "noopener";
+      actions.appendChild(site);
     }
     var site = el("a", "btn btn-ghost", t("detailOpenSite") + " →");
     site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
@@ -670,20 +656,7 @@
         tr.appendChild(el("td", null, d.count == null ? "—" : num(d.count)));
         var tdAct = el("td");
         if (d.url) {
-          var act = el("div", "dl-act");
-          var a = el("a", "dl-btn", t("detailAction") + " ↓");
-          a.href = d.url;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.referrerPolicy = "no-referrer";
-          a.title = t("dlTip");
-          act.appendChild(a);
-          var copy = el("button", "dl-copy", t("copyLink"));
-          copy.type = "button";
-          copy.title = d.url;
-          copy.addEventListener("click", function () { copyText(d.url, copy); });
-          act.appendChild(copy);
-          tdAct.appendChild(act);
+          tdAct.appendChild(dlAnchor(d.url, "dl-btn", t("detailAction") + " ↓"));
         } else {
           tdAct.appendChild(el("span", "dl-none", "—"));
         }
@@ -800,7 +773,7 @@
 
   /* ---------------- URL 同步（列表状态） ---------------- */
   function syncUrl() {
-    if (state.detailSlug) return; // 详情页不改列表参数
+    if (state.detailSlug) { ensureRef(); return; } // 详情页只保证 ref 常驻，不动列表参数
     var p = new URLSearchParams();
     if (state.q) p.set("q", state.q);
     if (state.cat !== "__all__") p.set("cat", state.cat);
@@ -810,6 +783,7 @@
     if (state.view !== "gallery") p.set("view", state.view);
     if (state.per !== 30) p.set("per", String(state.per));
     if (state.page > 1) p.set("page", String(state.page));
+    p.set("ref", REF_TAG); // 源站下载校验需要，保持常驻
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
   }
@@ -916,6 +890,7 @@
       return;
     }
     readUrl();
+    ensureRef();
     $("sortSelect").value = state.sort;
     $("perPageSelect").value = String(state.per);
     applyView(); // 应用初始视图（含 ?view=cats 深链）
