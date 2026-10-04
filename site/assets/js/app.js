@@ -190,7 +190,6 @@
       $("heroTitle").textContent = t("heroTitle");
     }
     $("heroLead").textContent = t("heroLead");
-    $("navRepoText").textContent = t("navRepo");
     $("catsTitle").textContent = t("catsTitle");
     $("tagsTitle").textContent = t("tagsTitle");
     Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
@@ -801,7 +800,9 @@
 
     document.addEventListener("keydown", function (ev) {
       if (ev.key === "/" && document.activeElement !== input && $("lightbox").hidden && state.detailSlug == null) {
-        ev.preventDefault(); input.focus(); input.select();
+        ev.preventDefault();
+        if (state.view !== "cats") setView("cats");
+        input.focus(); input.select();
       }
       if (ev.key === "Escape") {
         if (!$("lightbox").hidden) closeLightbox();
