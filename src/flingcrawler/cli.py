@@ -29,7 +29,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     crawl = sub.add_parser("crawl", help="执行采集")
-    crawl.add_argument("--mode", choices=["full", "incremental"], help="覆盖配置中的模式")
+    crawl.add_argument("--mode", choices=["smart", "full", "incremental"], help="覆盖配置中的模式")
     crawl.add_argument("--limit", type=int, help="只处理前 N 个页面（调试用）")
     crawl.add_argument("--since-days", type=float, help="距上次成功抓取 N 天内跳过")
     crawl.add_argument("--force", action="store_true", help="忽略缓存与跳过策略，强制重新抓取")

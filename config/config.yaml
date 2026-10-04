@@ -58,15 +58,26 @@ http:
     Accept-Language: "en-US,en;q=0.9"
 
 crawl:
-  # full        : 全量重抓（仍会用条件请求省流量）
-  # incremental : 增量，跳过近期已抓且未变化的页面
-  mode: "incremental"
-  # 距上次成功抓取 N 天内直接跳过（0 = 不跳过）。日常定时任务建议 3~7
+  # smart       : 智能增量（推荐日常）：列表页差集判新增/下架 + RSS 提示有更新的页面
+  #               + 按预算轮询最久未抓的存量页面，无需全量抓 757 页
+  # full        : 全量重抓（用于首次建库、周度校对、解析器变更后回填）
+  # incremental : 旧式增量，靠「距上次抓取 N 天」时间窗轮询（保留兼容）
+  mode: "smart"
+  # 距上次成功抓取 N 天内直接跳过（0 = 不跳过）。仅 incremental 模式使用
   skip_if_crawled_within_days: 0
   # 0 = 不限制；调试时可设小值
   limit: 0
   # 只抓这些 slug（调试用，留空则全部）
   only_slugs: []
+
+  # 智能增量参数（mode: smart 时生效）
+  smart:
+    # 变更提示来源：RSS/Atom，1 个请求即可拿到最近 20 条更新及其精确时间
+    feed_urls:
+      - "https://flingtrainer.com/feed/"
+    # 每轮额外抽查的存量页面数（按「最久未抓优先」）。
+    # 757 页 / 80 页 ≈ 每 10 天全站兜底覆盖一遍；调大更及时、调小更省请求。
+    refresh_budget_per_run: 80
 
 media:
   # 当前不下载图片文件，只采集并保存原图 URL。

@@ -108,8 +108,8 @@ class Crawler:
             if since_days is not None
             else float(self.cfg.get("crawl.skip_if_crawled_within_days", 0) or 0)
         )
-        if mode == "full":
-            since_days = 0.0  # 全量模式不跳过
+        if mode in ("full", "smart"):
+            since_days = 0.0  # 全量 / 智能增量：目标已由模式自身决定，不再套时间窗
         if download_screenshots is None:
             download_screenshots = bool(self.cfg.get("media.download_screenshots", True))
 
@@ -125,25 +125,56 @@ class Crawler:
             "discovered": 0, "fetched": 0, "parsed": 0, "skipped_recent": 0,
             "not_modified": 0, "new": 0, "updated": 0, "unchanged": 0,
             "removed": 0, "failed": 0, "robots_blocked": 0,
+            "targets": 0, "targets_new": 0, "targets_hinted": 0,
+            "targets_refresh": 0, "refresh_pending": 0,
         }
 
         # ---------- 确定待抓 URL ----------
+        # all_discovered：完整的发现结果（用于下架判定，智能模式的目标是其子集）
+        all_discovered: list[str] = []
         if urls is not None:
-            target_urls = list(dict.fromkeys(urls))
+            all_discovered = list(dict.fromkeys(urls))
+            target_urls = list(all_discovered)
             self.log.info("重跑模式：指定 %d 个 URL", len(target_urls))
         else:
-            target_urls, listing_failures = discover_detail_urls(self.fetcher, self.cfg, self.log)
+            all_discovered, listing_failures = discover_detail_urls(self.fetcher, self.cfg, self.log)
             failures.extend(listing_failures)
             counters["failed"] += len(listing_failures)
+            target_urls = list(all_discovered)
 
         only_slugs = self.cfg.get("crawl.only_slugs") or []
         if only_slugs:
             wanted = set(only_slugs)
-            target_urls = [u for u in target_urls if u.rstrip("/").rsplit("/", 1)[-1] in wanted]
+            all_discovered = [u for u in all_discovered if u.rstrip("/").rsplit("/", 1)[-1] in wanted]
+            target_urls = list(all_discovered)
             self.log.info("仅抓取指定 slug：%d 个", len(target_urls))
         if limit:
             target_urls = target_urls[:limit]
-        counters["discovered"] = len(target_urls)
+            all_discovered = target_urls
+
+        # ---------- 智能增量：feed 提示 + 新增/下架差集 + 轮询预算 ----------
+        if mode == "smart" and urls is None and not only_slugs and not limit:
+            from .hints import fetch_feed_hints, plan_smart_targets
+
+            feed_urls = list(self.cfg.get("crawl.smart.feed_urls", []) or [])
+            budget = int(self.cfg.get("crawl.smart.refresh_budget_per_run", 0) or 0)
+            hints = fetch_feed_hints(self.fetcher, feed_urls, self.log) if feed_urls else {}
+            plan = plan_smart_targets(all_discovered, entries, hints, budget)
+            target_urls = list(dict.fromkeys(plan["new"] + plan["hinted"] + plan["refresh"]))
+            counters["targets_new"] = plan["stats"]["new"]
+            counters["targets_hinted"] = plan["stats"]["hinted"]
+            counters["targets_refresh"] = plan["stats"]["refresh"]
+            counters["refresh_pending"] = plan["stats"]["refresh_pending"]
+            self.log.info(
+                "智能增量：发现 %d 页；新增 %d、feed 提示有更新 %d、轮询抽查 %d（积压 %d）→ 本轮抓取 %d 页",
+                len(all_discovered), plan["stats"]["new"], plan["stats"]["hinted"],
+                plan["stats"]["refresh"], plan["stats"]["refresh_pending"], len(target_urls),
+            )
+            if plan["removed"]:
+                self.log.info("发现 %d 个已下架页面，将在本轮标记 removed", len(plan["removed"]))
+
+        counters["discovered"] = len(all_discovered)
+        counters["targets"] = len(target_urls)
 
         # ---------- 逐页处理 ----------
         cutoff = (
@@ -178,11 +209,11 @@ class Crawler:
             self.log.warning("收到中断信号，保存断点后退出（可再次运行自动续跑）")
 
         # ---------- 移除检测 ----------
-        # 只有在完整遍历全站时才能判定"页面已下线"；带 --limit / only_slugs 的部分运行
-        # 绝不能把没抓到的记录当成 removed，否则会误删数据。
+        # 判定依据必须是「完整发现结果」all_discovered（智能增量下 target_urls 只是其子集），
+        # 且仅在完整遍历全站时生效；带 --limit / only_slugs 的部分运行绝不误删。
         full_scan = urls is None and limit == 0 and not only_slugs
         if full_scan and not self._interrupted:
-            discovered_set = set(target_urls)
+            discovered_set = set(all_discovered)
             for url in list(results.keys()):
                 if url in discovered_set:
                     continue

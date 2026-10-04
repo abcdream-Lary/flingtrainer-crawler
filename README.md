@@ -299,18 +299,40 @@ flingtrainer-crawler/
 
 ## 六、增量策略
 
-三级过滤，逐层降低开销（都可在配置/命令行调整）：
+三种模式（`--mode`，默认取 `config.crawl.mode`）：
 
-1. **时间窗**：`crawl.skip_if_crawled_within_days`，距上次成功抓取 N 天内直接跳过。
-   日常定时任务建议设为 `3`。
-2. **条件请求**：携带 `If-None-Match` / `If-Modified-Since`（ETag 与 Last-Modified 存于
+| 模式 | 用途 | 每轮代价 |
+| --- | --- | --- |
+| `smart` | **日常巡检（默认）** | 列表页发现 + 1 个 feed + 新增页 + 约 80 个存量页 ≈ 100 请求 |
+| `full` | 首次建库、周度校对、解析器变更后回填 | 757 页 ≈ 28 分钟 |
+| `incremental` | 旧式实现（靠时间窗轮询），保留兼容 | 视 `skip_if_crawled_within_days` 而定 |
+
+### smart 模式怎么做到"自动增删改"
+
+1. **列表页发现**（本就必需，代价低）→ 得到全站 slug 集合；
+   与 `state.entries` 做差集：
+   - 发现集合里有、状态里没有 → **新增**（全抓）
+   - 状态里是 `done`、发现集合里没有 → **下架**（标记 `removed`，无需抓取详情页）
+2. **RSS/Atom 变更提示**：抓 `crawl.smart.feed_urls`（默认 `/feed/`，1 个请求返回
+   最近 20 条更新及其精确时间）。凡 `feed 时间 > 该页 last_crawled` 的页面 → 重抓。
+3. **轮询兜底**：feed 只覆盖最近 20 条，其余存量页面按「**最久未抓优先**」
+   每轮抽查 `crawl.smart.refresh_budget_per_run`（默认 80）个。
+   757 / 80 ≈ **每 10 天全站兜底覆盖一遍**，积压数会打印在日志里。
+
+因此日常每天只需 **~100 个请求**（约 3 分钟）就能覆盖新增、下架与更新；
+周一的全量用于兜底校对。三级内容过滤（条件请求 + 内容哈希）在 smart 模式下仍然生效。
+
+4. **时间窗**（仅 `incremental`）：`crawl.skip_if_crawled_within_days`，
+   距上次成功抓取 N 天内直接跳过。
+5. **条件请求**：携带 `If-None-Match` / `If-Modified-Since`（ETag 与 Last-Modified 存于
    `data/state/state.json`）。命中 **304** 时连解析都跳过，直接沿用上次记录。
-   站点详情页带 `last-modified` 响应头，实测有效。
-3. **内容哈希**：解析后计算 `content_hash`（覆盖标题/版本/更新日期/选项/截图 URL/下载列表，
+6. **内容哈希**：解析后计算 `content_hash`（覆盖标题/版本/更新日期/选项/截图 URL/下载列表，
    不含抓取时间等运行态字段）。只有哈希真正变化才判定为 `updated`、
    才重写变更日志、才重新下载截图。
 
-`--mode full` 忽略第 1 级（但仍享受 2、3 级）；`--force` 连条件请求也禁用，强制拿完整正文。
+`--mode full` 忽略时间窗（但仍享受条件请求与内容哈希）；
+`--force` 连条件请求也禁用，强制拿完整正文。删除判定只在「完整发现」时生效，
+带 `--limit` / `only_slugs` 的部分运行绝不会误删数据。
 
 ---
 

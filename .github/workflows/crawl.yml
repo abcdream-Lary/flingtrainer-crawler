@@ -11,8 +11,8 @@ on:
       mode:
         description: 采集模式
         type: choice
-        options: [incremental, full]
-        default: incremental
+        options: [smart, full, incremental]
+        default: smart
       limit:
         description: 仅处理前 N 个页面（0 = 全部）
         type: string
@@ -50,23 +50,18 @@ jobs:
       - name: 决定采集模式
         id: plan
         run: |
-          # 手动触发以输入为准；否则周一全量、其余增量
+          # 手动触发以输入为准；否则周一全量校对，其余每天智能增量
           INPUT_MODE="${{ github.event.inputs.mode }}"
           if [ -n "$INPUT_MODE" ]; then
             echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           elif [ "$(date -u +%u)" = "1" ]; then
             echo "mode=full" >> "$GITHUB_OUTPUT"
           else
-            echo "mode=incremental" >> "$GITHUB_OUTPUT"
+            echo "mode=smart" >> "$GITHUB_OUTPUT"
           fi
-          if [ "$(date -u +%u)" = "1" ] && [ -z "$INPUT_MODE" ]; then
-            echo "since=0" >> "$GITHUB_OUTPUT"      # 周一全量：任何页面都不跳过
-          else
-            # 3 天窗口的真实效果是「约每 4 天全量轮询一次」而非每日全量：
-            # 第 1 天抓完全部 757 页，之后 3 天每天都因 last_crawled 在窗口内而跳过。
-            # 想真正每日全量，把这里改成 0 或 1。
-            echo "since=3" >> "$GITHUB_OUTPUT"
-          fi
+          # smart 模式自带目标选择（feed 提示 + 差集 + 轮询预算），不叠加时间窗；
+          # full 模式 since=0 表示任何页面都不跳过。
+          echo "since=0" >> "$GITHUB_OUTPUT"
 
       - name: 运行采集
         run: |
@@ -90,6 +85,12 @@ jobs:
             echo '```json'
             python run.py stats 2>/dev/null || echo "{}"
             echo '```'
+            if [ -f crawl-run.log ]; then
+              echo "### 本轮明细（smart：新增/hint/轮询/下架）"
+              echo '```json'
+              sed -n '/===== 采集汇总 =====/,$p' crawl-run.log | tail -45
+              echo '```'
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       # 默认不下载截图，此步骤无文件时自动跳过；接入图床/落盘后无需改动即可生效
