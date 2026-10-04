@@ -1,0 +1,413 @@
+# flingtrainer-crawler
+
+长期跟踪采集 [风灵月影修改器站点](https://flingtrainer.com/) 全部修改器页面的结构化采集器。
+Python + requests + BeautifulSoup，配置与代码分离，GitHub Actions 定时运行并自动提交数据。
+
+---
+
+## 一、它采集什么
+
+遍历列表页拿到全部修改器详情页 URL（当前全站 **757** 个），逐页抓取并提取：
+
+| 字段 | 说明 | 真实来源 |
+| --- | --- | --- |
+| `game_name` | 游戏名称（标题） | `h1.post-title` |
+| `game_version` | 游戏版本 | 元信息行 `Game Version: v1.0-v1.0.20+` |
+| `last_updated` | 最后更新日期（归一为 `YYYY-MM-DD`） | 元信息行 `Last Updated: 2025.10.17` |
+| `options` | 选项/功能条目，**保留原始文本** | `Options` 区块内以 `<br>` 分隔的条目 |
+| `options[].note` | 条目补充说明 | 页面 tooltip 脚本 |
+| `notes` | 页面 Notes 区块 | 与选项区分存放 |
+| `screenshots` | 截图**原图 URL**（不下载文件，见「截图与图床」一节） | 正文 `/wp-content/uploads/` 图片，取 `srcset` 最大尺寸 |
+| `downloads` | **当前版本 + 全部归档历史版本**，含版本号与文件名 | `table.da-attachments-table` 每一行 |
+
+另有 `options_count`、`options_extracted`、`published_date`、`categories`、`content_hash`、
+`first_seen`、`last_crawled`、`missing_fields` 等辅助字段。
+
+一条记录长这样（节选）：
+
+```json
+{
+  "url": "https://flingtrainer.com/trainer/black-myth-wukong-trainer/",
+  "slug": "black-myth-wukong-trainer",
+  "game_name": "Black Myth: Wukong Trainer",
+  "game_version": "v1.0-v1.0.20+",
+  "options_count": 44,
+  "options_extracted": 44,
+  "last_updated": "2025-10-17",
+  "options": [
+    { "index": 1, "text": "Num 1 – God Mode/Ignore Hits",
+      "note": "When activated, enemies won't be able to damage you, but you may still receive status damage." }
+  ],
+  "screenshots": [
+    { "original_url": "https://flingtrainer.com/wp-content/uploads/2024/08/1-16.png",
+      "alt": "Black Myth: Wukong Trainer/Cheat",
+      "local_path": "", "downloaded": false, "bytes": 0 }
+  ],
+  "downloads": [
+    { "file_name": "Black.Myth.Wukong.v1.0-v1.0.20.Plus.44.Trainer-FLiNG",
+      "version": "v1.0-v1.0.20", "url": "https://flingtrainer.com/downloads/J0ZX9_hiI3QYHi9EG5A7vw,,",
+      "date_added": "2025-10-17 10:38", "file_size": "922 KB", "download_count": 1321470, "is_latest": true },
+    { "file_name": "Black.Myth.Wukong.v1.0-v1.0.13.Plus.44.Trainer-FLiNG",
+      "version": "v1.0-v1.0.13", "url": "https://flingtrainer.com/downloads/09FVUQoWfXiHQVRrOTOHFw,,",
+      "date_added": "2024-12-14 05:15", "file_size": "937 KB", "download_count": 2157811, "is_latest": false }
+  ],
+  "missing_fields": []
+}
+```
+
+> **字段缺失一律留空，并写入 `data/logs/missing_fields.jsonl`，不做任何推测填充。**
+> 例如页面若没有 `Game Version` 行，`game_version` 就是 `""`，同时在 `missing_fields` 里记一笔。
+> 若实际提取的选项数与页面声明数不一致（少，或混入了小标题等非选项文本），
+> 会记 `options_mismatch` 供人工排查——同样不裁剪、不补全。
+
+---
+
+## 二、合规策略（重要）
+
+站点 `https://flingtrainer.com/robots.txt` 明确声明：
+
+```
+User-agent: *
+Disallow: /downloads/
+Disallow: /attachments/
+Disallow: /cn/community/
+Disallow: /wp-admin/
+Disallow: /?s=
+```
+
+因此本项目：
+
+1. **下载链接只采集、不请求。** 所有 `/downloads/...` 链接仅作为元数据（URL、文件名、版本号、
+   日期、下载次数）入库，`RobotsPolicy` 里用 `never_fetch_paths` 硬拦截，请求链路根本发不出去。
+   这既是遵守 robots.txt，也规避了修改器二进制的分发与版权风险。
+2. **每次请求前校验 robots**，被拦截的 URL 记为 `skipped_robots`，不计入失败重试。
+3. **尊重 `Crawl-delay`**：若 robots.txt 给出比配置更大的间隔，自动以其为准。
+4. **robots.txt 抓取失败时保守处理**（默认 `on_fetch_error: disallow`，即全部禁止），
+   `404` 则按 RFC 9309 视为放行——两者都可在配置里改。
+
+> 数据仅供个人研究/归档。若要公开分发或商用，请先自行取得站点授权并复核目标站点的服务条款。
+
+---
+
+## 三、快速开始
+
+```bash
+python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+python run.py crawl                       # 增量采集（默认）
+python run.py crawl --mode full           # 全量采集
+python run.py crawl --limit 20 --no-screenshots   # 小样本调试
+python run.py retry-failed                # 只重跑上一轮失败的 URL
+python run.py stats                       # 查看当前数据概况
+python run.py export                      # 不联网，按现有数据重新导出 JSON
+
+python -m pytest tests -q                 # 解析测试（基于真实页面快照，无需联网）
+
+python examples/query_demo.py --search wukong   # 查询已采集的数据（详见第四节）
+```
+
+也可以用模块方式：`python -m flingcrawler crawl --mode full`（需 `PYTHONPATH=src`）。
+
+---
+
+## 四、如何调用这些数据
+
+### 4.1 数据文件与体积
+
+| 文件 | 内容 | 全站 757 条约 |
+| --- | --- | --- |
+| `data/json/trainers.json` | 全量数组，含 `meta` 本轮运行信息 | 4.4 MB |
+| `data/json/trainers.ndjson` | 每行一条记录，流式友好 | 3.1 MB |
+| `data/json/index.json` | 只有统计元信息，不含记录体 | < 1 KB |
+| `data/changelog/YYYY-MM-DD.jsonl` | 当天变更明细 | 视变化量 |
+
+先读 `index.json` 探一眼（本轮新增/更新/删除数、耗时、HTTP 统计），
+再决定要不要拉全量。
+
+### 4.2 不开仓库，直接远程读
+
+推送到 GitHub 后就是静态文件，可以纯 HTTP 取，不用 clone：
+
+```text
+# jsDelivr CDN：国内通常更快，单文件上限 20 MB（当前 3~4 MB，够用）
+https://cdn.jsdelivr.net/gh/abcdream-Lary/flingtrainer-crawler@main/data/json/trainers.ndjson
+
+# GitHub raw：兜底方案
+https://raw.githubusercontent.com/abcdream-Lary/flingtrainer-crawler/main/data/json/trainers.ndjson
+```
+
+上面就是本仓库的真实地址，可以直接用。fork 之后请换成你自己的。
+
+```python
+import json
+import requests
+
+url = "https://cdn.jsdelivr.net/gh/abcdream-Lary/flingtrainer-crawler@main/data/json/trainers.ndjson"
+with requests.get(url, stream=True, timeout=60) as resp:
+    resp.raise_for_status()
+    for line in resp.iter_lines(decode_unicode=True):
+        if line:
+            rec = json.loads(line)          # 边下边解析，不用等整个文件
+            print(rec["game_name"], rec["game_version"])
+```
+
+### 4.3 本地读取
+
+```python
+import json
+
+with open("data/json/trainers.json", encoding="utf-8") as fh:
+    records = json.load(fh)["records"]
+
+by_slug = {r["slug"]: r for r in records}
+rec = by_slug["black-myth-wukong-trainer"]
+
+print(rec["game_version"])                       # v1.0-v1.0.20+
+print(rec["options"][0]["text"])                 # Num 1 – God Mode/Ignore Hits
+print(rec["screenshots"][0]["original_url"])     # 截图原图 URL
+print(rec["downloads"][0]["file_name"])          # 当前版本文件名
+```
+
+全量 4 MB 一次读入没有压力；想省内存就改读 `trainers.ndjson` 逐行处理。
+
+### 4.4 常用查询：`examples/query_demo.py`
+
+仓库里带了一个可直接运行的示例脚本（只依赖 `requests`，不依赖本项目源码，可单独拷走）：
+
+```bash
+python examples/query_demo.py --slug black-myth-wukong-trainer  # 按 slug 取单条
+python examples/query_demo.py --search wukong                   # 按游戏名搜索
+python examples/query_demo.py --days 7                          # 最近 7 天更新过
+python examples/query_demo.py --updated-since 2026-10-01        # 指定日期之后
+python examples/query_demo.py --remote                          # 从 CDN 读
+python examples/query_demo.py --file path/to/trainers.ndjson    # 指定文件
+```
+
+里面的函数也可以直接 import 复用：
+
+```python
+from examples.query_demo import (
+    load_all, iter_records, load_remote, index_by_slug, search,
+    updated_since, latest_download, all_versions, is_changed,
+    option_texts, hotkey_options,
+)
+
+records = load_all()
+latest_download(rec)   # 当前版本的下载项（is_latest=True 那条）
+all_versions(rec)      # ["v1.0-v1.0.20", "v1.0-v1.0.13", ...] 含全部归档历史版本
+option_texts(rec)      # 选项纯文本列表
+hotkey_options(rec)    # 只保留带热键的选项（见下方说明）
+is_changed(old, new)   # 比 content_hash，判断是否变化
+```
+
+**关于选项里的分组小标题**：部分页面会在选项区夹带分组标题或说明文字
+（如 `Character Editor`、`Edit Player Stats`、`Special Notes`、反作弊说明），它们不是
+真正的热键选项。解析器按"保留原始文本、不臆造"的原则**照单全收**，
+所以这类页面的 `options_extracted` 会比 `options_count` 多，并记 `options_mismatch`。
+
+调用方想要干净的选项列表，用 `hotkey_options(rec)` 滤一遍即可 ——
+实测 15 个样本页过滤后**条数与页面声明数全部精确一致**（15/15）。
+
+> **注意**：`downloads[].url` 是 `/downloads/...` 链接，站点 robots.txt 明确禁止抓取，
+> 本项目也从未请求过它们，只记录 URL 与文件名。
+> 调用方若要实际访问这些链接，请自行判断合规性与风险。
+
+### 4.5 用变更日志做下游触发
+
+`data/changelog/YYYY-MM-DD.jsonl` 每行一条变更：
+
+```json
+{"timestamp":"2026-10-04T05:41:30+00:00","url":"...","slug":"...",
+ "change_type":"updated","fields_changed":["downloads","game_version"],
+ "before":{...},"after":{...}}
+```
+
+- `change_type = new` —— 新出现的修改器
+- `change_type = updated` 且 `fields_changed` 含 `downloads` —— 有新版本发布
+- `data/changelog/latest.json` —— 当天汇总计数，适合做健康检查
+
+筛出"今天有新版本"的修改器：
+
+```python
+import json
+
+with open("data/changelog/2026-10-04.jsonl", encoding="utf-8") as fh:
+    for line in fh:
+        e = json.loads(line)
+        if e["change_type"] in ("new", "updated") and "downloads" in e["fields_changed"]:
+            print(e["slug"], e["after"]["game_version"])
+```
+
+### 4.6 命令行：jq
+
+```bash
+# 按更新时间倒序看游戏名
+jq -r '.records[] | "\(.last_updated)\t\(.game_name)"' data/json/trainers.json | sort -r | head
+
+# 按名字搜
+jq '.records[] | select(.game_name | test("Wukong"; "i"))' data/json/trainers.json
+
+# NDJSON：筛出某日期之后更新的 slug
+jq -r 'select(.last_updated >= "2026-09-27") | .slug' data/json/trainers.ndjson
+```
+
+### 4.7 规模提醒
+
+jsDelivr 单文件上限 20 MB，目前全站 3~4 MB 安全。
+若数据长期增长超限，改用 GitHub raw 或 `git clone`；也可以只取
+`data/changelog/` 做增量消费，不必每次拉全量。
+
+---
+
+## 五、目录结构
+
+```
+flingtrainer-crawler/
+├── config/config.yaml         # 唯一配置入口：站点、限速、重试、模式、输出路径
+├── src/flingcrawler/
+│   ├── config.py              # 配置加载（YAML + 默认值 + 环境变量覆盖）
+│   ├── models.py              # 数据模型、版本号解析、内容哈希
+│   ├── robots.py              # robots.txt 合规层
+│   ├── fetcher.py             # 限速 / 重试 / 条件请求
+│   ├── parsers/
+│   │   ├── listing.py         # 列表页与分页遍历
+│   │   └── detail.py          # 详情页字段抽取
+│   ├── store.py               # JSON 导出、截图落盘、状态与日志
+│   ├── pipeline.py            # 采集编排（全量/增量、断点续跑、变更检测）
+│   ├── logging_setup.py
+│   └── cli.py
+├── examples/
+│   └── query_demo.py          # 数据调用示例：读取、搜索、筛选、远程直连
+├── tests/
+│   ├── fixtures/*.html        # 真实页面快照（含新旧两种版式）
+│   └── test_parsers.py
+├── data/
+│   ├── json/                  # trainers.json / trainers.ndjson / index.json
+│   ├── screenshots/<slug>/    # 图片落盘位置（当前不下载，接图床后启用）
+│   ├── logs/                  # failed.jsonl / failed_history.jsonl / missing_fields.jsonl / crawler.log
+│   ├── changelog/             # YYYY-MM-DD.jsonl + latest.json
+│   └── state/state.json       # 断点续跑 + 条件请求缓存
+├── .github/workflows/         # crawl.yml（定时采集+提交）、ci.yml（测试）
+└── README.md
+```
+
+---
+
+## 六、增量策略
+
+三级过滤，逐层降低开销（都可在配置/命令行调整）：
+
+1. **时间窗**：`crawl.skip_if_crawled_within_days`，距上次成功抓取 N 天内直接跳过。
+   日常定时任务建议设为 `3`。
+2. **条件请求**：携带 `If-None-Match` / `If-Modified-Since`（ETag 与 Last-Modified 存于
+   `data/state/state.json`）。命中 **304** 时连解析都跳过，直接沿用上次记录。
+   站点详情页带 `last-modified` 响应头，实测有效。
+3. **内容哈希**：解析后计算 `content_hash`（覆盖标题/版本/更新日期/选项/截图 URL/下载列表，
+   不含抓取时间等运行态字段）。只有哈希真正变化才判定为 `updated`、
+   才重写变更日志、才重新下载截图。
+
+`--mode full` 忽略第 1 级（但仍享受 2、3 级）；`--force` 连条件请求也禁用，强制拿完整正文。
+
+---
+
+## 七、稳健性
+
+| 能力 | 实现 |
+| --- | --- |
+| 限速 | 请求间隔在 `[min_interval_seconds, max_interval_seconds]` 随机抖动，默认 1.5–3.0s |
+| 失败重试 | 默认 3 次指数退避；对 429/500/502/503/504 重试；**优先遵循 `Retry-After`** |
+| 断点续跑 | 每 20 个页面存一次 `data/state/state.json`；`Ctrl+C` 优雅退出并保存，下次运行自动续跑 |
+| 失败可重跑 | 失败 URL 写入 `data/logs/failed.jsonl`，`python run.py retry-failed` 单独重跑，**成功即从列表移除**；全部失败还会累积进 `failed_history.jsonl` |
+| 列表页容错 | `/all-trainers/` 与 `/page/N/` 双来源取并集；任一来源失败不影响另一个 |
+| 幂等导出 | JSON 写入采用临时文件 + `os.replace` 原子替换，中断不会留下半截文件 |
+
+被 robots 拦截 与 真实抓取失败 是分开统计的：前者是合规行为，不算失败、不重试。
+
+---
+
+## 八、配置说明
+
+全部集中在 `config/config.yaml`，常用项：
+
+```yaml
+site:
+  listing:
+    mode: "both"            # all_trainers | paginated | both
+http:
+  min_interval_seconds: 1.5
+  max_retries: 3
+  conditional_get: true
+crawl:
+  mode: "incremental"       # full | incremental
+  skip_if_crawled_within_days: 0
+media:
+  download_screenshots: false   # 当前只采集图片 URL，不下载文件
+  max_screenshots_per_page: 5
+```
+
+CI 里不想改文件，可用环境变量覆盖：`FLING_CRAWL_MODE`、`FLING_CRAWL_LIMIT`、
+`FLING_MIN_INTERVAL`、`FLING_USER_AGENT`。
+
+---
+
+## 九、GitHub Actions
+
+`crawl.yml`：
+
+- **每日 02:23 UTC 增量**（跳过 3 天内抓过的页面）
+- **每周一 03:17 UTC 全量**
+- 支持 `workflow_dispatch` 手动指定 `mode` / `limit` / `screenshots`
+- `concurrency.group` 保证同一时刻只有一个任务在跑，避免并发打站点
+- 数据有变化才 `git commit && git push`；无变化跳过
+- 截图与变更日志上传为 Artifact（分别保留 7 / 90 天）
+
+`ci.yml`：PR 与 push 时跑解析测试 + 2 页冒烟抓取 + 导出校验。
+
+首次使用请确认仓库 `Settings → Actions → General → Workflow permissions` 为
+**Read and write permissions**（工作流需要提交数据）。
+
+---
+
+## 十、截图与图床
+
+**当前策略：只采集并保存原图 URL，不下载任何图片文件。**
+
+- 配置 `media.download_screenshots: false`（默认值），因此 `data/screenshots/` 目录
+  **根本不会被创建**，产出里只有纯 JSON。
+- 每条记录的 `screenshots[].original_url` 保存的是**原图直链**——解析时会在 `src`
+  与 `srcset` 之间挑最大尺寸，拿到的是 `1926w` 这类全分辨率地址，不是缩略图。
+- `local_path` / `downloaded` / `bytes` 三个字段保留在数据模型里，当前恒为
+  `"" / false / 0`，不臆造内容。
+
+好处很明显：不下载图片后，一次全量采集的请求数与流量大约降一半（实测 15 页从
+30 个请求降到 18 个，且不再有 MB 级的图片传输），跑得更快，对站点也更友好。
+
+### 以后接图床怎么改
+
+1. 把 `config.yaml` 的 `media.download_screenshots` 改回 `true`，图片会落到
+   `data/screenshots/<slug>/`（该目录只在真正保存时才创建）。
+2. 若要改为**上传图床**：替换 `src/flingcrawler/store.py` 里的 `save_screenshot()`，
+   改成上传到图床并把返回的 URL 回填到 `Screenshot.local_path`，同时置
+   `downloaded = true`。采集编排层 `pipeline._download_screenshots()` 无需改动。
+3. 若要把图片提交进 Git，用 Git LFS（不要让仓库直接堆二进制）：
+   ```bash
+   git lfs install
+   git lfs track "data/screenshots/**"
+   ```
+   并把 `.gitignore` 里的 `data/screenshots/` 删掉。
+
+反向操作：`python run.py crawl --no-screenshots` 可在单次运行里临时关闭下载。
+
+---
+
+## 十一、已知边界
+
+- 版本号是从下载文件名里**按规则解析**的启发式结果（如 `v1.0-v1.0.20`、
+  `v1.0-Build.169652`）；文件名不符合惯例时该字段为空，并计入 `missing_fields`，不做猜测。
+- 选项条目按原始文本全量保留，可能夹带分组小标题，调用方用
+  `hotkey_options()` 过滤（详见第四节）。
+- `missing_fields.jsonl` 与 `failed.jsonl` 是**本轮**报告，每次运行覆盖；
+  跨轮次的失败记录累积在 `failed_history.jsonl`。
+- 站点若改版导致选择器失效，测试里的真实快照会第一时间报错，
+  此时按新的 DOM 调整 `src/flingcrawler/parsers/detail.py` 即可。
