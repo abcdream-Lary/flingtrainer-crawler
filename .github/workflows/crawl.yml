@@ -2,9 +2,9 @@ name: crawl
 
 on:
   schedule:
-    # 每日 02:23 UTC（北京时间 10:23）增量采集
+    # 每日 02:23 UTC（北京时间 10:23）触发
     - cron: "23 2 * * *"
-    # 每周一 03:17 UTC 全量采集
+    # 每周一 03:17 UTC（北京时间 11:17）全量
     - cron: "17 3 * * 1"
   workflow_dispatch:
     inputs:
@@ -60,9 +60,12 @@ jobs:
             echo "mode=incremental" >> "$GITHUB_OUTPUT"
           fi
           if [ "$(date -u +%u)" = "1" ] && [ -z "$INPUT_MODE" ]; then
-            echo "since=0" >> "$GITHUB_OUTPUT"      # 全量不跳过
+            echo "since=0" >> "$GITHUB_OUTPUT"      # 周一全量：任何页面都不跳过
           else
-            echo "since=3" >> "$GITHUB_OUTPUT"      # 增量：3 天内抓过的跳过
+            # 3 天窗口的真实效果是「约每 4 天全量轮询一次」而非每日全量：
+            # 第 1 天抓完全部 757 页，之后 3 天每天都因 last_crawled 在窗口内而跳过。
+            # 想真正每日全量，把这里改成 0 或 1。
+            echo "since=3" >> "$GITHUB_OUTPUT"
           fi
 
       - name: 运行采集
