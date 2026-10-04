@@ -17,7 +17,7 @@
   /* ---------------- state ---------------- */
   var state = {
     lang: localStorage.getItem("fling.lang") || "zh",
-    theme: localStorage.getItem("fling.theme") || "dark",
+    theme: localStorage.getItem("fling.theme") || "light",
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
     view: "gallery",
     shown: 0, filtered: [], io: null,
