@@ -355,6 +355,21 @@ def _extract_screenshots(entry, base_url: str, limit: int) -> list[Screenshot]:
     return found
 
 
+def _extract_cover(soup, base_url: str) -> str:
+    """提取页面封面图（og:image 优先，其次 twitter:image）。
+
+    与正文截图（修改器界面截图）不同，封面通常是游戏标题图/横幅，
+    用于列表卡片展示。只记录 URL，不下载文件。
+    """
+    for attr in (("property", "og:image"), ("name", "twitter:image")):
+        node = soup.find("meta", attrs={attr[0]: re.compile(rf"^{re.escape(attr[1])}$", re.I)})
+        if node and node.get("content"):
+            url = urljoin(base_url + "/", node["content"].strip())
+            if url.startswith("http"):
+                return url
+    return ""
+
+
 def parse_detail(html: str, url: str, base_url: str = "", max_screenshots: int = 0) -> tuple[TrainerRecord, list[str]]:
     """解析详情页。返回 (记录, 缺失字段列表)。"""
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -431,6 +446,11 @@ def parse_detail(html: str, url: str, base_url: str = "", max_screenshots: int =
         # 提取数与页面声明数不一致（可能少，也可能混入小标题等非选项文本）。
         # 只做标记交由日志追踪，绝不裁剪或补全。
         missing.append("options_mismatch")
+
+    # ---------------- 封面图（og:image，通常为游戏标题图/横幅） ----------------
+    rec.cover_image = _extract_cover(soup, base_url)
+    if not rec.cover_image:
+        missing.append("cover_image")
 
     # ---------------- 截图 ----------------
     rec.screenshots = _extract_screenshots(entry, base_url, max_screenshots)

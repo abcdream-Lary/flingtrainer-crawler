@@ -42,6 +42,11 @@ def test_black_myth_wukong_detail():
     assert "God Mode" in rec.options[0].text
     assert rec.options[0].note, "首条选项应带 tooltip 注释"
 
+    # 封面图：来自 og:image（游戏标题图，非正文截图）
+    assert rec.cover_image == "https://flingtrainer.com/wp-content/uploads/2024/08/header_schinese.jpg"
+    assert "cover_image" not in missing
+    assert rec.cover_image not in [s.original_url for s in rec.screenshots]
+
     # 截图：保留原图 URL
     assert len(rec.screenshots) >= 1
     shot = rec.screenshots[0]

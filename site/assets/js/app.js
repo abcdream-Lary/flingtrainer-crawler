@@ -64,6 +64,20 @@
     if (!s) return "";
     return typeof s === "string" ? s : (s.original_url || s.url || "");
   }
+  /* 卡片/大图优先用封面图（og:image），缺省回退正文截图 */
+  function coverOf(rec) {
+    return rec.cover || shotUrl(rec, 0) || "";
+  }
+  /* lightbox 图集：封面图在前，随后是正文截图 */
+  function galleryOf(rec) {
+    var list = [];
+    if (rec.cover) list.push(rec.cover);
+    (rec.screenshots || []).forEach(function (s) {
+      var u = typeof s === "string" ? s : (s.original_url || s.url || "");
+      if (u && list.indexOf(u) === -1) list.push(u);
+    });
+    return list;
+  }
   function optText(o) {
     var raw = o.t || "";
     if (state.lang !== "zh") return raw;
@@ -335,7 +349,7 @@
     card.setAttribute("aria-label", primaryName(rec));
 
     var media = el("div", "card-media");
-    var shot = shotUrl(rec, 0);
+    var shot = coverOf(rec);
     if (shot) {
       media.appendChild(makeImg(shot, primaryName(rec), function () {
         media.innerHTML = "";
@@ -545,7 +559,7 @@
     /* Hero：大图 + 关键信息 */
     var hero = el("div", "d-hero");
     var shotWrap = el("figure", "d-shot-wrap");
-    var shot = shotUrl(rec, 0);
+    var shot = coverOf(rec);
     if (shot) {
       var dimg = makeImg(shot, primaryName(rec));
       dimg.classList.add("d-shot");
@@ -730,9 +744,7 @@
 
   /* ---------------- Lightbox ---------------- */
   function openLightbox(rec, idx) {
-    var urls = (rec.screenshots || []).map(function (s) {
-      return typeof s === "string" ? s : (s.original_url || s.url || "");
-    }).filter(Boolean);
+    var urls = galleryOf(rec);
     if (!urls.length) return;
     state.lbList = urls;
     state.lbIndex = idx;

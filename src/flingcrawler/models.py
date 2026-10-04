@@ -132,6 +132,7 @@ class TrainerRecord:
     categories: list[str] = field(default_factory=list)
     options: list[OptionItem] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)  # 页面 "Notes" 区块的补充说明
+    cover_image: str = ""  # 封面图 URL（og:image，游戏标题图/横幅）
     screenshots: list[Screenshot] = field(default_factory=list)
     downloads: list[DownloadItem] = field(default_factory=list)
     missing_fields: list[str] = field(default_factory=list)
@@ -155,6 +156,7 @@ class TrainerRecord:
             "categories": self.categories,
             "options": [o.to_dict() for o in self.options],
             "notes": self.notes,
+            "cover_image": self.cover_image,
             "screenshots": [s.to_dict() for s in self.screenshots],
             "downloads": [d.to_dict() for d in self.downloads],
             "missing_fields": self.missing_fields,
@@ -179,6 +181,7 @@ class TrainerRecord:
             "categories": self.categories,
             "options": [{"t": o.text, "n": o.note} for o in self.options],
             "notes": self.notes,
+            "cover_image": self.cover_image,
             "screenshots": [s.original_url for s in self.screenshots],
             "downloads": [
                 {

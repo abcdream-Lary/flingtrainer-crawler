@@ -18,6 +18,7 @@ Python + requests + BeautifulSoup，配置与代码分离，GitHub Actions 定�
 | `options[].note` | 条目补充说明 | 页面 tooltip 脚本 |
 | `notes` | 页面 Notes 区块 | 与选项区分存放 |
 | `screenshots` | 截图**原图 URL**（不下载文件，见「截图与图床」一节） | 正文 `/wp-content/uploads/` 图片，取 `srcset` 最大尺寸 |
+| `cover_image` | **封面图 URL**（游戏标题图/横幅，用于列表卡片与详情大图） | 页面 `og:image`（缺省回退 `twitter:image`） |
 | `downloads` | **当前版本 + 全部归档历史版本**，含版本号与文件名 | `table.da-attachments-table` 每一行 |
 
 另有 `options_count`、`options_extracted`、`published_date`、`categories`、`content_hash`、

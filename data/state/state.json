@@ -1,32 +1,32 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-04T10:53:35+00:00",
+  "updated_at": "2026-10-04T13:37:03+00:00",
   "entries": {
     "https://flingtrainer.com/trainer/ace-combat-7-skies-unknown-trainer/": {
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-04T10:25:33+00:00",
+      "last_crawled": "2026-10-04T13:36:57+00:00",
       "error": "",
-      "content_hash": "6bf6e6183d460bc1dfdebcbf5987dd65b481806fc0c6dab41ff05f47f22ca579",
+      "content_hash": "8ec888a6ac91998eeccd804015a3dbb5a4ba07978890804b8a23f7d4e4ddc3ba",
       "last_updated": "2021-10-19"
     },
     "https://flingtrainer.com/trainer/ace-combat-8-wings-of-theve-trainer/": {
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-04T10:25:36+00:00",
+      "last_crawled": "2026-10-04T13:36:59+00:00",
       "error": "",
-      "content_hash": "3d348a949864109c33a95b220b4f4f436140147d82dc9444709e4fe85c2a12fa",
+      "content_hash": "f6cfb0c82f302212f0078e74cffa0beb6d896601b906d4f581954f9f67402453",
       "last_updated": "2026-10-03"
     },
     "https://flingtrainer.com/trainer/against-the-storm-trainer/": {
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-04T10:25:39+00:00",
+      "last_crawled": "2026-10-04T13:37:01+00:00",
       "error": "",
-      "content_hash": "e95f5809598c92387d641b767f1580f367964522389021249bdbd9f99bcf575d",
+      "content_hash": "197a61fd0c232a3759b83b7b97a4b5ed94c8d25ff308355c5e4ef495a6dcd226",
       "last_updated": "2024-09-29"
     },
     "https://flingtrainer.com/trainer/age-of-empires-iii-definitive-edition-trainer/": {

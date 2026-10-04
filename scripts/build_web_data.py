@@ -41,6 +41,7 @@ def slim(rec: dict) -> dict:
             {"t": o.get("text", ""), "n": o.get("note", "")} for o in (rec.get("options") or [])
         ],
         "notes": rec.get("notes") or [],
+        "cover": rec.get("cover_image", "") or "",
         "screenshots": [s.get("original_url", "") for s in (rec.get("screenshots") or []) if s.get("original_url")],
         "downloads": [
             {
