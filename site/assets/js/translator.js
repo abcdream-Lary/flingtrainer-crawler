@@ -54,6 +54,33 @@ window.FLING_TRANSLATOR = (function () {
     "invincible": "无敌",
     "one hit kill": "一击必杀",
     "in battle": "战斗中",
+    "slow motion": "慢动作",
+    "save location": "保存坐标",
+    "undo teleport": "撤销传送",
+    "no random encounter": "无随机遭遇",
+    "fast random encounter": "快速随机遭遇",
+    "reveal full map": "揭示全地图",
+    "change weather": "更改天气",
+    "stable body temperature": "体温恒定",
+    "disable fog of war": "关闭战争迷雾",
+    "full health": "生命全满",
+    "disable all": "全部禁用",
+    "enable all": "全部启用",
+    "no fatigue": "无疲劳",
+    "no overheat": "无过热",
+    "no fall damage": "无坠落伤害",
+    "instant catch": "瞬间上钩",
+    "one hit stun": "一击眩晕",
+    "one hit stagger": "一击硬直",
+    "one hit break": "一击击破",
+    "one hit kill": "一击必杀",
+    "max item quality": "物品品质最大化",
+    "item quality": "物品品质",
+    "stamina consumption rate": "体力消耗速率",
+    "instant action": "瞬间行动",
+    "undo teleport to waypoint": "撤销传送至路径点",
+    "ignore hit": "忽略受击",
+    "ignore hits": "忽略受击",
     "infinite mrp": "无限MRP",
     "edit mrp": "编辑MRP",
     "mrp multiplier": "MRP倍率",
@@ -129,6 +156,132 @@ window.FLING_TRANSLATOR = (function () {
     "reward": "奖励", "credits": "点数",
     "max": "最大", "minimum": "最低", "fov": "视野", "drink": "饮品",
     "leisure": "娱乐", "qi": "气", "fly height": "飞行高度",
+    /* ---- 批量补充（基于全量 757 款游戏 16285 条选项的频次分析）---- */
+    /* 属性缩写与数值 */
+    "sp": "SP", "ap": "AP", "ep": "EP", "cp": "CP", "bp": "BP", "cc": "CC",
+    "tp": "TP", "atk": "攻击", "def": "防御", "agi": "敏捷", "int": "智力",
+    "luk": "幸运", "dex": "灵巧", "con": "体质", "vit": "体力", "ki": "气",
+    "k.o.": "击倒", "musou": "无双", "amplifier": "增幅", "gauge": "槽",
+    "heat gauge": "热量条", "burst gauge": "爆发槽", "skill gauge": "技能槽",
+    /* 货币 / 点数（含各游戏专有货币）*/
+    "gil": "吉尔", "mira": "米拉", "sepith": "晶石", "cole": "科尔",
+    "munny": "金币", "casino chips": "赌场筹码", "chips": "筹码",
+    "talent points": "天赋点", "attribute points": "属性点", "action points": "行动点",
+    "tech points": "科技点", "mastery": "精通度", "silver": "白银", "bronze": "青铜",
+    "medals": "勋章", "tokens": "代币", "tickets": "票券",
+    /* 战斗状态 / 属性 */
+    "attack": "攻击", "magic attack": "魔法攻击", "physical attack": "物理攻击",
+    "dexterity": "灵巧", "agility": "敏捷", "intelligence": "智力",
+    "constitution": "体质", "charm": "魅力", "base stats": "基础属性",
+    "attack stat": "攻击力", "defense stat": "防御力", "dodge chance": "闪避率",
+    "evade chance": "闪避率", "hit chance": "命中率", "acceleration": "加速",
+    "stun": "眩晕", "stagger": "硬直", "break": "击破", "aggro": "仇恨",
+    "rage": "怒气", "fatigue": "疲劳", "fullness": "饱食度", "happiness": "幸福度",
+    "buff": "增益", "debuff": "减益", "buff duration": "增益持续时间",
+    "duration": "持续时间", "cooldowns": "冷却", "status": "状态",
+    "bleed": "流血", "burn": "燃烧", "shock": "感电", "curse": "诅咒",
+    "silence": "沉默", "immunity": "免疫", "poison": "毒", "shield": "护盾",
+    "regen": "回复", "regeneration": "回复", "recovery": "恢复",
+    "consumption": "消耗", "consumption rate": "消耗速率", "thorns": "荆棘",
+    /* 装备 / 物品 */
+    "equipment": "装备", "equipment durability": "装备耐久", "accessory": "饰品",
+    "accessories": "饰品", "attachment": "配件", "crafting material": "制作材料",
+    "crafting materials": "制作材料", "upgrade materials": "升级材料",
+    "quality": "品质", "inventory size": "物品栏容量", "capacity": "容量",
+    "stock": "库存", "item slot": "物品栏位", "loadout": "配装",
+    "arrow": "箭", "arrows": "箭", "ammunition": "弹药", "ammo capacity": "弹药容量",
+    "watering can": "水壶", "watering can usage": "水壶使用次数",
+    "repair kit": "修理包", "key item": "关键道具", "key items": "关键道具",
+    /* 世界 / 环境 / 时间 */
+    "daytime": "白天", "nighttime": "夜晚", "hour": "小时", "minute": "分钟",
+    "second": "秒", "encounter": "遭遇", "random encounter": "随机遭遇",
+    "waypoint": "路径点", "marker": "标记点", "objective": "目标",
+    "dungeon": "地牢", "chest": "宝箱", "loot": "战利品", "spawn": "刷怪",
+    "spawn rate": "刷怪率", "fog of war": "战争迷雾", "fast travel": "快速旅行",
+    "world map": "世界地图", "region": "地区", "zone": "区域", "biome": "生态区",
+    /* 经济 / 生产 / 建造 */
+    "price": "价格", "cost": "花费", "shop": "商店", "trade": "交易",
+    "growth": "增长", "birth rate": "出生率", "storage": "仓储",
+    "farm": "农田", "crop": "作物", "crops": "作物", "animal": "动物",
+    "animals": "动物", "breeding": "繁殖", "livestock": "牲畜",
+    "production rate": "生产速率", "work speed": "工作效率", "craft speed": "制作速度",
+    /* 载具 / 飞行 */
+    "nitro": "氮气", "altitude": "高度", "boost gauge": "推进槽",
+    "fuel consumption": "燃料消耗", "vehicle durability": "载具耐久",
+    /* 通用修饰 */
+    "full": "满", "all": "全部", "selected": "所选", "clicked": "点击的",
+    "dragged": "拖拽的", "nearby": "附近", "each": "每个", "per second": "每秒",
+    "per turn": "每回合", "per minute": "每分钟", "per hour": "每小时",
+    "amount": "数量", "count": "数量", "size": "大小", "value": "数值",
+    "chance": "概率", "rate": "速率", "ratio": "比率", "range": "范围",
+    "level cap": "等级上限", "max level": "最高等级", "requirement": "需求",
+    "requirements": "需求", "condition": "条件", "conditions": "条件",
+    "penalty": "惩罚", "bonus": "加成", "effect": "效果", "effects": "效果",
+    "timer": "计时器", "challenge timer": "挑战计时", "battle timer": "战斗计时",
+    "shift": "班次", "schedule": "排班", "budget": "预算", "income": "收入",
+    "expense": "支出", "tax": "税金", "wage": "工资", "salary": "薪水",
+    "employees": "员工", "citizen": "市民", "citizens": "市民", "guest": "客人",
+    "guests": "客人", "customer": "顾客", "customers": "顾客", "student": "学生",
+    "students": "学生", "soldier": "士兵", "soldiers": "士兵", "troop": "部队",
+    "troops": "部队", "army": "军队", "navy": "海军", "fleet": "舰队",
+    "morale": "士气", "supply": "补给", "supplies": "补给", "logistics": "后勤",
+    /* ---- 第二批：长尾通用词 ---- */
+    "character": "角色", "characters": "角色", "character stats": "角色属性",
+    "double jump": "二段跳", "double jumps": "二段跳", "dash": "冲刺", "dashes": "冲刺次数",
+    "options": "选项", "option": "选项", "minigame": "小游戏", "minigames": "小游戏",
+    "location": "地点", "saved location": "已保存坐标", "mass": "量", "amounts": "数量",
+    "credit": "信用点", "credits": "信用点", "swim speed": "游泳速度", "fishing": "钓鱼",
+    "foods": "食物", "material": "材料", "materials": "材料", "delay": "延迟",
+    "zero delay": "零延迟", "saved": "已保存", "destroy": "摧毁", "teammate": "队友",
+    "teammates": "队友", "throwable": "投掷物", "throwables": "投掷物",
+    "construction": "建造", "horse": "马", "job": "职业", "jobs": "职业",
+    "gift": "礼物", "gifts": "礼物", "awaken": "觉醒", "hit rate": "命中率",
+    "evasion": "闪避", "evasion rate": "闪避率", "shortcut": "快捷", "shortcuts": "快捷",
+    "sleep": "睡眠", "sleepiness": "困倦", "lapse": "流逝", "elapse": "流逝",
+    "time lapse speed": "时间流逝速度", "time elapse speed": "时间流逝速度",
+    "armor": "护甲", "armors": "护甲", "contribution": "贡献", "lumber": "木材",
+    "level up": "升级", "highlight": "高亮", "interactable": "可交互物",
+    "interactables": "可交互物", "auto": "自动", "en": "EN", "treasury": "国库",
+    "willpower": "意志力", "ship": "船", "ships": "船只", "metal": "金属",
+    "metals": "金属", "core shard": "核心碎片", "core shards": "核心碎片",
+    "crystal shard": "水晶碎片", "crystal shards": "水晶碎片",
+    "poise": "韧性", "spoil": "腐坏", "play time": "游戏时间", "wisdom": "智慧",
+    "action": "行动", "actions": "行动", "ignore": "忽略", "sepith mass": "晶石量",
+    "puni": "噗尼", "puni stats": "噗尼属性", "puni exp": "噗尼经验",
+    "t-lv": "T-Lv", "awaken gauge": "觉醒槽", "shogi points": "将棋点数",
+    "wooden tags": "木牌", "treasury": "国库", "contribution": "贡献度",
+    "scrap": "废料", "scraps": "废料", "parts": "零件", "circuit": "电路",
+    "circuits": "电路", "gear": "装备品", "gears": "装备品", "module": "模块",
+    "modules": "模块", "chip": "芯片", "chips": "芯片", "battery": "电池",
+    "batteries": "电池", "core": "核心", "cores": "核心", "shard": "碎片",
+    "shards": "碎片", "fragment": "碎片", "fragments": "碎片", "relic": "遗物",
+    "relics": "遗物", "artifact": "神器", "artifacts": "神器", "blueprint": "蓝图",
+    "blueprints": "蓝图", "recipe": "配方", "recipes": "配方", "ingot": "锭",
+    "ingots": "锭", "ore": "矿石", "bars": "锭", "herb": "药草", "herbs": "药草",
+    "seed": "种子", "seeds": "种子", "fertilizer": "肥料", "fish": "鱼",
+    "insect": "昆虫", "insects": "昆虫", "monster": "怪物", "monsters": "怪物",
+    "boss": "首领", "enemy": "敌人", "enemies": "敌人", "npc": "NPC",
+    "companion": "同伴", "companions": "同伴", "summon": "召唤兽",
+    "summons": "召唤兽", "pet": "宠物", "pets": "宠物", "mount": "坐骑",
+    "mounts": "坐骑", "party": "队伍", "team": "队伍", "squad": "小队",
+    "squads": "小队", "unit": "单位", "units": "单位", "hero": "英雄",
+    "heroes": "英雄", "npc allies": "NPC 友军", "ally": "友军", "allies": "友军",
+    /* ---- 第三批 ---- */
+    "battle": "战斗", "base": "基础", "gather": "采集", "send": "发送",
+    "container": "容器", "wait": "等待", "no wait time": "无等待时间",
+    "bond": "羁绊", "endurance": "耐力", "vigor": "精力", "mag": "魔法",
+    "iron": "铁", "jam": "干扰", "bomb": "炸弹", "bombs": "炸弹",
+    "storage space": "仓储空间", "hygiene": "卫生", "drunk level": "醉酒等级",
+    "keyblade": "键刃", "keyblades": "键刃", "invulnerable": "无敌",
+    "teleportation": "传送", "watering": "浇水", "scores": "分数",
+    "sprint speed": "冲刺速度", "walk speed": "步行速度", "jump height": "跳跃高度",
+    "reload speed": "换弹速度", "fire rate": "射速", "attack range": "攻击范围",
+    "detection": "侦测", "visibility": "可见度", "noise": "噪音",
+    "wanted": "通缉", "notoriety": "恶名", "bounty": "赏金", "crime": "犯罪",
+    "combo": "连击", "combo gauge": "连击槽", "hit count": "连击数",
+    "combo count": "连击数", "counter": "反击", "parry": "格挡",
+    "block": "格挡", "guard": "防御", "dodge": "闪避", "roll": "翻滚",
+    "sprint": "冲刺", "climb": "攀爬", "swim": "游泳", "glide": "滑翔",
     "health": "生命", "stamina": "体力", "ammo": "弹药", "money": "金钱",
     "gold": "金币", "credits": "点数", "cash": "现金", "coins": "金币",
     "items": "物品", "item": "物品", "xp": "经验", "exp": "经验",
@@ -218,6 +371,26 @@ window.FLING_TRANSLATOR = (function () {
     [/^100%\s+(.+)$/, "100%{0}"],
     [/^(.+)\s+infinite\s+(.+)$/, "{0}无限{1}"],
     [/^(.+)\s+instant\s+cooldown$/, "{0}瞬间冷却"],
+    [/^obtain\s+all\s+(.+)$/, "获得全部{0}"],
+    [/^obtain\s+(.+)$/, "获得{0}"],
+    [/^reveal\s+all\s+(.+)$/, "揭示全部{0}"],
+    [/^reveal\s+(.+)$/, "揭示{0}"],
+    [/^change\s+(.+)$/, "更改{0}"],
+    [/^gather\s+(.+)$/, "采集{0}"],
+    [/^undo\s+(.+)$/, "撤销{0}"],
+    [/^toggle\s+(.+)$/, "切换{0}"],
+    [/^remove\s+(.+)$/, "移除{0}"],
+    [/^skip\s+(.+)$/, "跳过{0}"],
+    [/^stable\s+(.+)$/, "{0}恒定"],
+    [/^full\s+(.+)$/, "{0}全满"],
+    [/^all\s+(.+)$/, "全部{0}"],
+    [/^always\s+(.+)$/, "始终{0}"],
+    [/^teleport\s+to\s+(.+)$/, "传送至{0}"],
+    [/^one\s+hit\s+(.+)$/, "一击{0}"],
+    [/^(.+)\s+no\s+overheat$/, "{0}无过热"],
+    [/^(.+)\s+won(?:'|’|')t\s+(?:decrease|drop|reduce|spoil|be consumed)$/, "{0}不会减少"],
+    [/^(.+?)\s*\+\s*(\d+)\s*hours?$/, "{0} +{raw1}小时"],
+    [/^(.+?)\s*-\s*(\d+)\s*hours?$/, "{0} -{raw1}小时"],
     [/^(.+)\s+mode$/, "{0}模式"]
   ];
 
@@ -241,7 +414,7 @@ window.FLING_TRANSLATOR = (function () {
   function body(text) {
     var s = text.trim().replace(/\s+/g, " ");
     if (!s) return null;
-    var low = s.toLowerCase();
+    var low = s.toLowerCase().replace(/[’`´]/g, "'"); // 撇号归一，兼容数据里的弯引号
     if (PHRASES[low]) return PHRASES[low];
 
     /* 去掉尾部括号补充说明 "(Infinite Population)" 等，主副分别尝试翻译 */
@@ -282,16 +455,23 @@ window.FLING_TRANSLATOR = (function () {
     for (var j = 0; j < PATTERNS.length; j++) {
       var m = PATTERNS[j][0].exec(low);
       if (m) {
+        var tpl = PATTERNS[j][1];
+        if (tpl.indexOf("{raw1}") > -1) {
+          // 数字原样保留（如 "Daytime +1 Hour" → 白天 +1小时）
+          var base = noun(m[1]);
+          if (base == null) continue;
+          return tpl.replace("{0}", base).replace("{raw1}", m[2]);
+        }
         var out;
-        if (PATTERNS[j][1].indexOf("{1}") > -1) {
+        if (tpl.indexOf("{1}") > -1) {
           if (m.length < 3) continue;
           var n1 = noun(m[1]), n2 = noun(m[2]);
           if (n1 == null || n2 == null) continue;
-          out = PATTERNS[j][1].replace("{0}", n1).replace("{1}", n2);
+          out = tpl.replace("{0}", n1).replace("{1}", n2);
         } else {
           var inner = noun(m[1]);
           if (inner == null) continue; // 该模式名词未知 → 尝试下一个模式
-          out = PATTERNS[j][1].replace("{0}", inner);
+          out = tpl.replace("{0}", inner);
         }
         return out;
       }
@@ -300,13 +480,13 @@ window.FLING_TRANSLATOR = (function () {
   }
 
   /* 热键前缀拆分："Num 1 – Infinite Health" → ["Num 1", "Infinite Health"] */
-  var HOTKEY_BODY = /^\s*((?:(?:L?Ctrl|L?Alt|L?Shift|Win|Cmd)\+\s*)*(?:Num(?:pad)?\s*[.+\-–—/]?\d+(?:\s*[-–—]\s*\d+)?|Num(?:pad)?\s*[.+\-–—/]|Numpad\s+\d+|F\d{1,2}))\s*[–—-]\s+(.+)$/i;
+  var HOTKEY_BODY = /^\s*((?:(?:L?Ctrl|L?Alt|L?Shift|Win|Cmd)\+\s*)*(?:Num(?:pad)?\s*[.+\-–—/*]?\d*(?:\s*[-–—]\s*\d+)?|Num(?:pad)?\s*[.+\-–—/*]|Numpad\s+\d+|F\d{1,2}|Home|End|Insert|Delete|Del|Tab|Space|Enter|PgUp|PgDn|Backspace))\s*[–—-]\s+(.+)$/i;
 
   function option(text) {
     if (!text) return null;
     var m = HOTKEY_BODY.exec(text);
     var prefix = "", bodyText = text;
-    if (m && /num|f\d/i.test(m[1])) {
+    if (m) {
       prefix = m[1].replace(/\s+/g, " ").trim();
       bodyText = m[2];
     }
