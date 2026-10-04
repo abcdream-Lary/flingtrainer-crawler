@@ -234,6 +234,7 @@ svg { fill: currentColor; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
 .btn {
   position: relative;
+  overflow: hidden;
   display: inline-flex; align-items: center; gap: 8px;
   height: 42px; padding: 0 22px;
   border-radius: 6px; border: 1px solid transparent;
