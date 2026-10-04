@@ -1,0 +1,9 @@
+# 默认按文本处理，统一换行符，避免 Windows/Linux 混用导致 data 目录出现全量 diff
+* text=auto eol=lf
+
+# 截图体积大，若决定入库请改用 Git LFS（先 git lfs install + git lfs track）
+# data/screenshots/** filter=lfs diff=lfs merge=lfs -text
+
+*.png binary
+*.jpg binary
+*.webp binary

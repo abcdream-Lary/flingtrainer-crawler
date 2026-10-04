@@ -1,0 +1,119 @@
+name: crawl
+
+on:
+  schedule:
+    # 每日 02:23 UTC（北京时间 10:23）增量采集
+    - cron: "23 2 * * *"
+    # 每周一 03:17 UTC 全量采集
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 采集模式
+        type: choice
+        options: [incremental, full]
+        default: incremental
+      limit:
+        description: 仅处理前 N 个页面（0 = 全部）
+        type: string
+        default: "0"
+      screenshots:
+        description: 是否下载截图（默认关闭，只采集图片 URL）
+        type: boolean
+        default: false
+
+# 同一时间只允许一个采集任务，排队而不是并发打站点
+concurrency:
+  group: flingtrainer-crawl
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: 检出代码（含上轮状态，用于断点续跑与条件请求）
+        uses: actions/checkout@v4
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 决定采集模式
+        id: plan
+        run: |
+          # 手动触发以输入为准；否则周一全量、其余增量
+          INPUT_MODE="${{ github.event.inputs.mode }}"
+          if [ -n "$INPUT_MODE" ]; then
+            echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"
+          elif [ "$(date -u +%u)" = "1" ]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=incremental" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "$(date -u +%u)" = "1" ] && [ -z "$INPUT_MODE" ]; then
+            echo "since=0" >> "$GITHUB_OUTPUT"      # 全量不跳过
+          else
+            echo "since=3" >> "$GITHUB_OUTPUT"      # 增量：3 天内抓过的跳过
+          fi
+
+      - name: 运行采集
+        run: |
+          ARGS=(--mode "${{ steps.plan.outputs.mode }}" --since-days "${{ steps.plan.outputs.since }}")
+          if [ "${{ github.event.inputs.limit || '0' }}" != "0" ]; then
+            ARGS+=(--limit "${{ github.event.inputs.limit }}")
+          fi
+          if [ "${{ github.event.inputs.screenshots }}" = "false" ]; then
+            ARGS+=(--no-screenshots)
+          fi
+          python run.py crawl "${ARGS[@]}" 2>&1 | tee crawl-run.log
+
+      - name: 写入运行摘要
+        if: always()
+        run: |
+          {
+            echo "### 采集结果"
+            echo '```json'
+            python run.py stats 2>/dev/null || echo "{}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # 默认不下载截图，此步骤无文件时自动跳过；接入图床/落盘后无需改动即可生效
+      - name: 上传截图产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_number }}
+          path: data/screenshots/
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: 上传变更日志产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog-${{ github.run_number }}
+          path: data/changelog/
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: 提交数据
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data)" ]; then
+            git add data
+            git commit -m "chore(data): 更新采集数据 $(date -u +%Y-%m-%d)"
+            git push
+            echo "已提交数据变更"
+          else
+            echo "本轮数据无变化，跳过提交"
+          fi

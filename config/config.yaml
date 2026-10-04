@@ -1,0 +1,95 @@
+# ============================================================================
+# 风灵月影修改器站点采集配置
+# 所有可调参数集中在此，代码不写死任何站点细节
+# ============================================================================
+
+site:
+  base_url: "https://flingtrainer.com"
+
+  # 详情页 URL 识别规则（用于从列表页筛出修改器详情页）
+  detail_url_patterns:
+    - "^https?://flingtrainer\\.com/trainer/[A-Za-z0-9%\\-_.]+/?$"
+
+  listing:
+    # all_trainers : 只走 /all-trainers/（单页即全量，最省请求）
+    # paginated    : 只走 首页 /page/N/ 逐页翻
+    # both         : 两者取并集（最全，默认）
+    mode: "both"
+    all_trainers_url: "https://flingtrainer.com/all-trainers/"
+    # {page} 会被替换成页码；第 1 页使用 base_url
+    paginated_url: "https://flingtrainer.com/page/{page}/"
+    start_page: 1
+    # 0 = 自动探测：直到某页没有新链接或 404 为止
+    max_pages: 0
+    # 连续多少页没有产生新链接就停止（防死循环）
+    stop_after_empty_pages: 2
+
+  robots:
+    respect: true
+    user_agent_token: "*"
+    # robots.txt 抓取失败时的策略：disallow（保守，默认）| allow
+    on_fetch_error: "disallow"
+    # robots.txt 缺失(404)时的策略：allow（RFC 默认）| disallow
+    on_missing: "allow"
+    # 硬约束：这些路径永远不发起请求（与 robots.txt 结果取交集）。
+    # 站点 robots.txt 已声明 Disallow: /downloads/ 与 /attachments/，
+    # 下载链接仅作为元数据采集（URL/文件名/版本号），绝不实际请求。
+    never_fetch_paths:
+      - "/downloads/"
+      - "/attachments/"
+
+http:
+  timeout: 30
+  # 每次请求前的最小间隔（秒），会在 [min, max] 间随机抖动
+  min_interval_seconds: 1.5
+  max_interval_seconds: 3.0
+  max_retries: 3
+  backoff_factor: 2.0
+  backoff_max_seconds: 60
+  # 遇到这些状态码时重试
+  retry_statuses: [429, 500, 502, 503, 504]
+  # 尊重响应头 Retry-After
+  honor_retry_after: true
+  # 启用条件请求（If-Modified-Since / If-None-Match），命中 304 可省流量
+  conditional_get: true
+  user_agent: "flingtrainer-crawler/1.0 (+https://github.com/your-name/flingtrainer-crawler; research archive)"
+  headers:
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+    Accept-Language: "en-US,en;q=0.9"
+
+crawl:
+  # full        : 全量重抓（仍会用条件请求省流量）
+  # incremental : 增量，跳过近期已抓且未变化的页面
+  mode: "incremental"
+  # 距上次成功抓取 N 天内直接跳过（0 = 不跳过）。日常定时任务建议 3~7
+  skip_if_crawled_within_days: 0
+  # 0 = 不限制；调试时可设小值
+  limit: 0
+  # 只抓这些 slug（调试用，留空则全部）
+  only_slugs: []
+
+media:
+  # 当前不下载图片文件，只采集并保存原图 URL。
+  # 等后续接入图床后，把这里改成 true 即可落盘/上传；
+  # 若要改为上传图床，替换 store.save_screenshot() 的实现并在记录里回填 local_path。
+  download_screenshots: false
+  # 单个页面最多保留多少张截图的 URL
+  max_screenshots_per_page: 5
+  # 已存在同名截图文件时跳过重复下载（download_screenshots 打开后才生效）
+  skip_existing_screenshots: true
+
+output:
+  root: "data"
+  json_dir: "data/json"
+  screenshots_dir: "data/screenshots"
+  logs_dir: "data/logs"
+  changelog_dir: "data/changelog"
+  state_dir: "data/state"
+  # 主输出文件名（同时产出 .json 与 .ndjson）
+  json_filename: "trainers"
+
+logging:
+  level: "INFO"
+  # 控制台 + 文件双输出
+  to_file: true
+  log_filename: "crawler.log"
