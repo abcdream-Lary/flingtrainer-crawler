@@ -357,8 +357,9 @@ CI 里不想改文件，可用环境变量覆盖：`FLING_CRAWL_MODE`、`FLING_C
 
 `crawl.yml`：
 
-- **每日 02:23 UTC（北京时间 10:23）触发**
-- **每周一 03:17 UTC（北京时间 11:17）全量**
+- **每天一次，北京时间 10:23（UTC 02:23）**
+- **周一那次自动走全量**（脚本按 UTC 星期判断），其他天按时间窗轮询
+- 只配了一条 cron。若再单加一条"周一全量"，周一当天会连跑两次全量，白费 30~40 分钟
 - 支持 `workflow_dispatch` 手动指定 `mode` / `limit` / `screenshots`
 - `concurrency.group` 保证同一时刻只有一个任务在跑，避免并发打站点
 - 数据有变化才 `git commit && git push`；无变化跳过
