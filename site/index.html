@@ -49,7 +49,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero（主页总览） -->
   <section class="hero" id="heroSec">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="shell hero-inner">
@@ -57,24 +57,27 @@
       <h1 class="hero-title" id="heroTitle">风灵月影修改器图鉴</h1>
       <p class="hero-lead" id="heroLead"></p>
       <div class="hero-actions">
+        <button class="btn btn-primary" id="browseCta" type="button">进入分类浏览</button>
         <a class="btn btn-ghost" href="https://github.com/abcdream-Lary/flingtrainer-crawler" target="_blank" rel="noopener" id="navRepo">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.5 15.6c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
           <span id="navRepoText">采集工程</span>
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- 筛选栏 + 卡片网格 -->
-  <main class="shell" id="grid-top">
-    <!-- 分类视图：统计 + 分类/标签总览 -->
-    <section class="cats-view" id="viewCats" hidden>
       <dl class="hero-stats" id="heroStats">
         <div class="stat"><dt id="statGames">收录游戏</dt><dd>—</dd></div>
         <div class="stat"><dt id="statOptions">功能选项</dt><dd>—</dd></div>
         <div class="stat"><dt id="statVersions">历史版本</dt><dd>—</dd></div>
         <div class="stat"><dt id="statUpdated">数据更新</dt><dd>—</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <!-- 筛选栏 + 卡片网格 -->
+  <main class="shell" id="grid-top">
+    <p class="load-error" id="loadError" hidden></p>
+
+    <!-- 分类浏览页：筛选 + 分页游戏网格 -->
+    <section class="cats-view" id="viewCats" hidden>
       <div class="cats-block">
         <h3 class="cats-title" id="catsTitle">游戏分类</h3>
         <div class="toolbar-row cats" id="catChips" role="tablist" aria-label="分类"></div>
@@ -85,36 +88,43 @@
           <div class="tag-scroller wrap" id="tagChips" aria-label="标签"></div>
         </div>
       </div>
-    </section>
 
-    <div class="toolbar">
-      <div class="toolbar-row sub">
-        <div class="toolbar-right" id="galleryBar">
-          <span class="result-count" id="resultCount">0</span>
-          <label class="sort">
-            <span id="sortLabel">排序</span>
-            <select id="sortSelect">
-              <option value="recent">最近更新</option>
-              <option value="options">选项最多</option>
-              <option value="versions">版本最多</option>
-              <option value="name">名称 A-Z</option>
-            </select>
-          </label>
+      <div class="toolbar">
+        <div class="toolbar-row sub">
+          <div class="toolbar-right">
+            <span class="result-count" id="resultCount">0</span>
+            <label class="sort">
+              <span id="sortLabel">排序</span>
+              <select id="sortSelect">
+                <option value="recent">最近更新</option>
+                <option value="options">选项最多</option>
+                <option value="versions">版本最多</option>
+                <option value="name">名称 A-Z</option>
+              </select>
+            </label>
+            <label class="sort">
+              <span id="perPageLabel">每页</span>
+              <select id="perPageSelect">
+                <option value="20">20</option>
+                <option value="30" selected>30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
 
-    <p class="load-error" id="loadError" hidden></p>
+      <section class="grid" id="grid" aria-live="polite"></section>
 
-    <section class="grid" id="grid" aria-live="polite"></section>
+      <p class="empty" id="empty" hidden>
+        <strong id="emptyTitle">没有匹配的游戏</strong>
+        <span id="emptyLead">换个关键词或清除筛选试试。</span>
+        <button class="btn btn-ghost" id="emptyReset">清除筛选</button>
+      </p>
 
-    <p class="empty" id="empty" hidden>
-      <strong id="emptyTitle">没有匹配的游戏</strong>
-      <span id="emptyLead">换个关键词或清除筛选试试。</span>
-      <button class="btn btn-ghost" id="emptyReset">清除筛选</button>
-    </p>
-
-    <div class="sentinel" id="sentinel" hidden><span class="spinner" aria-hidden="true"></span><span id="loadingText">加载中…</span></div>
+      <nav class="pager" id="pager" aria-label="分页"></nav>
+    </section>
   </main>
 
   <footer class="footer">

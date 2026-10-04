@@ -10,7 +10,7 @@
   var CATALOG = window.FLING_CATALOG || { categories: [], entries: {} };
   var I18N = window.FLING_I18N || { zh: {}, en: {} };
   var TR = window.FLING_TRANSLATOR || { option: function () { return null; } };
-  var BATCH = 36;
+  var PER_OPTIONS = [20, 30, 50, 100];
   var ORIGIN = "https://flingtrainer.com";
   var IMG_PROXY = "https://wsrv.nl/?url=";   // 加载失败的图片代理兜底
 
@@ -20,7 +20,8 @@
     theme: localStorage.getItem("fling.theme") || "light",
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
     view: "gallery",
-    shown: 0, filtered: [], io: null,
+    page: 1, per: 30,
+    filtered: [],
     detailSlug: null, listScroll: 0,
     lbList: [], lbIndex: -1,
     cameFromList: false
@@ -203,10 +204,11 @@
     $("sortLabel").textContent = t("sortLabel");
     $("emptyTitle").textContent = t("emptyTitle");
     $("emptyLead").textContent = t("emptyLead");
-    $("loadingText").textContent = t("loading");
     $("footerNote").textContent = t("footerNote");
     $("footerRobots").textContent = t("footerRobots");
     $("langToggle").textContent = t("langButton");
+    $("browseCta").textContent = t("browseCta");
+    $("perPageLabel").textContent = t("perPage");
     $("searchInput").placeholder = t("searchPlaceholder");
     $("searchInput").setAttribute("aria-label", t("searchPlaceholder"));
 
@@ -367,43 +369,108 @@
     return fb;
   }
 
-  /* ---------------- 列表渲染 ---------------- */
-  function refresh(keepScroll) {
+  /* ---------------- 列表渲染（固定分页） ---------------- */
+  function refresh() {
     state.filtered = buildFiltered();
-    state.shown = 0;
-    var grid = $("grid");
-    grid.innerHTML = "";
-
-    var count = state.filtered.length;
-    $("resultCount").textContent = t("resultCount", { n: num(count) });
-    $("empty").hidden = count !== 0;
-    $("loadError").hidden = true;
-
+    var pages = Math.max(1, Math.ceil(state.filtered.length / state.per));
+    if (state.page > pages) state.page = pages;
+    renderPage();
     renderCatChips();
-    renderMore();
+    renderTagChips();
     syncUrl();
   }
 
-  function renderMore() {
+  function renderPage() {
     var grid = $("grid");
-    var next = state.filtered.slice(state.shown, state.shown + BATCH);
-    next.forEach(function (rec, i) {
-      grid.appendChild(cardNode(rec, state.shown === 0 ? i : 0));
+    grid.innerHTML = "";
+    var count = state.filtered.length;
+    var start = (state.page - 1) * state.per;
+    var slice = state.filtered.slice(start, start + state.per);
+    slice.forEach(function (rec, i) {
+      grid.appendChild(cardNode(rec, i));
     });
-    state.shown += next.length;
-    $("sentinel").hidden = state.shown >= state.filtered.length;
-    observeSentinel();
+
+    $("resultCount").textContent = t("resultCount", { n: num(count) });
+    $("empty").hidden = count !== 0;
+    $("loadError").hidden = true;
+    renderPager(count);
   }
 
-  function observeSentinel() {
-    if (!("IntersectionObserver" in window)) return;
-    if (!state.io) {
-      state.io = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting && state.shown < state.filtered.length) renderMore();
-      }, { rootMargin: "600px 0px" });
+  function pageList(total, current) {
+    // 生成页码序列：首尾恒显，中间窗口，断点用 -1 占位（渲染为省略号）
+    if (total <= 7) {
+      var all = [];
+      for (var i = 1; i <= total; i++) all.push(i);
+      return all;
     }
-    state.io.disconnect();
-    if (state.shown < state.filtered.length) state.io.observe($("sentinel"));
+    var set = [1, total, current, current - 1, current + 1];
+    if (current <= 3) set = set.concat([2, 3, 4]);
+    if (current >= total - 2) set = set.concat([total - 3, total - 2, total - 1]);
+    var uniq = Array.from(new Set(set)).filter(function (p) { return p >= 1 && p <= total; });
+    uniq.sort(function (a, b) { return a - b; });
+    var out = [];
+    uniq.forEach(function (p, idx) {
+      if (idx && p - uniq[idx - 1] > 1) out.push(-1);
+      out.push(p);
+    });
+    return out;
+  }
+
+  function renderPager(count) {
+    var pager = $("pager");
+    pager.innerHTML = "";
+    var total = Math.max(1, Math.ceil(count / state.per));
+    if (total <= 1) { pager.hidden = true; return; }
+    pager.hidden = false;
+
+    var prev = el("button", "pg-btn" + (state.page === 1 ? " dis" : ""), "‹");
+    prev.type = "button";
+    prev.disabled = state.page === 1;
+    prev.setAttribute("aria-label", t("prevPage"));
+    prev.addEventListener("click", function () { goToPage(state.page - 1); });
+    pager.appendChild(prev);
+
+    pageList(total, state.page).forEach(function (p) {
+      if (p === -1) {
+        pager.appendChild(el("span", "pg-dots", "…"));
+        return;
+      }
+      var b = el("button", "pg-num" + (p === state.page ? " on" : ""), String(p));
+      b.type = "button";
+      if (p === state.page) b.setAttribute("aria-current", "page");
+      b.addEventListener("click", function () { goToPage(p); });
+      pager.appendChild(b);
+    });
+
+    var next = el("button", "pg-btn" + (state.page === total ? " dis" : ""), "›");
+    next.type = "button";
+    next.disabled = state.page === total;
+    next.setAttribute("aria-label", t("nextPage"));
+    next.addEventListener("click", function () { goToPage(state.page + 1); });
+    pager.appendChild(next);
+
+    var info = el("span", "pg-info", t("pageOf", { a: state.page, b: total }));
+    pager.appendChild(info);
+  }
+
+  function goToPage(p) {
+    var total = Math.max(1, Math.ceil(state.filtered.length / state.per));
+    var next = Math.min(Math.max(1, p), total);
+    if (next === state.page) return;
+    state.page = next;
+    renderPage();
+    syncUrl();
+    var anchor = $("grid-top").getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top: Math.max(0, anchor), behavior: "smooth" });
+  }
+
+  function setPer(n) {
+    if (PER_OPTIONS.indexOf(n) === -1) n = 30;
+    if (state.per === n) return;
+    state.per = n;
+    state.page = 1;
+    renderPage();
+    syncUrl();
   }
 
   /* ---------------- 详情子页 ---------------- */
@@ -696,6 +763,8 @@
     if (state.sort !== "recent") p.set("sort", state.sort);
     if (state.lang !== "zh") p.set("lang", state.lang);
     if (state.view !== "gallery") p.set("view", state.view);
+    if (state.per !== 30) p.set("per", String(state.per));
+    if (state.page > 1) p.set("page", String(state.page));
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
   }
@@ -707,6 +776,10 @@
     if (p.get("tag")) state.tag = p.get("tag");
     if (["recent", "options", "versions", "name"].indexOf(p.get("sort")) > -1) state.sort = p.get("sort");
     if (p.get("view") === "cats") state.view = "cats";
+    var per = parseInt(p.get("per"), 10);
+    if (PER_OPTIONS.indexOf(per) > -1) state.per = per;
+    var page = parseInt(p.get("page"), 10);
+    if (page >= 1) state.page = page;
   }
 
   /* ---------------- 事件 ---------------- */
@@ -743,6 +816,10 @@
     $("sortSelect").addEventListener("change", function (ev) {
       state.sort = ev.target.value; refresh();
     });
+    $("perPageSelect").addEventListener("change", function (ev) {
+      setPer(parseInt(ev.target.value, 10));
+    });
+    $("browseCta").addEventListener("click", function () { setView("cats"); });
 
     Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
       tab.addEventListener("click", function () { setView(tab.dataset.view); });
@@ -789,11 +866,11 @@
     if (!DATA || !DATA.records || !DATA.records.length) {
       $("loadError").hidden = false;
       $("loadError").textContent = t("loadError");
-      $("sentinel").hidden = true;
       return;
     }
     readUrl();
     $("sortSelect").value = state.sort;
+    $("perPageSelect").value = String(state.per);
     applyView(); // 应用初始视图（含 ?view=cats 深链）
     prepare();
     bind();
