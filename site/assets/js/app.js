@@ -579,11 +579,10 @@
 
     var actions = el("div", "d-actions");
     if (latest && latest.url) {
-      var dl = el("a", "btn btn-primary d-dl", t("detailAction") + " · " + t("detailLatest"));
-      dl.href = latest.url;
+      var dl = el("a", "btn btn-primary d-dl", t("detailGoSite"));
+      dl.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
       dl.target = "_blank";
       dl.rel = "noopener";
-      dl.referrerPolicy = "no-referrer";
       dl.title = t("dlTip");
       actions.appendChild(dl);
       var copyMain = el("button", "btn btn-ghost d-copy-main", t("copyLink"));
@@ -645,6 +644,7 @@
     if (rec.downloads && rec.downloads.length) {
       var ds = el("section", "d-section");
       ds.appendChild(sectionTitle(t("detailDownloads", { n: rec.downloads.length }), null));
+      ds.appendChild(el("p", "d-hint dl-notice", t("dlNotice")));
       var scrollBox = el("div", "dl-scroll");
       var table = el("table", "dl-table");
       var thead = el("thead");
