@@ -1,32 +1,32 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-04T06:47:48+00:00",
+  "generated_at": "2026-10-04T06:22:11+00:00",
   "count": 15,
   "meta": {
     "mode": "full",
-    "started_at": "2026-10-04T06:47:37+00:00",
-    "duration_seconds": 10.3,
+    "started_at": "2026-10-04T06:21:30+00:00",
+    "duration_seconds": 41.7,
     "interrupted": false,
     "site": "https://flingtrainer.com",
     "robots_respected": true,
     "http_stats": {
-      "requests": 6,
+      "requests": 18,
       "retries": 0,
       "not_modified": 0,
       "robots_blocked": 0,
-      "bytes": 852450,
+      "bytes": 2540729,
       "failures": 0
     },
-    "changelog_file": null,
-    "failed_log": "data/logs/failed.jsonl",
-    "discovered": 3,
-    "fetched": 3,
-    "parsed": 3,
+    "changelog_file": "2026-10-04.jsonl",
+    "failed_log": "data\\logs\\failed.jsonl",
+    "discovered": 15,
+    "fetched": 15,
+    "parsed": 15,
     "skipped_recent": 0,
     "not_modified": 0,
     "new": 0,
-    "updated": 0,
-    "unchanged": 3,
+    "updated": 1,
+    "unchanged": 14,
     "removed": 0,
     "failed": 0,
     "robots_blocked": 0
@@ -121,7 +121,7 @@
           "url": "https://flingtrainer.com/downloads/qK0s98ll1sx26L-lba8WFA,,",
           "date_added": "2021-10-19 01:07",
           "file_size": "518 KB",
-          "download_count": 169602,
+          "download_count": 169589,
           "is_latest": true
         },
         {
@@ -137,7 +137,7 @@
       "missing_fields": [],
       "content_hash": "6bf6e6183d460bc1dfdebcbf5987dd65b481806fc0c6dab41ff05f47f22ca579",
       "first_seen": "2026-10-04T05:41:30+00:00",
-      "last_crawled": "2026-10-04T06:47:42+00:00",
+      "last_crawled": "2026-10-04T06:21:36+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -278,14 +278,14 @@
           "url": "https://flingtrainer.com/downloads/4YpRToH3P0KB1LunHKII0w,,",
           "date_added": "2026-10-03 15:17",
           "file_size": "0.99 MB",
-          "download_count": 3648,
+          "download_count": 3430,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "3d348a949864109c33a95b220b4f4f436140147d82dc9444709e4fe85c2a12fa",
       "first_seen": "2026-10-04T05:41:36+00:00",
-      "last_crawled": "2026-10-04T06:47:44+00:00",
+      "last_crawled": "2026-10-04T06:21:37+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -417,7 +417,7 @@
       "missing_fields": [],
       "content_hash": "e95f5809598c92387d641b767f1580f367964522389021249bdbd9f99bcf575d",
       "first_seen": "2026-10-04T05:41:44+00:00",
-      "last_crawled": "2026-10-04T06:47:46+00:00",
+      "last_crawled": "2026-10-04T06:21:40+00:00",
       "http_status": 200,
       "error": ""
     },

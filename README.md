@@ -277,6 +277,8 @@ flingtrainer-crawler/
 │   ├── pipeline.py            # 采集编排（全量/增量、断点续跑、变更检测）
 │   ├── logging_setup.py
 │   └── cli.py
+├── scripts/
+│   └── push_via_api.py       # 备用推送通道：git 协议不通时走 Git Data API
 ├── examples/
 │   └── query_demo.py          # 数据调用示例：读取、搜索、筛选、远程直连
 ├── tests/
@@ -365,7 +367,28 @@ CI 里不想改文件，可用环境变量覆盖：`FLING_CRAWL_MODE`、`FLING_C
 `ci.yml`：PR 与 push 时跑解析测试 + 2 页冒烟抓取 + 导出校验。
 
 首次使用请确认仓库 `Settings → Actions → General → Workflow permissions` 为
-**Read and write permissions**（工作流需要提交数据）。
+**Read and write permissions**（工作流需要提交数据）。若仓库是新建的，默认往往是
+Read-only，需要改一次，否则「提交数据」步骤会因权限不足失败。
+
+### 本地 git 推送不通时的备用方案
+
+定时采集与自动提交发生在 GitHub Actions runner 上（GitHub 内部网络），**不受本地网络影响**，
+照常工作。但你自己的机器若连不上 `github.com`（git 协议端点），会出现：
+
+```text
+fatal: unable to access 'https://github.com/<owner>/<repo>/':
+schannel: server closed abruptly (missing close_notify)
+```
+
+这种情况通常是本地网络环境所致（`api.github.com` 往往仍然通）。可以用仓库里的备用脚本，
+它改走 Git Data API 完成推送，且以远端当前 `main` 为基线，属快进推送，不会覆盖
+Actions 的数据提交：
+
+```bash
+pip install requests && gh auth login     # 一次性
+python scripts/push_via_api.py -m "chore: 同步本地数据"
+python scripts/push_via_api.py --repo <owner>/<repo>
+```
 
 ---
 
