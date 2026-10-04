@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -26,6 +27,33 @@ ROOT = Path(__file__).resolve().parents[1]
 def display_name(raw: str) -> str:
     """去掉标题尾部的 ' Trainer'，得到纯游戏名。"""
     return re.sub(r"\s*Trainer\s*$", "", raw or "").strip()
+
+
+def stamp_asset_versions(index_path: Path) -> int:
+    """给 index.html 里的本地资源加内容哈希版本号（?v=<sha1 前 8 位>）。
+
+    为什么要这样：GitHub Pages 对静态资源返回 Cache-Control: max-age=600，
+    发新版后访客最长 10 分钟仍看到旧 JS/CSS（曾导致「修复不生效」的误判）。
+    资源内容变则 URL 变，浏览器自然重新拉取；内容没变则 URL 不变，不会造成
+    index.html 的额外改动。
+    """
+    if not index_path.is_file():
+        return 0
+    html = index_path.read_text(encoding="utf-8")
+
+    def repl(match: re.Match) -> str:
+        quote, path = match.group(1), match.group(2)
+        asset = index_path.parent / path
+        if not asset.is_file():
+            return match.group(0)
+        digest = hashlib.sha1(asset.read_bytes()).hexdigest()[:8]
+        return f"{match.group(1)}{path}?v={digest}{quote}"
+
+    new_html = re.sub(r'(["\'])(assets/[^"\'?]+)(?:\?[^"\']*)?\1', repl, html)
+    if new_html != html:
+        index_path.write_text(new_html, encoding="utf-8")
+        return sum(1 for _ in re.finditer(r"assets/[^\"']+\?v=", new_html))
+    return 0
 
 
 def slim(rec: dict) -> dict:
@@ -97,10 +125,12 @@ def main() -> int:
         f'window.FLING_DATA = {body};\n'
     )
     out.write_text(js, encoding="utf-8")
+    stamped = stamp_asset_versions(out.parents[2] / "index.html")
     print(
         f"已生成 {out.relative_to(ROOT)}：{stats['games']} 款游戏、"
         f"{stats['options']} 条选项、{stats['downloads']} 个历史版本、"
         f"{out.stat().st_size / 1024:.0f} KB"
+        + (f"；已为 {stamped} 个资源打版本号" if stamped else "")
     )
     return 0
 

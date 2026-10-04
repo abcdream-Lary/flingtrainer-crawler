@@ -535,6 +535,12 @@ python scripts/push_via_api.py --repo <owner>/<repo>
 `python scripts/build_web_data.py` 生成 `site/assets/js/data.js`（内联数据，
 规避 file:// 的 CORS 限制）→ GitHub Actions 每次采集完成后自动重建并随数据一起提交。
 
+> **静态资源缓存**：GitHub Pages 对静态资源返回 `Cache-Control: max-age=600`，
+> 直接改 JS/CSS 后访客最长 10 分钟仍可能看到旧版。为此 `build_web_data.py` 构建时
+> 会按**文件内容哈希**给 `index.html` 里的本地资源自动追加 `?v=<sha1>`：
+> 内容变则 URL 变（浏览器立即拉新），内容没变则 URL 不变（不产生多余 diff）。
+> 因此**本地改完前端资源后，先跑一次 `python scripts/build_web_data.py` 再提交**。
+
 本地预览：
 
 ```bash
