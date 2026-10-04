@@ -17,8 +17,7 @@
   /* ---------------- state ---------------- */
   var state = {
     lang: localStorage.getItem("fling.lang") || "zh",
-    theme: localStorage.getItem("fling.theme") ||
-      (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+    theme: localStorage.getItem("fling.theme") || "dark",
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
     shown: 0, filtered: [], io: null,
     detailSlug: null, listScroll: 0,
@@ -85,6 +84,15 @@
   }
   function num(n) {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  /* ISO 时间 → 本地时区 "YYYY-MM-DD HH:MM:SS" */
+  function fmtTs(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return String(iso);
+    var p = function (n) { return (n < 10 ? "0" : "") + n; };
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) +
+      " " + p(d.getHours()) + ":" + p(d.getMinutes()) + ":" + p(d.getSeconds());
   }
   function hotkeyOf(text) {
     var m = /^(Num(?:pad)?\s*\.?\s*\d|Ctrl\+Num[^–—-]*|Alt\+Num[^–—-]*|Shift\+Num[^–—-]*|F\d{1,2}|Numpad\s*\d)/i.exec(text || "");
@@ -206,7 +214,8 @@
       setStat("statGames", num(s.games));
       setStat("statOptions", num(s.options));
       setStat("statVersions", num(s.downloads));
-      setStat("statUpdated", s.last_updated || "—", true);
+      // 最近更新 = 本站数据快照时间（精确到秒）；游戏自身更新日期源站只有日粒度
+      setStat("statUpdated", fmtTs(DATA.generatedAt) || (s.last_updated || "—"));
     }
   }
   function setStat(id, value) {
@@ -442,7 +451,7 @@
 
     var facts = el("div", "d-facts");
     addBigFact(facts, t("detailLatestVer"), (latest && latest.version) || rec.version || "—");
-    addBigFact(facts, t("statUpdated"), rec.last_updated || t("cardNoDate"));
+    addBigFact(facts, t("detailGameUpdated"), rec.last_updated || t("cardNoDate"));
     addBigFact(facts, t("statOptions"), num(rec.options_extracted || 0));
     addBigFact(facts, t("statVersions"), num((rec.downloads || []).length));
     side.appendChild(facts);
@@ -463,6 +472,9 @@
     side.appendChild(actions);
 
     var srcNote = el("p", "d-src", t("detailDataFrom") + " · " + (rec.url || ""));
+    if (DATA && DATA.generatedAt) {
+      srcNote.textContent += " · " + t("detailDataFetched") + " " + fmtTs(DATA.generatedAt);
+    }
     side.appendChild(srcNote);
     hero.appendChild(side);
     shell.appendChild(hero);
