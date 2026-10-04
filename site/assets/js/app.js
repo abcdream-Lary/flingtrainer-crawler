@@ -1,6 +1,7 @@
 /* 风灵图鉴 · 展示逻辑（纯前端，无构建、无依赖）
  * 数据：window.FLING_DATA（scripts/build_web_data.py 生成）
- * 汉化：window.FLING_CATALOG（人工维护，缺失回退英文名）
+ * 汉化：window.FLING_CATALOG（游戏名）/ window.FLING_TRANSLATOR（选项短语）
+ * 路由：列表 = ?q=&cat=&tag=&sort= ；详情子页 = #/t/<slug>
  */
 (function () {
   "use strict";
@@ -8,8 +9,10 @@
   var DATA = window.FLING_DATA || null;
   var CATALOG = window.FLING_CATALOG || { categories: [], entries: {} };
   var I18N = window.FLING_I18N || { zh: {}, en: {} };
+  var TR = window.FLING_TRANSLATOR || { option: function () { return null; } };
   var BATCH = 36;
   var ORIGIN = "https://flingtrainer.com";
+  var IMG_PROXY = "https://wsrv.nl/?url=";   // 加载失败的图片代理兜底
 
   /* ---------------- state ---------------- */
   var state = {
@@ -17,9 +20,10 @@
     theme: localStorage.getItem("fling.theme") ||
       (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
     q: "", cat: "__all__", tag: "__all__", sort: "recent",
-    shown: 0,
-    filtered: [],
-    io: null
+    shown: 0, filtered: [], io: null,
+    detailSlug: null, listScroll: 0,
+    lbList: [], lbIndex: -1,
+    cameFromList: false
   };
 
   /* ---------------- helpers ---------------- */
@@ -54,6 +58,17 @@
     if (state.lang === "zh") return zhName(rec) ? rec.name : "";
     return zhName(rec);
   }
+  function shotUrl(rec, i) {
+    var s = (rec.screenshots || [])[i || 0];
+    if (!s) return "";
+    return typeof s === "string" ? s : (s.original_url || s.url || "");
+  }
+  function optText(o) {
+    var raw = o.t || "";
+    if (state.lang !== "zh") return raw;
+    var zh = TR.option(raw);
+    return zh || raw;
+  }
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -68,14 +83,53 @@
       timer = setTimeout(function () { fn.apply(self, a); }, ms);
     };
   }
+  function num(n) {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  function hotkeyOf(text) {
+    var m = /^(Num(?:pad)?\s*\.?\s*\d|Ctrl\+Num[^–—-]*|Alt\+Num[^–—-]*|Shift\+Num[^–—-]*|F\d{1,2}|Numpad\s*\d)/i.exec(text || "");
+    if (m) return m[1];
+    m = /^(Ctrl|Alt|Shift)\+[^\s–—-]+/i.exec(text || "");
+    return m ? m[1] + "+" : "";
+  }
+
+  /* ---------------- 图片加载链：原图 → 代理 → 占位 ---------------- */
+  function attachImg(img, src, onFail) {
+    var triedProxy = false;
+    function handler() {
+      img.removeEventListener("error", handler);
+      if (!triedProxy && /^https?:\/\//i.test(src)) {
+        triedProxy = true;
+        img.addEventListener("error", function () {
+          if (onFail) onFail();
+        });
+        img.src = IMG_PROXY + encodeURIComponent(src) + "&w=960&output=webp&q=85";
+      } else if (onFail) {
+        onFail();
+      }
+    }
+    img.addEventListener("error", handler);
+    img.src = src;
+  }
+  function makeImg(src, alt, onFail) {
+    var img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.referrerPolicy = "no-referrer";
+    img.alt = alt || "";
+    attachImg(img, src, onFail);
+    return img;
+  }
 
   /* ---------------- 数据准备 ---------------- */
   var records = [];
-  var tagIndex = {};   // tag -> count
+  var bySlug = {};
+  var tagIndex = {};
 
   function prepare() {
     records = (DATA && DATA.records) || [];
     records.forEach(function (r) {
+      bySlug[r.slug] = r;
       tagsOf(r).forEach(function (tag) {
         tagIndex[tag] = (tagIndex[tag] || 0) + 1;
       });
@@ -88,7 +142,7 @@
       if (state.cat !== "__all__" && catOf(r) !== state.cat) return false;
       if (state.tag !== "__all__" && tagsOf(r).indexOf(state.tag) === -1) return false;
       if (q) {
-        var hay = [r.name, zhName(r), r.slug].join(" ").toLowerCase();
+        var hay = [r.name, zhName(r), r.slug, optHaystack(r)].join(" ").toLowerCase();
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
@@ -96,15 +150,18 @@
 
     var byDateDesc = function (a, b) { return (b.last_updated || "").localeCompare(a.last_updated || ""); };
     if (state.sort === "recent") out.sort(byDateDesc);
-    else if (state.sort === "options") out.sort(function (a, b) { return b.options_extracted - a.options_extracted; });
-    else if (state.sort === "versions") out.sort(function (a, b) { return b.downloads.length - a.downloads.length; });
+    else if (state.sort === "options") out.sort(function (a, b) { return (b.options_extracted || 0) - (a.options_extracted || 0); });
+    else if (state.sort === "versions") out.sort(function (a, b) { return (b.downloads || []).length - (a.downloads || []).length; });
     else if (state.sort === "name") out.sort(function (a, b) {
       return (primaryName(a) || "").localeCompare(primaryName(b) || "", state.lang === "zh" ? "zh-Hans-CN" : "en");
     });
     return out;
   }
+  function optHaystack(rec) {
+    return (rec.options || []).map(function (o) { return o.t; }).join(" ");
+  }
 
-  /* ---------------- 渲染：hero / 筛选栏 ---------------- */
+  /* ---------------- 静态文案 ---------------- */
   function renderStaticText() {
     document.documentElement.lang = t("htmlLang");
     document.body.dataset.lang = state.lang;
@@ -114,7 +171,6 @@
     $("brandSub").textContent = t("brandSub");
     $("heroEyebrow").textContent = t("brandSub");
     $("heroTitle").innerHTML = "";
-    // 主标题做渐变点缀
     var parts = t("heroTitle").split("·");
     if (parts.length > 1) {
       $("heroTitle").appendChild(el("span", null, parts[0].trim()));
@@ -145,7 +201,6 @@
       if (sortMap[opt.value]) opt.textContent = t(sortMap[opt.value]);
     });
 
-    // hero 统计
     if (DATA && DATA.stats) {
       var s = DATA.stats;
       setStat("statGames", num(s.games));
@@ -154,15 +209,13 @@
       setStat("statUpdated", s.last_updated || "—", true);
     }
   }
-  function num(n) {
-    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  function setStat(id, value, isDate) {
+  function setStat(id, value) {
     var dd = $(id).nextElementSibling;
     dd.textContent = "";
     dd.appendChild(document.createTextNode(value));
   }
 
+  /* ---------------- 筛选 chips ---------------- */
   function renderCatChips() {
     var wrap = $("catChips");
     wrap.innerHTML = "";
@@ -217,7 +270,7 @@
   function setCat(c) { state.cat = c; syncUrl(); refresh(); }
   function setTag(tag) { state.tag = tag; syncUrl(); refresh(); }
 
-  /* ---------------- 渲染：卡片 ---------------- */
+  /* ---------------- 卡片 ---------------- */
   function cardNode(rec, delayIdx) {
     var card = el("article", "card");
     card.tabIndex = 0;
@@ -226,19 +279,12 @@
     card.setAttribute("aria-label", primaryName(rec));
 
     var media = el("div", "card-media");
-    var shot = (rec.screenshots && rec.screenshots[0]) || "";
+    var shot = shotUrl(rec, 0);
     if (shot) {
-      var img = document.createElement("img");
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.referrerPolicy = "no-referrer";
-      img.alt = primaryName(rec);
-      img.src = shot;
-      img.addEventListener("error", function () {
+      media.appendChild(makeImg(shot, primaryName(rec), function () {
         media.innerHTML = "";
         media.appendChild(fallbackMedia(rec));
-      });
-      media.appendChild(img);
+      }));
     } else {
       media.appendChild(fallbackMedia(rec));
     }
@@ -257,7 +303,7 @@
     var tags = tagsOf(rec);
     if (tags.length) {
       var tw = el("div", "card-tags");
-      tags.slice(0, 3).forEach(function (tag) { tw.appendChild(el("span", "mini-tag", tag)); });
+      tags.slice(0, 3).forEach(function (tag) { tw.appendChild(el("span", "mini-tag", tagLabel(tag))); });
       body.appendChild(tw);
     }
 
@@ -269,10 +315,9 @@
     body.appendChild(meta);
     card.appendChild(body);
 
-    function open() { openModal(rec); }
-    card.addEventListener("click", open);
+    card.addEventListener("click", function () { openDetail(rec.slug); });
     card.addEventListener("keydown", function (ev) {
-      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); open(); }
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); openDetail(rec.slug); }
     });
     return card;
   }
@@ -288,7 +333,7 @@
     return fb;
   }
 
-  /* ---------------- 渲染：列表 ---------------- */
+  /* ---------------- 列表渲染 ---------------- */
   function refresh(keepScroll) {
     state.filtered = buildFiltered();
     state.shown = 0;
@@ -300,7 +345,7 @@
     $("empty").hidden = count !== 0;
     $("loadError").hidden = true;
 
-    renderCatChips();      // 未分类计数可能随语言变化
+    renderCatChips();
     renderMore();
     syncUrl();
   }
@@ -327,78 +372,144 @@
     if (state.shown < state.filtered.length) state.io.observe($("sentinel"));
   }
 
-  /* ---------------- 详情弹窗 ---------------- */
-  function openModal(rec) {
-    var body = $("modalBody");
-    body.innerHTML = "";
+  /* ---------------- 详情子页 ---------------- */
+  function openDetail(slug) {
+    state.cameFromList = state.detailSlug == null;
+    if (state.cameFromList) state.listScroll = window.scrollY;
+    location.hash = "#/t/" + slug;
+  }
 
-    var head = el("div", "m-head");
-    head.appendChild(el("div", "m-name-zh", primaryName(rec)));
+  function goBack() {
+    if (state.cameFromList && history.length > 1) history.back();
+    else clearHash();
+  }
+  function clearHash() {
+    history.replaceState(null, "", location.pathname + location.search);
+    route(); // route 内部依据当前 detailSlug 恢复列表视图
+  }
+
+  function sectionTitle(text, n) {
+    var h = el("h3", null, text);
+    if (n != null) h.appendChild(el("span", "n", String(n)));
+    return h;
+  }
+
+  function renderDetail(rec) {
+    var root = $("detailView");
+    root.innerHTML = "";
+    var shell = el("div", "shell d-shell");
+
+    /* 顶栏：返回 */
+    var top = el("div", "d-top");
+    var back = el("button", "d-back");
+    back.type = "button";
+    back.appendChild(el("span", "d-back-ico", "←"));
+    back.appendChild(el("span", null, t("detailBack")));
+    back.addEventListener("click", goBack);
+    top.appendChild(back);
+    shell.appendChild(top);
+
+    /* 标题区 */
+    var head = el("header", "d-head");
+    head.appendChild(el("h1", "d-title", primaryName(rec)));
     var sub = secondaryName(rec);
-    if (sub) head.appendChild(el("div", "m-name-en", sub));
-    body.appendChild(head);
+    if (sub) head.appendChild(el("p", "d-sub", sub));
+    var chips = el("div", "d-chips");
+    var catB = el("span", "mini-tag", catLabel(catOf(rec)));
+    chips.appendChild(catB);
+    tagsOf(rec).slice(0, 4).forEach(function (tag) { chips.appendChild(el("span", "mini-tag", tagLabel(tag))); });
+    head.appendChild(chips);
+    shell.appendChild(head);
 
-    var facts = el("div", "m-facts");
-    addFact(facts, t("cardVersion"), rec.version || "—");
-    addFact(facts, t("detailOptions", { n: rec.options_extracted || 0 }), null, true);
-    addFact(facts, t("detailPublished"), rec.published_date || "—");
-    addFact(facts, t("cardUpdated"), rec.last_updated || t("cardNoDate"));
-    body.appendChild(facts);
-
-    if (rec.notes && rec.notes.length) {
-      var ns = el("div", "m-section");
-      ns.appendChild(sectionTitle(t("detailNote"), rec.notes.length));
-      var nlist = el("div", "opt-list");
-      rec.notes.forEach(function (n) {
-        var item = el("div", "opt");
-        item.appendChild(el("div", "opt-text", n));
-        nlist.appendChild(item);
-      });
-      ns.appendChild(nlist);
-      body.appendChild(ns);
+    /* Hero：大图 + 关键信息 */
+    var hero = el("div", "d-hero");
+    var shotWrap = el("figure", "d-shot-wrap");
+    var shot = shotUrl(rec, 0);
+    if (shot) {
+      var dimg = makeImg(shot, primaryName(rec));
+      dimg.classList.add("d-shot");
+      dimg.addEventListener("click", function () { openLightbox(rec, 0); });
+      shotWrap.appendChild(dimg);
+      shotWrap.appendChild(el("figcaption", "d-shot-hint", "🔍 " + t("detailScreens")));
+      shotWrap.classList.add("has-img");
+    } else {
+      shotWrap.appendChild(fallbackMedia(rec));
     }
+    hero.appendChild(shotWrap);
 
-    if (rec.screenshots && rec.screenshots.length) {
-      var ss = el("div", "m-section");
-      ss.appendChild(sectionTitle(t("detailScreens"), rec.screenshots.length));
-      var sw = el("div", "m-screens");
-      rec.screenshots.forEach(function (url) {
-        var img = document.createElement("img");
-        img.loading = "lazy";
-        img.referrerPolicy = "no-referrer";
-        img.alt = primaryName(rec);
-        img.src = url;
-        sw.appendChild(img);
-      });
-      ss.appendChild(sw);
-      body.appendChild(ss);
+    var side = el("div", "d-side");
+    var latest = (rec.downloads || []).filter(function (d) { return d.latest; })[0] || rec.downloads[0];
+
+    var facts = el("div", "d-facts");
+    addBigFact(facts, t("detailLatestVer"), (latest && latest.version) || rec.version || "—");
+    addBigFact(facts, t("statUpdated"), rec.last_updated || t("cardNoDate"));
+    addBigFact(facts, t("statOptions"), num(rec.options_extracted || 0));
+    addBigFact(facts, t("statVersions"), num((rec.downloads || []).length));
+    side.appendChild(facts);
+
+    var actions = el("div", "d-actions");
+    if (latest && latest.url) {
+      var dl = el("a", "btn btn-primary d-dl", t("detailAction") + " · " + t("detailLatest"));
+      dl.href = latest.url;
+      dl.target = "_blank";
+      dl.rel = "noopener";
+      actions.appendChild(dl);
     }
+    var site = el("a", "btn btn-ghost", t("detailOpenSite") + " →");
+    site.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
+    site.target = "_blank";
+    site.rel = "noopener";
+    actions.appendChild(site);
+    side.appendChild(actions);
 
+    var srcNote = el("p", "d-src", t("detailDataFrom") + " · " + (rec.url || ""));
+    side.appendChild(srcNote);
+    hero.appendChild(side);
+    shell.appendChild(hero);
+
+    /* 功能选项（紧凑双列） */
     if (rec.options && rec.options.length) {
-      var os = el("div", "m-section");
+      var os = el("section", "d-section");
       os.appendChild(sectionTitle(t("detailOptions", { n: rec.options.length }), null));
-      var list = el("div", "opt-list");
+      var list = el("div", "opt-grid");
       rec.options.forEach(function (o, i) {
         var item = el("div", "opt");
-        var key = el("span", "opt-key", hotkeyOf(o.t) || String(i + 1));
+        var hk = hotkeyOf(o.t);
+        item.appendChild(el("span", "opt-key", hk || String(i + 1)));
+        // 正文 = 去掉热键前缀后的部分
+        var rawBody = o.t || "";
+        if (hk) rawBody = rawBody.slice(rawBody.indexOf(hk) + hk.length).replace(/^[\s–—-]+/, "");
+        var zh = state.lang === "zh" ? TR.option(o.t) : null;
+        if (zh && hk) {
+          var esc = hk.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          var pm = new RegExp("^" + esc + "\\s*[–—-]\\s*").exec(zh);
+          if (pm) zh = zh.slice(pm[0].length);
+        }
         var wrap = el("div", "opt-text");
-        wrap.appendChild(document.createTextNode(o.t));
+        wrap.appendChild(el("span", "opt-main", zh || rawBody));
+        if (zh && zh !== rawBody) wrap.appendChild(el("span", "opt-orig", rawBody));
         if (o.n) wrap.appendChild(el("span", "opt-note", o.n));
-        item.appendChild(key);
         item.appendChild(wrap);
+        if (zh) item.title = o.t;
         list.appendChild(item);
       });
       os.appendChild(list);
-      body.appendChild(os);
+      if (state.lang === "zh") {
+        var hint = el("p", "d-hint", t("detailUncertain"));
+        os.appendChild(hint);
+      }
+      shell.appendChild(os);
     }
 
+    /* 下载版本（含链接） */
     if (rec.downloads && rec.downloads.length) {
-      var ds = el("div", "m-section");
+      var ds = el("section", "d-section");
       ds.appendChild(sectionTitle(t("detailDownloads", { n: rec.downloads.length }), null));
+      var scrollBox = el("div", "dl-scroll");
       var table = el("table", "dl-table");
       var thead = el("thead");
       var hr = el("tr");
-      [t("detailFile"), t("cardVersion"), t("detailDate"), t("detailSize"), t("detailCount")]
+      [t("detailFile"), t("cardVersion"), t("detailDate"), t("detailSize"), t("detailCount"), t("detailActionCol")]
         .forEach(function (h) { hr.appendChild(el("th", null, h)); });
       thead.appendChild(hr);
       table.appendChild(thead);
@@ -407,8 +518,7 @@
         var tr = el("tr");
         var tdFile = el("td");
         var nameWrap = el("div", "dl-file");
-        var badge = el("span", "dl-badge" + (d.latest ? "" : " old"), d.latest ? t("detailLatest") : t("detailOlder"));
-        nameWrap.appendChild(badge);
+        nameWrap.appendChild(el("span", "dl-badge" + (d.latest ? "" : " old"), d.latest ? t("detailLatest") : t("detailOlder")));
         nameWrap.appendChild(document.createTextNode(d.file));
         tdFile.appendChild(nameWrap);
         tr.appendChild(tdFile);
@@ -418,53 +528,130 @@
         tr.appendChild(el("td", null, d.date || "—"));
         tr.appendChild(el("td", null, d.size || "—"));
         tr.appendChild(el("td", null, d.count == null ? "—" : num(d.count)));
+        var tdAct = el("td");
+        if (d.url) {
+          var a = el("a", "dl-btn", t("detailAction") + " ↓");
+          a.href = d.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          tdAct.appendChild(a);
+        } else {
+          tdAct.appendChild(el("span", "dl-none", "—"));
+        }
+        tr.appendChild(tdAct);
         tbody.appendChild(tr);
       });
       table.appendChild(tbody);
-      ds.appendChild(table);
-      body.appendChild(ds);
+      scrollBox.appendChild(table);
+      ds.appendChild(scrollBox);
+      shell.appendChild(ds);
     }
 
-    var link = el("a", "m-link", t("detailOpenSite") + " →");
-    link.href = rec.url || (ORIGIN + "/trainer/" + rec.slug + "/");
-    link.target = "_blank";
-    link.rel = "noopener";
-    body.appendChild(link);
-    body.appendChild(el("p", "m-src", t("detailDataFrom") + ": " + (rec.url || "")));
+    /* 说明 */
+    if (rec.notes && rec.notes.length) {
+      var ns = el("section", "d-section");
+      ns.appendChild(sectionTitle(t("detailNote"), rec.notes.length));
+      var nlist = el("div", "note-list");
+      rec.notes.forEach(function (n) {
+        nlist.appendChild(el("p", "note-item", n));
+      });
+      ns.appendChild(nlist);
+      shell.appendChild(ns);
+    }
 
-    $("modal").hidden = false;
-    document.body.style.overflow = "hidden";
-    $(".modal-close").focus();
+    /* 预览图 */
+    if (rec.screenshots && rec.screenshots.length) {
+      var ss = el("section", "d-section");
+      ss.appendChild(sectionTitle(t("detailScreens"), rec.screenshots.length));
+      var sw = el("div", "d-screens");
+      rec.screenshots.forEach(function (s, idx) {
+        var url = typeof s === "string" ? s : (s.original_url || s.url || "");
+        if (!url) return;
+        var fig = el("figure", "d-screen");
+        var img = makeImg(url, primaryName(rec));
+        img.addEventListener("click", function () { openLightbox(rec, idx); });
+        fig.appendChild(img);
+        sw.appendChild(fig);
+      });
+      ss.appendChild(sw);
+      shell.appendChild(ss);
+    }
+
+    root.appendChild(shell);
   }
 
-  function addFact(facts, label, value, valueIsWhole) {
-    var f = el("span", "fact");
-    if (valueIsWhole) { f.appendChild(el("b", null, label)); }
-    else {
-      f.appendChild(document.createTextNode(label + " "));
-      f.appendChild(el("b", null, value));
-    }
+  function addBigFact(facts, label, value) {
+    var f = el("div", "dfact");
+    f.appendChild(el("span", "dfact-k", label));
+    f.appendChild(el("span", "dfact-v", value));
     facts.appendChild(f);
   }
-  function sectionTitle(text, n) {
-    var h = el("h3", null, text);
-    if (n != null) h.appendChild(el("span", "n", String(n)));
-    return h;
-  }
-  function hotkeyOf(text) {
-    var m = /^(Num(?:pad)?\s*\.?\s*\d|Ctrl\+Num[^–—-]*|Alt\+Num[^–—-]*|Shift\+Num[^–—-]*|F\d{1,2}|Numpad\s*\d)/i.exec(text || "");
-    if (m) return m[1];
-    m = /^(Ctrl|Alt|Shift)\+[^\s–—-]+/i.exec(text || "");
-    return m ? m[1] + "+" : "";
+
+  /* ---------------- 路由 ---------------- */
+  function route() {
+    var m = /^#\/t\/(.+)$/.exec(location.hash || "");
+    var slug = m ? decodeURIComponent(m[1]) : null;
+    var rec = slug ? bySlug[slug] : null;
+    if (rec) {
+      state.detailSlug = slug;
+      renderDetail(rec);
+      $("listView").hidden = true;
+      $("detailView").hidden = false;
+      $("toTop").hidden = true;
+      window.scrollTo(0, 0);
+    } else {
+      if (state.detailSlug != null) {
+        // 从详情返回列表：恢复滚动位置
+        $("listView").hidden = false;
+        $("detailView").hidden = true;
+        $("detailView").innerHTML = "";
+        window.scrollTo(0, state.listScroll || 0);
+      }
+      state.detailSlug = null;
+    }
   }
 
-  function closeModal() {
-    $("modal").hidden = true;
+  /* ---------------- Lightbox ---------------- */
+  function openLightbox(rec, idx) {
+    var urls = (rec.screenshots || []).map(function (s) {
+      return typeof s === "string" ? s : (s.original_url || s.url || "");
+    }).filter(Boolean);
+    if (!urls.length) return;
+    state.lbList = urls;
+    state.lbIndex = idx;
+    showLb();
+    $("lightbox").hidden = false;
+    document.body.style.overflow = "hidden";
+    $("lbClose").focus();
+  }
+  function showLb() {
+    var url = state.lbList[state.lbIndex];
+    var img = $("lbImg");
+    img.referrerPolicy = "no-referrer";
+    attachImg(img, url, function () {
+      img.replaceWith(el("div", "lb-fallback", "!"));
+    });
+    img.alt = "";
+    $("lbCount").textContent = (state.lbIndex + 1) + " / " + state.lbList.length;
+    var multi = state.lbList.length > 1;
+    $("lbPrev").hidden = !multi;
+    $("lbNext").hidden = !multi;
+  }
+  function closeLightbox() {
+    $("lightbox").hidden = true;
     document.body.style.overflow = "";
+    state.lbList = [];
+    state.lbIndex = -1;
+  }
+  function lbMove(step) {
+    if (!state.lbList.length) return;
+    state.lbIndex = (state.lbIndex + step + state.lbList.length) % state.lbList.length;
+    showLb();
   }
 
-  /* ---------------- URL 同步 ---------------- */
+  /* ---------------- URL 同步（列表状态） ---------------- */
   function syncUrl() {
+    if (state.detailSlug) return; // 详情页不改列表参数
     var p = new URLSearchParams();
     if (state.q) p.set("q", state.q);
     if (state.cat !== "__all__") p.set("cat", state.cat);
@@ -501,10 +688,17 @@
     });
 
     document.addEventListener("keydown", function (ev) {
-      if (ev.key === "/" && document.activeElement !== input) {
+      if (ev.key === "/" && document.activeElement !== input && $("lightbox").hidden && state.detailSlug == null) {
         ev.preventDefault(); input.focus(); input.select();
       }
-      if (ev.key === "Escape" && !$("modal").hidden) closeModal();
+      if (ev.key === "Escape") {
+        if (!$("lightbox").hidden) closeLightbox();
+        else if (state.detailSlug) goBack();
+      }
+      if (!$("lightbox").hidden) {
+        if (ev.key === "ArrowLeft") lbMove(-1);
+        if (ev.key === "ArrowRight") lbMove(1);
+      }
     });
 
     $("sortSelect").addEventListener("change", function (ev) {
@@ -518,7 +712,9 @@
     $("langToggle").addEventListener("click", function () {
       state.lang = state.lang === "zh" ? "en" : "zh";
       localStorage.setItem("fling.lang", state.lang);
-      renderStaticText(); renderTagChips(); refresh();
+      renderStaticText(); renderTagChips();
+      if (state.detailSlug) renderDetail(bySlug[state.detailSlug]);
+      else refresh();
     });
 
     $("themeToggle").addEventListener("click", function () {
@@ -527,13 +723,18 @@
       document.body.dataset.theme = state.theme;
     });
 
-    Array.prototype.forEach.call(document.querySelectorAll("[data-close]"), function (n) {
-      n.addEventListener("click", closeModal);
+    window.addEventListener("hashchange", route);
+
+    $("lbClose").addEventListener("click", closeLightbox);
+    $("lbPrev").addEventListener("click", function () { lbMove(-1); });
+    $("lbNext").addEventListener("click", function () { lbMove(1); });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-lb-close]"), function (n) {
+      n.addEventListener("click", closeLightbox);
     });
 
     var toTop = $("toTop");
     window.addEventListener("scroll", function () {
-      toTop.hidden = window.scrollY < 900;
+      if (state.detailSlug == null) toTop.hidden = window.scrollY < 900;
     }, { passive: true });
     toTop.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -556,6 +757,7 @@
     renderCatChips();
     renderTagChips();
     refresh();
+    route(); // 处理 #/t/<slug> 深链
   }
 
   if (document.readyState === "loading") {
