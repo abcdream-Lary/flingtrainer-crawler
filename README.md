@@ -460,7 +460,7 @@ python scripts/push_via_api.py --repo <owner>/<repo>
 
 ---
 
-## 十二、展示网站
+## 十一、展示网站
 
 `site/` 内是一个**零依赖纯静态**的修改器展示站（双击 `index.html` 即可打开，
 无需服务器、无需构建、无任何 npm 依赖），设计语言参考 fnUI（fnOS 官网）：
@@ -499,7 +499,7 @@ Source: Deploy from a branch`，目录选 `/docs` 或根目录均可
 
 ---
 
-## 十一、已知边界
+## 十二、已知边界
 
 - 版本号是从下载文件名里**按规则解析**的启发式结果（如 `v1.0-v1.0.20`、
   `v1.0-Build.169652`）；文件名不符合惯例时该字段为空，并计入 `missing_fields`，不做猜测。
