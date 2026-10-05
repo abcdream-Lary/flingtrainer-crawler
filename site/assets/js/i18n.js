@@ -81,7 +81,23 @@ window.FLING_I18N = {
     footerNote: "本站为静态展示，数据由自动化爬虫每日采集自 flingtrainer.com。",
     footerRobots: "修改器下载链接仅作索引展示，遵循站点 robots.txt 不做文件请求。",
     tagNone: "无标签",
-    jumpTop: "回到顶部"
+    jumpTop: "回到顶部",
+    /* ---- 无障碍标签与开关按钮（index.html 静态属性，走 t() 注入）---- */
+    navView: "视图切换",
+    themeToggle: "切换深浅色",
+    langToggle: "切换语言",
+    repoLink: "采集工程",
+    searchLabel: "搜索游戏",
+    searchClearLabel: "清除搜索",
+    catGroup: "分类",
+    tagGroup: "标签",
+    pager: "分页",
+    detailViewLabel: "修改器详情",
+    lbZoomOut: "缩小",
+    lbZoomIn: "放大",
+    lbFit: "适应窗口",
+    lbFitShort: "适应",
+    lbOne: "原始尺寸"
   },
   en: {
     htmlLang: "en",
@@ -164,6 +180,22 @@ window.FLING_I18N = {
     footerNote: "Static showcase. Data is crawled daily from flingtrainer.com by an automated pipeline.",
     footerRobots: "Download links are indexed only — file requests are never made, per the site's robots.txt.",
     tagNone: "No tags",
-    jumpTop: "Top"
+    jumpTop: "Top",
+    /* ---- 无障碍标签与开关按钮（index.html 静态属性，走 t() 注入）---- */
+    navView: "Switch view",
+    themeToggle: "Toggle light / dark",
+    langToggle: "Switch language",
+    repoLink: "Crawler repo",
+    searchLabel: "Search games",
+    searchClearLabel: "Clear search",
+    catGroup: "Category",
+    tagGroup: "Tag",
+    pager: "Pagination",
+    detailViewLabel: "Trainer details",
+    lbZoomOut: "Zoom out",
+    lbZoomIn: "Zoom in",
+    lbFit: "Fit to window",
+    lbFitShort: "Fit",
+    lbOne: "Actual size"
   }
 };

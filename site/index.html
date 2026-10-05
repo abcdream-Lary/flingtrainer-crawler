@@ -9,22 +9,20 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/chakra-petch@5.2.5/600.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/chakra-petch@5.2.5/700.css">
-<link rel="stylesheet" href="assets/css/style.css?v=5f3489a8">
+<link rel="stylesheet" href="assets/css/style.css?v=30a9b3d0">
 </head>
 <body data-theme="light">
 
-<!-- ======== 列表视图 ======== -->
-<div id="listView">
-  <!-- 顶部导航 -->
-  <header class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="./" id="brand">
-        <span class="brand-mark" aria-hidden="true">F</span>
-        <span class="brand-text">
-          <strong id="brandName">风灵图鉴</strong>
-          <small id="brandSub">FLiNG Trainer Archive</small>
-        </span>
-      </a>
+<!-- ======== 顶部导航（列表视图与详情子页共用，不随视图切换隐藏） ======== -->
+<header class="nav">
+  <div class="shell nav-inner">
+    <a class="brand" href="./" id="brand">
+      <span class="brand-mark" aria-hidden="true">F</span>
+      <span class="brand-text">
+        <strong id="brandName">风灵图鉴</strong>
+        <small id="brandSub">FLiNG Trainer Archive</small>
+      </span>
+    </a>
 
     <nav class="nav-tabs" id="navTabs" aria-label="视图切换">
       <button class="nav-tab on" data-view="gallery" type="button">图鉴</button>
@@ -33,17 +31,18 @@
 
     <div class="nav-actions">
       <button id="themeToggle" class="icon-btn" title="切换深浅色" aria-label="切换深浅色">
-        <svg class="ico-sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5h0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM2 11h2a1 1 0 1 1 0 2H2a1 1 0 1 1 0-2zm18 0h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zM4.2 4.2l1.4 1.4A1 1 0 1 1 4.2 7L2.8 5.6a1 1 0 0 1 1.4-1.4zm14.2 14.2 1.4 1.4a1 1 0 1 1-1.4 1.4l-1.4-1.4a1 1 0 0 1 1.4-1.4zM19.8 4.2a1 1 0 0 1 0 1.4L18.4 7a1 1 0 1 1-1.4-1.4l1.4-1.4a1 1 0 0 1 1.4 0zM5.6 18.4 4.2 19.8a1 1 0 1 1-1.4-1.4l1.4-1.4a1 1 0 0 1 1.4 1.4z"/></svg>
-        <svg class="ico-moon" viewBox="0 0 24 24"><path d="M20.7 14.9A8.5 8.5 0 0 1 9.1 3.3 9 9 0 1 0 20.7 14.9z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5h0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM2 11h2a1 1 0 1 1 0 2H2a1 1 0 1 1 0-2zm18 0h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zM4.2 4.2l1.4 1.4A1 1 0 1 1 4.2 7L2.8 5.6a1 1 0 0 1 1.4-1.4zm14.2 14.2 1.4 1.4a1 1 0 1 1-1.4 1.4l-1.4-1.4a1 1 0 0 1 1.4-1.4zM19.8 4.2a1 1 0 0 1 0 1.4L18.4 7a1 1 0 1 1-1.4-1.4l1.4-1.4a1 1 0 0 1 1.4 0zM5.6 18.4 4.2 19.8a1 1 0 1 1-1.4-1.4l1.4-1.4a1 1 0 0 1 1.4 1.4z"/></svg>
+      <svg class="ico-moon" viewBox="0 0 24 24"><path d="M20.7 14.9A8.5 8.5 0 0 1 9.1 3.3 9 9 0 1 0 20.7 14.9z"/></svg>
       </button>
-      <button id="langToggle" class="lang-btn" title="Switch language">EN</button>
-      <a class="icon-btn" href="https://github.com/abcdream-Lary/flingtrainer-crawler" target="_blank" rel="noopener" title="GitHub 采集工程" aria-label="GitHub 采集工程">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.5 15.6c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
+      <button id="langToggle" class="lang-btn" title="切换语言">EN</button>
+      <a class="icon-btn" id="repoLink" href="https://github.com/abcdream-Lary/flingtrainer-crawler" target="_blank" rel="noopener" title="GitHub 采集工程" aria-label="GitHub 采集工程">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.5 15.6c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
       </a>
     </div>
   </div>
 </header>
-
+<!-- ======== 列表视图 ======== -->
+<div id="listView">
   <!-- Hero（主页总览） -->
   <section class="hero" id="heroSec">
     <div class="hero-bg" aria-hidden="true"></div>
@@ -158,10 +157,10 @@
 
 <button class="to-top" id="toTop" hidden aria-label="回到顶部">↑</button>
 
-<script src="assets/js/i18n.js?v=4ff1fcfb"></script>
-<script src="assets/js/catalog.js?v=b40dae13"></script>
-<script src="assets/js/translator.js?v=b5c5c3d8"></script>
+<script src="assets/js/i18n.js?v=ee94cf41"></script>
+<script src="assets/js/catalog.js?v=ab54789c"></script>
+<script src="assets/js/translator.js?v=f4badc08"></script>
 <script src="assets/js/data.js?v=b7f67c01"></script>
-<script src="assets/js/app.js?v=92ae2ebd"></script>
+<script src="assets/js/app.js?v=563b9690"></script>
 </body>
 </html>

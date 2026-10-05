@@ -247,6 +247,30 @@
     $("searchInput").placeholder = t("searchPlaceholder");
     $("searchInput").setAttribute("aria-label", t("searchPlaceholder"));
 
+    /* 静态属性文案：HTML 里写死了中文，切英文时不跟随，这里统一交给 i18n */
+    setAttr("navTabs", "aria-label", "navView");
+    setAttr("themeToggle", "title", "themeToggle");
+    setAttr("themeToggle", "aria-label", "themeToggle");
+    setAttr("langToggle", "title", "langToggle");
+    setAttr("langToggle", "aria-label", "langToggle");
+    setAttr("repoLink", "title", "repoLink");
+    setAttr("repoLink", "aria-label", "repoLink");
+    setAttr("searchInput", "aria-label", "searchLabel");
+    setAttr("searchClear", "aria-label", "searchClearLabel");
+    setAttr("catChips", "aria-label", "catGroup");
+    setAttr("tagChips", "aria-label", "tagGroup");
+    setAttr("pager", "aria-label", "pager");
+    setAttr("detailView", "aria-label", "detailViewLabel");
+    setAttr("lbClose", "aria-label", "lbClose");
+    setAttr("lbPrev", "aria-label", "lbPrev");
+    setAttr("lbNext", "aria-label", "lbNext");
+    setAttr("lbZoomOut", "aria-label", "lbZoomOut");
+    setAttr("lbZoomIn", "aria-label", "lbZoomIn");
+    setAttr("lbFit", "aria-label", "lbFit");
+    $("lbFit").textContent = t("lbFitShort");
+    setAttr("lbOne", "aria-label", "lbOne");
+    setAttr("toTop", "aria-label", "jumpTop");
+
     var sortMap = { recent: "sortRecent", options: "sortOptions", versions: "sortVersions", name: "sortName" };
     Array.prototype.forEach.call($("sortSelect").options, function (opt) {
       if (sortMap[opt.value]) opt.textContent = t(sortMap[opt.value]);
@@ -265,6 +289,11 @@
     var dd = $(id).nextElementSibling;
     dd.textContent = "";
     dd.appendChild(document.createTextNode(value));
+  }
+  /* 无障碍属性文案注入：id + 属性名 + i18n 键；元素不存在时静默跳过 */
+  function setAttr(id, attr, key) {
+    var n = $(id);
+    if (n) n.setAttribute(attr, t(key));
   }
 
   /* ---------------- 筛选 chips ---------------- */
@@ -339,6 +368,16 @@
     applyView();
     syncUrl();
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  /* 顶栏常驻后，详情页点击「图鉴 / 分类」需先退回列表，否则点击无反应 */
+  function navTo(v) {
+    if (state.detailSlug != null) {
+      state.view = v;
+      clearHash();      // 触发 route() 复位列表视图
+      applyView();
+      return;
+    }
+    setView(v);
   }
 
   /* ---------------- 卡片 ---------------- */
@@ -853,7 +892,9 @@
     if (state.page > 1) p.set("page", String(state.page));
     p.set("ref", REF_TAG); // 源站下载校验需要，保持常驻
     var qs = p.toString();
-    history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+    /* 保留 hash：boot() 里 refresh() 先于 route() 执行，
+     * 若在此丢掉 #/t/<slug>，详情深链会失效 */
+    history.replaceState(null, "", (qs ? "?" + qs : location.pathname) + (location.hash || ""));
   }
   function readUrl() {
     var p = new URLSearchParams(location.search);
@@ -911,10 +952,18 @@
     $("perPageSelect").addEventListener("change", function (ev) {
       setPer(parseInt(ev.target.value, 10));
     });
-    $("browseCta").addEventListener("click", function () { setView("cats"); });
+    $("browseCta").addEventListener("click", function () { navTo("cats"); });
+    /* 品牌区：详情页内点击回主页（无 hash 时 clearHash 不会触发 hashchange，需直接调 route） */
+    $("brand").addEventListener("click", function (ev) {
+      if (state.detailSlug == null) return; // 列表页保持原生整页跳转
+      ev.preventDefault();
+      state.view = "gallery";
+      clearHash();
+      applyView();
+    });
 
     Array.prototype.forEach.call(document.querySelectorAll(".nav-tab"), function (tab) {
-      tab.addEventListener("click", function () { setView(tab.dataset.view); });
+      tab.addEventListener("click", function () { navTo(tab.dataset.view); });
     });
     $("emptyReset").addEventListener("click", function () {
       state.q = ""; input.value = ""; $("searchClear").hidden = true;
