@@ -341,30 +341,65 @@ svg { fill: currentColor; }
 .toolbar-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .result-count { font: 600 12.5px/1 var(--font-num); color: var(--text-3); letter-spacing: .05em; }
 
-/* 下拉框：定制外观 */
-.sort { position: relative; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-3); }
-.sort select {
-  height: 34px; padding: 0 30px 0 12px;
+/* 下拉框：自绘（button + 浮层），不用原生 select
+ *
+ * 为什么不用原生 <select>：
+ *  1. 原生弹出层由浏览器绘制，Windows Chrome 会忽略 option 的 background，
+ *     深色主题下展开是刺眼白底 + 深色字，几乎不可读；
+ *  2. 两个 select 内容长度不同（「最近更新」vs「24」），若箭头挂在含 label 的
+ *     容器上定位，箭头会与框右缘错开 40px，视觉不统一。
+ * 自绘后两者共用同一套变量，天然一致，且完全跟随主题。
+ *
+ * 结构：.dd > button.dd-btn + .dd-menu > button.dd-opt
+ * 原生 select 保留在 DOM 中（隐藏、仍参与表单与 readUrl），由 JS 同步值。 */
+.dd { position: relative; display: inline-flex; }
+.dd-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 34px; padding: 0 11px 0 12px;
   border: 1px solid var(--line-strong); border-radius: var(--radius);
-  background: var(--surface); color: var(--text); font: inherit; font-size: 13px;
-  font-weight: 500;
-  outline: none;
-  appearance: none; -webkit-appearance: none; -moz-appearance: none;
-  cursor: pointer;
+  background: var(--surface); color: var(--text);
+  font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+  outline: none; cursor: pointer; white-space: nowrap;
   transition: border-color .15s, box-shadow .15s;
 }
-.sort select:hover { border-color: var(--cyan-400); }
-.sort select:focus { border-color: var(--cyan-400); box-shadow: var(--ring); }
-.sort select option { background: var(--surface); color: var(--text); font-family: var(--font-sans); }
-.sort::after {
+.dd-btn:hover, .dd.open .dd-btn { border-color: var(--cyan-400); }
+.dd.open .dd-btn { box-shadow: var(--ring); }
+.dd-btn::after {
   content: "";
-  position: absolute; right: 11px;
+  flex: none;
   width: 8px; height: 8px;
   border-right: 1.6px solid var(--text-3);
   border-bottom: 1.6px solid var(--text-3);
-  transform: rotate(45deg) translateY(-3px);
-  pointer-events: none;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform .15s;
 }
+.dd.open .dd-btn::after { transform: translateY(1px) rotate(-135deg); }
+.dd-menu {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+  min-width: 100%;
+  padding: 4px;
+  display: none; flex-direction: column;
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: var(--surface-hi);
+  box-shadow: var(--shadow-md);
+}
+.dd.open .dd-menu { display: flex; }
+.dd-opt {
+  display: block; width: 100%;
+  padding: 7px 10px;
+  border: 0; border-radius: calc(var(--radius) - 2px);
+  background: transparent; color: var(--text-2);
+  font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+  text-align: left; white-space: nowrap; cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.dd-opt:hover { background: color-mix(in srgb, var(--cyan-400) 12%, transparent); color: var(--text); }
+.dd-opt[aria-selected="true"] { background: color-mix(in srgb, var(--blue-600) 20%, transparent); color: var(--text); font-weight: 600; }
+.dd-opt[aria-selected="true"]::after { content: " ✓"; color: var(--cyan-400); }
+/* 数字型下拉（每页）右对齐，视觉更稳 */
+.dd-dd-num .dd-btn, .dd-dd-num .dd-opt { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.dd-dd-num .dd-opt { text-align: right; }
+.dd-dd-num .dd-opt[aria-selected="true"]::after { float: right; margin-left: 14px; }
 
 /* ---------------- 卡片网格 ---------------- */
 .grid {

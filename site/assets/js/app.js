@@ -275,6 +275,8 @@
     Array.prototype.forEach.call($("sortSelect").options, function (opt) {
       if (sortMap[opt.value]) opt.textContent = t(sortMap[opt.value]);
     });
+    // 切语言后自绘下拉的按钮与选项文案要跟着重算
+    if (ddReady) DDS.forEach(ddSync);
 
     if (DATA && DATA.stats) {
       var s = DATA.stats;
@@ -910,6 +912,90 @@
     if (page >= 1) state.page = page;
   }
 
+  /* ---------------- 自绘下拉（排序 / 每页） ----------------
+   * 原生 <select> 的弹出层由浏览器绘制，深色主题下 option 背景不可控，
+   * 且两个下拉宽度不同时箭头定位易错位，故统一改为 button + 浮层。
+   * 隐藏的原生 select 仍保留，state 与 URL 读写逻辑不变。 */
+  var DDS = [
+    { dd: "sortDD", btn: "sortBtn", menu: "sortMenu", sel: "sortSelect",
+      get: function () { return state.sort; },
+      set: function (v) { state.sort = v; refresh(); } },
+    { dd: "perPageDD", btn: "perPageBtn", menu: "perPageMenu", sel: "perPageSelect",
+      get: function () { return String(state.per); },
+      set: function (v) { setPer(parseInt(v, 10)); } }
+  ];
+
+  var ddReady = false;
+
+  function ddBuild(cfg) {
+    var sel = $(cfg.sel), menu = $(cfg.menu), btn = $(cfg.btn);
+    menu.innerHTML = "";
+    Array.prototype.forEach.call(sel.options, function (opt) {
+      var b = el("button", "dd-opt", opt.textContent);
+      b.type = "button";
+      b.setAttribute("role", "option");
+      b.dataset.value = opt.value;
+      b.addEventListener("click", function () {
+        cfg.set(opt.value);
+        ddSync(cfg);
+        ddCloseAll();
+        btn.focus();
+      });
+      menu.appendChild(b);
+    });
+  }
+  function ddSync(cfg) {
+    var sel = $(cfg.sel), btn = $(cfg.btn), menu = $(cfg.menu);
+    var cur = cfg.get();
+    sel.value = cur;
+    var label = "";
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (o.value === cur) label = o.textContent;
+    });
+    btn.textContent = "";
+    btn.appendChild(document.createTextNode(label));
+    /* 菜单项文案也要跟着语言走：切语言时 renderStaticText 已改写 option.textContent，
+     * 这里按 value 回填到对应按钮上（ddBuild 是初始化时才建 DOM） */
+    var texts = {};
+    Array.prototype.forEach.call(sel.options, function (o) { texts[o.value] = o.textContent; });
+    Array.prototype.forEach.call(menu.children, function (b) {
+      if (texts[b.dataset.value] != null) b.textContent = texts[b.dataset.value];
+      b.setAttribute("aria-selected", b.dataset.value === cur ? "true" : "false");
+    });
+  }
+  function ddCloseAll() {
+    DDS.forEach(function (c) {
+      $(c.dd).classList.remove("open");
+      $(c.btn).setAttribute("aria-expanded", "false");
+    });
+  }
+  function ddToggle(cfg) {
+    var open = $(cfg.dd).classList.contains("open");
+    ddCloseAll();
+    if (open) return;
+    $(cfg.dd).classList.add("open");
+    $(cfg.btn).setAttribute("aria-expanded", "true");
+  }
+  function bindDropdowns() {
+    ddReady = true;
+    DDS.forEach(function (cfg) {
+      ddBuild(cfg);
+      ddSync(cfg);
+      $(cfg.btn).addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        ddToggle(cfg);
+      });
+    });
+    document.addEventListener("click", function (ev) {
+      // 点击外部或另一个下拉时收起
+      var inDD = DDS.some(function (c) { return $(c.dd).contains(ev.target); });
+      if (!inDD) ddCloseAll();
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") ddCloseAll();
+    });
+  }
+
   /* ---------------- 事件 ---------------- */
   function bind() {
     var input = $("searchInput");
@@ -946,12 +1032,8 @@
       }
     });
 
-    $("sortSelect").addEventListener("change", function (ev) {
-      state.sort = ev.target.value; refresh();
-    });
-    $("perPageSelect").addEventListener("change", function (ev) {
-      setPer(parseInt(ev.target.value, 10));
-    });
+    bindDropdowns(); // 自绘下拉初始化（替代原生 select 的 change 监听）
+
     $("browseCta").addEventListener("click", function () { navTo("cats"); });
     /* 品牌区：详情页内点击回主页（无 hash 时 clearHash 不会触发 hashchange，需直接调 route） */
     $("brand").addEventListener("click", function (ev) {
@@ -1059,11 +1141,9 @@
     }
     readUrl();
     ensureRef();
-    $("sortSelect").value = state.sort;
-    $("perPageSelect").value = String(state.per);
     applyView(); // 应用初始视图（含 ?view=cats 深链）
     prepare();
-    bind();
+    bind();          // 内含 bindDropdowns()，会把 state.sort/per 同步进自绘下拉
     renderStaticText();
     renderCatChips();
     renderTagChips();

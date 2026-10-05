@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/chakra-petch@5.2.5/600.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/chakra-petch@5.2.5/700.css">
-<link rel="stylesheet" href="assets/css/style.css?v=30a9b3d0">
+<link rel="stylesheet" href="assets/css/style.css?v=588e6d3a">
 </head>
 <body data-theme="light">
 
@@ -93,7 +93,11 @@
             <span class="result-count" id="resultCount">0</span>
             <label class="sort">
               <span id="sortLabel">排序</span>
-              <select id="sortSelect">
+              <span class="dd" id="sortDD">
+                <button class="dd-btn" type="button" id="sortBtn" aria-haspopup="listbox" aria-expanded="false">最近更新</button>
+                <span class="dd-menu" id="sortMenu" role="listbox"></span>
+              </span>
+              <select id="sortSelect" hidden aria-hidden="true" tabindex="-1">
                 <option value="recent">最近更新</option>
                 <option value="options">选项最多</option>
                 <option value="versions">版本最多</option>
@@ -102,7 +106,11 @@
             </label>
             <label class="sort">
               <span id="perPageLabel">每页</span>
-              <select id="perPageSelect">
+              <span class="dd dd-dd-num" id="perPageDD">
+                <button class="dd-btn" type="button" id="perPageBtn" aria-haspopup="listbox" aria-expanded="false">24</button>
+                <span class="dd-menu" id="perPageMenu" role="listbox"></span>
+              </span>
+              <select id="perPageSelect" hidden aria-hidden="true" tabindex="-1">
                 <option value="24" selected>24</option>
                 <option value="32">32</option>
                 <option value="52">52</option>
@@ -161,6 +169,6 @@
 <script src="assets/js/catalog.js?v=ab54789c"></script>
 <script src="assets/js/translator.js?v=f4badc08"></script>
 <script src="assets/js/data.js?v=b7f67c01"></script>
-<script src="assets/js/app.js?v=563b9690"></script>
+<script src="assets/js/app.js?v=b76fb2f2"></script>
 </body>
 </html>
