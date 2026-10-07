@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-06T09:11:28+00:00",
+  "updated_at": "2026-10-07T08:59:38+00:00",
   "entries": {
     "https://flingtrainer.com/trainer/ace-combat-7-skies-unknown-trainer/": {
       "etag": "",
@@ -731,7 +731,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:09+00:00",
+      "last_crawled": "2026-10-07T08:56:44+00:00",
       "error": "",
       "content_hash": "336cbafbddc7bec8cec6ce37dcfc3b9e32f4dd49fcb89e5a798ba9447503f217",
       "last_updated": "2026-08-17"
@@ -740,7 +740,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:11+00:00",
+      "last_crawled": "2026-10-07T08:56:46+00:00",
       "error": "",
       "content_hash": "3f64325caf4f6acb9c51ff8e475aab8a0ba15f72bdd03d896214c055df892f0b",
       "last_updated": "2022-01-12"
@@ -749,7 +749,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:13+00:00",
+      "last_crawled": "2026-10-07T08:56:49+00:00",
       "error": "",
       "content_hash": "a493e957e9d15a66c0e872e4153bc55be468b92a947d60b87b95531ba43b71c8",
       "last_updated": "2024-05-05"
@@ -758,7 +758,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:16+00:00",
+      "last_crawled": "2026-10-07T08:56:51+00:00",
       "error": "",
       "content_hash": "3b6028f6ff9c9d1deb39f3fbeebc8590d7cd242989b7411f150a9db7996b3dd5",
       "last_updated": "2024-01-05"
@@ -767,7 +767,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:18+00:00",
+      "last_crawled": "2026-10-07T08:56:52+00:00",
       "error": "",
       "content_hash": "9b487b14c9121433199990a891c5c26199ad27848f93b576228e982e7775d838",
       "last_updated": "2026-01-06"
@@ -776,7 +776,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:21+00:00",
+      "last_crawled": "2026-10-07T08:56:55+00:00",
       "error": "",
       "content_hash": "cc50a35ff3ad4c5e04a83923ed0efe691a7f0b4bc11293ef98ac741fdf9ec0db",
       "last_updated": "2025-01-07"
@@ -785,7 +785,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:24+00:00",
+      "last_crawled": "2026-10-07T08:56:57+00:00",
       "error": "",
       "content_hash": "2f574ca5c90698a7992d1909328d5a452f15fb8ccad6f22211f5bef1e2f74627",
       "last_updated": "2026-09-13"
@@ -794,7 +794,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:26+00:00",
+      "last_crawled": "2026-10-07T08:57:00+00:00",
       "error": "",
       "content_hash": "6a264cec43d8f9b4a5154256eff43a00992c930170a9cb65234eac1da96a4e91",
       "last_updated": "2021-03-16"
@@ -803,7 +803,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:27+00:00",
+      "last_crawled": "2026-10-07T08:57:02+00:00",
       "error": "",
       "content_hash": "f6bf13dbbe9e24f70e67de5050e3361c5613559252739fc30d6210f541ea6130",
       "last_updated": "2020-03-05"
@@ -812,7 +812,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:29+00:00",
+      "last_crawled": "2026-10-07T08:57:04+00:00",
       "error": "",
       "content_hash": "9b617d61a0d547201796ff3a8a8f08aab46cf594b4ddbd733de89444e994e33d",
       "last_updated": "2020-08-11"
@@ -821,7 +821,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:31+00:00",
+      "last_crawled": "2026-10-07T08:57:06+00:00",
       "error": "",
       "content_hash": "d6115a9021c86a35380708e2de58c123e0abac1af23adf2395d777e10ee8ee4d",
       "last_updated": "2019-09-19"
@@ -830,7 +830,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:33+00:00",
+      "last_crawled": "2026-10-07T08:57:08+00:00",
       "error": "",
       "content_hash": "a156013cfb086c383738946e1435fdc9653bbfc0870c8122988eb3e2d352a463",
       "last_updated": "2019-09-25"
@@ -839,16 +839,16 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:35+00:00",
+      "last_crawled": "2026-10-07T08:57:09+00:00",
       "error": "",
-      "content_hash": "4e920e0c713431ca517b9d34fc02d6bcb2021619da5a82b0784b10fd99ccec11",
-      "last_updated": "2026-09-24"
+      "content_hash": "31eab5a24f2f90458f48dadcadcacd35bca31426878e287c027f393b65e087f5",
+      "last_updated": "2026-10-06"
     },
     "https://flingtrainer.com/trainer/control-trainer/": {
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:38+00:00",
+      "last_crawled": "2026-10-07T08:57:12+00:00",
       "error": "",
       "content_hash": "93f582e4a271b29b7b87d57e07fa76ef0ce1dbc88c5ae09fa04fb2b737fb6283",
       "last_updated": "2020-08-28"
@@ -857,7 +857,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:41+00:00",
+      "last_crawled": "2026-10-07T08:57:14+00:00",
       "error": "",
       "content_hash": "eb7ac699f33a84c24c9e1f8e38f1d0a392c007655b80d6588a42e8f108993805",
       "last_updated": "2026-05-03"
@@ -866,7 +866,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:43+00:00",
+      "last_crawled": "2026-10-07T08:57:16+00:00",
       "error": "",
       "content_hash": "2f2e89a311f89c0c220cf1eb7a2190581abf3388ec0a73885c13788ca8c3b940",
       "last_updated": "2026-07-14"
@@ -875,7 +875,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:46+00:00",
+      "last_crawled": "2026-10-07T08:57:18+00:00",
       "error": "",
       "content_hash": "b29afcc4de5122be415f53c49c8fcdc0f37fd8ee8340d31a00e66cc47cb86976",
       "last_updated": "2025-12-30"
@@ -884,7 +884,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:48+00:00",
+      "last_crawled": "2026-10-07T08:57:19+00:00",
       "error": "",
       "content_hash": "d8eb3342edb605ac4870ff70bf267d8dcb8eeed4ad849d99547c4260dfe81349",
       "last_updated": "2024-11-24"
@@ -893,7 +893,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:51+00:00",
+      "last_crawled": "2026-10-07T08:57:22+00:00",
       "error": "",
       "content_hash": "d3b371eae67b7fdfc0872d15fa09e269f9a46308e14dbcba74f10a908317ce0e",
       "last_updated": "2026-09-04"
@@ -902,7 +902,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:53+00:00",
+      "last_crawled": "2026-10-07T08:57:25+00:00",
       "error": "",
       "content_hash": "958fdc458b256a17bd9ca63e8d7dcdca8b9ede540e0cb38b62514a6c9f74d2cc",
       "last_updated": "2022-12-20"
@@ -911,7 +911,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:56+00:00",
+      "last_crawled": "2026-10-07T08:57:26+00:00",
       "error": "",
       "content_hash": "fd660b65a4c9c4859a28c6d7bfd2082528714c5cd53319811bb3c968da964e55",
       "last_updated": "2025-09-10"
@@ -920,7 +920,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:19:58+00:00",
+      "last_crawled": "2026-10-07T08:57:29+00:00",
       "error": "",
       "content_hash": "dfea0f3c3f07528e41f6aa85b4b575d7927e73d59029f7fa64d7d257a72f773e",
       "last_updated": "2020-10-27"
@@ -929,7 +929,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:00+00:00",
+      "last_crawled": "2026-10-07T08:57:30+00:00",
       "error": "",
       "content_hash": "489a558aaf8b44ca0eb8995c41d0201373552b90bd9cd4aac92c31978c3ef1ce",
       "last_updated": "2025-10-29"
@@ -938,7 +938,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:02+00:00",
+      "last_crawled": "2026-10-07T08:57:32+00:00",
       "error": "",
       "content_hash": "3e188cd29edaef15d9afc01681b363bf87e0c039e46c0e552077ee56c23cb786",
       "last_updated": "2021-01-18"
@@ -947,7 +947,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:04+00:00",
+      "last_crawled": "2026-10-07T08:57:34+00:00",
       "error": "",
       "content_hash": "ff5c47d2ff945f5bbc15e31cff99592f34daf76deb5c6df175b6d189ea7bd9b7",
       "last_updated": "2021-02-13"
@@ -956,7 +956,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:05+00:00",
+      "last_crawled": "2026-10-07T08:57:36+00:00",
       "error": "",
       "content_hash": "a7b8fe6c4a097f03079087331e2510c692b1d83c466245e245de9288fa4d2e1e",
       "last_updated": "2024-02-13"
@@ -965,7 +965,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:08+00:00",
+      "last_crawled": "2026-10-07T08:57:38+00:00",
       "error": "",
       "content_hash": "05230c5c0427e29658d2f30c48a7d19c2df96f1621944b3b58181c6775a4cd0c",
       "last_updated": "2022-06-30"
@@ -974,7 +974,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:10+00:00",
+      "last_crawled": "2026-10-07T08:57:40+00:00",
       "error": "",
       "content_hash": "6b4a5b20e27ef2786e1f9751a6e2c1c2687333c4c6f54ece6e51c8524ec4b33b",
       "last_updated": "2024-07-01"
@@ -983,7 +983,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:12+00:00",
+      "last_crawled": "2026-10-07T08:57:43+00:00",
       "error": "",
       "content_hash": "de22a94e78b616e7cbfc5acc3b7d85a63848874501eb5ac8b52428aafd0b063d",
       "last_updated": "2021-08-06"
@@ -992,7 +992,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:15+00:00",
+      "last_crawled": "2026-10-07T08:57:45+00:00",
       "error": "",
       "content_hash": "43acbbb9b316d7ec5dd4a26afb772e85176a3de576e250b02374cf67c78b8adb",
       "last_updated": "2024-09-13"
@@ -1001,7 +1001,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:17+00:00",
+      "last_crawled": "2026-10-07T08:57:47+00:00",
       "error": "",
       "content_hash": "87d1ed333641e3203ccb2d49199e69165656b239e88ae3f0e09385520d0c800e",
       "last_updated": "2023-12-06"
@@ -1010,7 +1010,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:19+00:00",
+      "last_crawled": "2026-10-07T08:57:50+00:00",
       "error": "",
       "content_hash": "ca8af4e95bc62c49afdcef5c697c9c784c1eabb9112a00f711b6906d1f0ee16e",
       "last_updated": "2025-09-30"
@@ -1019,7 +1019,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:21+00:00",
+      "last_crawled": "2026-10-07T08:57:51+00:00",
       "error": "",
       "content_hash": "b06b504ebdcbe1cd8e66f8c1256174576d5a989ccfc882e4b2e184300c47c362",
       "last_updated": "2025-07-06"
@@ -1028,7 +1028,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:23+00:00",
+      "last_crawled": "2026-10-07T08:57:53+00:00",
       "error": "",
       "content_hash": "decc60b505419dddb667d4a1895cf2fcfd3281a39e8542676a0feb5f183479e4",
       "last_updated": "2026-08-25"
@@ -1037,7 +1037,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:26+00:00",
+      "last_crawled": "2026-10-07T08:57:55+00:00",
       "error": "",
       "content_hash": "e9a9cd4003ca8c7025275ad42a21db44ae32180fcc0e04731c19304c3df9d755",
       "last_updated": "2019-12-19"
@@ -1046,7 +1046,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:29+00:00",
+      "last_crawled": "2026-10-07T08:57:57+00:00",
       "error": "",
       "content_hash": "7229f37070a24ca6d2d22b9f3a67f5f2079ecbb37b3218808d9c255272181a69",
       "last_updated": "2023-01-15"
@@ -1055,7 +1055,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:31+00:00",
+      "last_crawled": "2026-10-07T08:58:00+00:00",
       "error": "",
       "content_hash": "f3209765964e3c7cee2e6ff03b8d396ce1c9d480188315ce870db60588c71e4e",
       "last_updated": "2022-11-22"
@@ -1064,7 +1064,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:33+00:00",
+      "last_crawled": "2026-10-07T08:58:03+00:00",
       "error": "",
       "content_hash": "b0560b5bb0e61fcf611eb30cce08296b494b835553bb83c7b88665102d32bf6b",
       "last_updated": "2026-06-25"
@@ -1073,7 +1073,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:35+00:00",
+      "last_crawled": "2026-10-07T08:58:06+00:00",
       "error": "",
       "content_hash": "1b04f5a4fc72eba1142b8ef010cf257719ebd81da3142fb2a2eeff79fcf70d3f",
       "last_updated": "2023-01-15"
@@ -1082,7 +1082,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:37+00:00",
+      "last_crawled": "2026-10-07T08:58:08+00:00",
       "error": "",
       "content_hash": "957cbe7725c3e031b97405c4e3846fd07b7b18366e34292111202de46b0e4539",
       "last_updated": "2025-04-26"
@@ -1091,7 +1091,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:40+00:00",
+      "last_crawled": "2026-10-07T08:58:11+00:00",
       "error": "",
       "content_hash": "1c0e06f82db8455f5299a01dfec488f0fd2efd92153522b0020df79f6c5c5de7",
       "last_updated": "2024-10-10"
@@ -1100,7 +1100,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:41+00:00",
+      "last_crawled": "2026-10-07T08:58:13+00:00",
       "error": "",
       "content_hash": "76aff93c0b44caa9d12bb35ba376eb378147aa6ae53043a03c2e3b6ab5b6817c",
       "last_updated": "2024-10-28"
@@ -1109,7 +1109,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:44+00:00",
+      "last_crawled": "2026-10-07T08:58:15+00:00",
       "error": "",
       "content_hash": "ae24130f55642d38d0c0ec7d40d39ebbda13f8126a8ea40d4865e44d8471484f",
       "last_updated": "2020-02-25"
@@ -1118,7 +1118,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:47+00:00",
+      "last_crawled": "2026-10-07T08:58:18+00:00",
       "error": "",
       "content_hash": "d30986075b59a18bba430235d46b03aaca5e568517533e2065d147ba83571cca",
       "last_updated": "2025-08-26"
@@ -1127,7 +1127,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:50+00:00",
+      "last_crawled": "2026-10-07T08:58:21+00:00",
       "error": "",
       "content_hash": "313d991a2c11163cf5315b4770e9c5233b6a68c1bd3d6a560919023231f4a067",
       "last_updated": "2023-01-30"
@@ -1136,7 +1136,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:52+00:00",
+      "last_crawled": "2026-10-07T08:58:22+00:00",
       "error": "",
       "content_hash": "e7afbbcb086d753988dc9b0ecec39b5f67db0e7b90dfaa477b649524de1eae99",
       "last_updated": "2022-09-20"
@@ -1145,7 +1145,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:54+00:00",
+      "last_crawled": "2026-10-07T08:58:25+00:00",
       "error": "",
       "content_hash": "4bbfdf165aee1f138367161519f1473ebbb3d4e5448e1cf7280af590a919a9d2",
       "last_updated": "2019-05-17"
@@ -1154,7 +1154,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:56+00:00",
+      "last_crawled": "2026-10-07T08:58:27+00:00",
       "error": "",
       "content_hash": "53ef3a9ccdd5017ef6d1a25d8da79499bd4fc658914e935b0e33a3f2773d43bc",
       "last_updated": "2020-08-20"
@@ -1163,7 +1163,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:20:59+00:00",
+      "last_crawled": "2026-10-07T08:58:29+00:00",
       "error": "",
       "content_hash": "016f74d4f2eef9eae22e4d12cbbe25f9eda7a4aa10432740f27744c97a9a81b2",
       "last_updated": "2022-05-11"
@@ -1172,7 +1172,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:01+00:00",
+      "last_crawled": "2026-10-07T08:58:32+00:00",
       "error": "",
       "content_hash": "12706a33d99be70a0cede94cd14dd0f76f17b02c3ec5d921da081b199f6b034b",
       "last_updated": "2026-07-08"
@@ -1181,7 +1181,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:04+00:00",
+      "last_crawled": "2026-10-07T08:58:34+00:00",
       "error": "",
       "content_hash": "92b1513430a107e1c549489e68511393845c02e32cef98ced1c4e5fcd912c4c1",
       "last_updated": "2021-07-22"
@@ -1190,7 +1190,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:06+00:00",
+      "last_crawled": "2026-10-07T08:58:37+00:00",
       "error": "",
       "content_hash": "7301256726d1d0a68657674237c1a7f809c116fc56cfb6e6e83158c2abc480b1",
       "last_updated": "2022-06-21"
@@ -1199,7 +1199,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:08+00:00",
+      "last_crawled": "2026-10-07T08:58:39+00:00",
       "error": "",
       "content_hash": "52b65b0a2cd231e11ebc5f863e417e94ab290fa3c622317760f8b42e1df99367",
       "last_updated": "2025-10-22"
@@ -1208,7 +1208,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:09+00:00",
+      "last_crawled": "2026-10-07T08:58:41+00:00",
       "error": "",
       "content_hash": "9cfd9ea77d1bdf4557beef2889f40041e753b4d84c03da7dfe38064a5cc11ff1",
       "last_updated": "2022-07-19"
@@ -1217,7 +1217,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:12+00:00",
+      "last_crawled": "2026-10-07T08:58:43+00:00",
       "error": "",
       "content_hash": "37476534a0a78eac9348cbe7a8dc51d01f59b9480ccc63b201793a4681b7d939",
       "last_updated": "2025-08-15"
@@ -1226,7 +1226,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:14+00:00",
+      "last_crawled": "2026-10-07T08:58:46+00:00",
       "error": "",
       "content_hash": "55c04b699c42b48bea0cdec78bef85e2c98fbe53a073d4cedbcacb467315aa00",
       "last_updated": "2020-06-11"
@@ -1235,7 +1235,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:16+00:00",
+      "last_crawled": "2026-10-07T08:58:48+00:00",
       "error": "",
       "content_hash": "e0a6151e736e7cdf570d1b18a54e2326247f114ee4b1a622e41a4046bf8a5ef1",
       "last_updated": "2026-07-23"
@@ -1244,7 +1244,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:19+00:00",
+      "last_crawled": "2026-10-07T08:58:49+00:00",
       "error": "",
       "content_hash": "aef056a297c3408b171346688bde010492c679ae26bea389ac48b5978a3a3a38",
       "last_updated": "2020-07-29"
@@ -1253,7 +1253,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:22+00:00",
+      "last_crawled": "2026-10-07T08:58:52+00:00",
       "error": "",
       "content_hash": "7a12b74975d2bff9fa65016a8ff9694230e7550550379774937e04de8a073e6d",
       "last_updated": "2020-12-16"
@@ -1262,7 +1262,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:24+00:00",
+      "last_crawled": "2026-10-07T08:58:54+00:00",
       "error": "",
       "content_hash": "7406b0f4011c118a11e8294e6367d1f243c70f761eeaf82d16f66e0114e68333",
       "last_updated": "2021-05-01"
@@ -1271,7 +1271,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:26+00:00",
+      "last_crawled": "2026-10-07T08:58:56+00:00",
       "error": "",
       "content_hash": "f85634c0796f8859759f63402adcc5bcb5965cb3258b430c86a4c93a6287873f",
       "last_updated": "2019-09-23"
@@ -1280,7 +1280,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:29+00:00",
+      "last_crawled": "2026-10-07T08:58:57+00:00",
       "error": "",
       "content_hash": "f4495aebd93238361e6cd12296bb255a8f4c0ad3efc9c55e2a506306cbd9c994",
       "last_updated": "2024-03-02"
@@ -1289,7 +1289,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:31+00:00",
+      "last_crawled": "2026-10-07T08:58:59+00:00",
       "error": "",
       "content_hash": "cb6701cb726d757f05b8b51ce47eb605ece719ba315a9403b6de394518e15432",
       "last_updated": "2019-11-03"
@@ -1298,7 +1298,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:34+00:00",
+      "last_crawled": "2026-10-07T08:59:01+00:00",
       "error": "",
       "content_hash": "73b489eb2bedbbfa3fb7251ddc7b8102cf5d393283b791a805325e24c29b7964",
       "last_updated": "2026-07-14"
@@ -1307,7 +1307,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:36+00:00",
+      "last_crawled": "2026-10-07T08:59:03+00:00",
       "error": "",
       "content_hash": "6a889adfc3e1b5a606a325887b8e0307b43ae47d08880344016d9b465235e6ab",
       "last_updated": "2022-09-19"
@@ -1316,7 +1316,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:38+00:00",
+      "last_crawled": "2026-10-07T08:59:05+00:00",
       "error": "",
       "content_hash": "f60809188024d0e06f243bc641dc4d316af990d423eb4e4029e33ce62b0f51a1",
       "last_updated": "2025-06-24"
@@ -1325,7 +1325,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:39+00:00",
+      "last_crawled": "2026-10-07T08:59:07+00:00",
       "error": "",
       "content_hash": "fc3ca7a0a7c06efc38e3e0922f857801abfc34363daa7e44ba7427c6fa9e574e",
       "last_updated": "2026-05-12"
@@ -1334,7 +1334,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:42+00:00",
+      "last_crawled": "2026-10-07T08:59:09+00:00",
       "error": "",
       "content_hash": "7054f0bd3d740d3839e652f7bc16c0dcc7083c8b778d161e8b2ddc011162b9c7",
       "last_updated": "2021-08-06"
@@ -1343,7 +1343,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:44+00:00",
+      "last_crawled": "2026-10-07T08:59:12+00:00",
       "error": "",
       "content_hash": "122d5dfc29e98a0b18368a0b2e4e64e1f69a5249f533b11781d184e557b6643f",
       "last_updated": "2021-10-23"
@@ -1352,7 +1352,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:46+00:00",
+      "last_crawled": "2026-10-07T08:59:14+00:00",
       "error": "",
       "content_hash": "b53267f67d53805b6bdb0a6343d73cc8c1256d6968b60f5703473a36366521cf",
       "last_updated": "2025-01-26"
@@ -1361,7 +1361,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:49+00:00",
+      "last_crawled": "2026-10-07T08:59:17+00:00",
       "error": "",
       "content_hash": "3283ea6c4c749f4bbe17205f41b75604ea0a18f0ca8aad90b070da7628ee2cdc",
       "last_updated": "2022-07-19"
@@ -1370,7 +1370,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:51+00:00",
+      "last_crawled": "2026-10-07T08:59:19+00:00",
       "error": "",
       "content_hash": "dba18651bc4e5b38ba660b18c25b26e21463179d3ad2fed18f1dac78d499e54e",
       "last_updated": "2020-05-13"
@@ -1379,7 +1379,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:53+00:00",
+      "last_crawled": "2026-10-07T08:59:21+00:00",
       "error": "",
       "content_hash": "0d4212f65837e54c7b80e9cda4ac4e1f4d731022869f155eddb8d945012e4381",
       "last_updated": "2026-07-31"
@@ -1388,7 +1388,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:55+00:00",
+      "last_crawled": "2026-10-07T08:59:24+00:00",
       "error": "",
       "content_hash": "0b1f2be8c68a15db52792b1d3ccd488f2aa0b795b7796c4046f3538141d2780b",
       "last_updated": "2019-10-03"
@@ -1397,7 +1397,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:21:57+00:00",
+      "last_crawled": "2026-10-07T08:59:26+00:00",
       "error": "",
       "content_hash": "a54ee96adfa30e5a79b64fd6ae70eea9d037c27b68f56eca1ed71454ca9453d5",
       "last_updated": "2021-04-06"
@@ -1406,7 +1406,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:22:00+00:00",
+      "last_crawled": "2026-10-07T08:59:28+00:00",
       "error": "",
       "content_hash": "ffde2099a5b59ccdbfdc6ad26911a7faad1afd75bbd9593c3582af3dee49225d",
       "last_updated": "2025-12-16"
@@ -1415,7 +1415,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:22:02+00:00",
+      "last_crawled": "2026-10-07T08:59:31+00:00",
       "error": "",
       "content_hash": "9eeb6efc4da354913b73d8418ac2a77c8bb75eb1891ff00d99f703eec35fd7f9",
       "last_updated": "2021-10-29"
@@ -1424,7 +1424,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:22:05+00:00",
+      "last_crawled": "2026-10-07T08:59:33+00:00",
       "error": "",
       "content_hash": "b01b145eee0b3ae6c8b18ce37777195577cf5da599f10f99691a0aa6f9d44b6f",
       "last_updated": "2026-07-08"
@@ -1433,7 +1433,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:22:07+00:00",
+      "last_crawled": "2026-10-07T08:59:34+00:00",
       "error": "",
       "content_hash": "d15a6e697a7ba71bcf14cceae3023d166549c0f0d171f752ac05e5f37c04ecf9",
       "last_updated": "2025-02-27"
@@ -1442,7 +1442,7 @@
       "etag": "",
       "last_modified": "",
       "status": "done",
-      "last_crawled": "2026-10-05T09:22:09+00:00",
+      "last_crawled": "2026-10-07T08:59:36+00:00",
       "error": "",
       "content_hash": "c057efb8e3f9c509a19d41c3ebe61abe6bd5ea32b00c7a6249d957df01aa8cbd",
       "last_updated": "2020-05-08"
@@ -6819,6 +6819,15 @@
       "error": "",
       "content_hash": "2006dc5dcccc222c92681c7d19d389689d023e805bfd1963b9567fa556656751",
       "last_updated": "2026-07-03"
+    },
+    "https://flingtrainer.com/trainer/star-wars-galactic-racer-trainer/": {
+      "etag": "",
+      "last_modified": "",
+      "status": "done",
+      "last_crawled": "2026-10-07T08:56:41+00:00",
+      "error": "",
+      "content_hash": "bce60aa01c25e53775205b23b39478721d723dde5490f5ab94928cc4b5d6b0f3",
+      "last_updated": "2026-10-06"
     }
   }
 }

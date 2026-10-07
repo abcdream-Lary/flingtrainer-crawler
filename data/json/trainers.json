@@ -1,37 +1,37 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-06T09:11:28+00:00",
-  "count": 757,
+  "generated_at": "2026-10-07T08:59:38+00:00",
+  "count": 758,
   "meta": {
     "mode": "smart",
-    "started_at": "2026-10-06T09:08:17+00:00",
-    "duration_seconds": 191.5,
+    "started_at": "2026-10-07T08:56:33+00:00",
+    "duration_seconds": 184.9,
     "interrupted": false,
     "site": "https://flingtrainer.com",
     "robots_respected": true,
     "http_stats": {
-      "requests": 84,
+      "requests": 85,
       "retries": 0,
       "not_modified": 0,
       "robots_blocked": 0,
-      "bytes": 11983993,
+      "bytes": 11974399,
       "failures": 0
     },
-    "changelog_file": null,
+    "changelog_file": "2026-10-07.jsonl",
     "failed_log": "data/logs/failed.jsonl",
-    "discovered": 757,
-    "fetched": 80,
-    "parsed": 80,
+    "discovered": 758,
+    "fetched": 81,
+    "parsed": 81,
     "skipped_recent": 0,
     "not_modified": 0,
-    "new": 0,
-    "updated": 0,
-    "unchanged": 80,
+    "new": 1,
+    "updated": 1,
+    "unchanged": 79,
     "removed": 0,
     "failed": 0,
     "robots_blocked": 0,
-    "targets": 80,
-    "targets_new": 0,
+    "targets": 81,
+    "targets_new": 1,
     "targets_hinted": 0,
     "targets_refresh": 80,
     "refresh_pending": 677
@@ -364,7 +364,7 @@
         "1. “Stealth Mode” doesn’t affect scripted events.",
         "2. When “No Crafting Requirement” is activated, you can craft without materials, but if you have materials, they will be used."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/05/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/05/1-15.png",
@@ -467,7 +467,7 @@
       "notes": [
         "“Max Score” takes effect when you gain score; “Infinite MRP” takes effect when you gain or spend MRP."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-2.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-37.png",
@@ -625,7 +625,7 @@
         "2. Select “start_protected_game.exe” from your game’s root folder and save.",
         "3. Launch or restart the game."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/10/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/10/1-1.png",
@@ -749,7 +749,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/03/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/03/1-35.png",
@@ -867,7 +867,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/11/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/11/1-97.png",
@@ -1080,7 +1080,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/10/header-2.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/10/1-37.png",
@@ -1274,7 +1274,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header-18.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1-60.png",
@@ -1478,7 +1478,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/05/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/05/1-14.png",
@@ -1681,7 +1681,7 @@
         "“Restore Units HP” works on selected player units on the map; “Infinite Units HP (In Battle)” works for all player units in battle.",
         "“Drain Enemy Units HP” works for selected enemy/NPC units on map; “Drain Enemy Units HP (In Battle)” works for all enemy units in battle."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/08/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/08/1-32.png",
@@ -1907,7 +1907,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/04/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/04/1-25.png",
@@ -2046,7 +2046,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header-19.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-26.png",
@@ -2290,7 +2290,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/11/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/11/1-11.png",
@@ -2508,7 +2508,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/08/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/08/1-8.png",
@@ -2667,7 +2667,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/08/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/08/1-21.png",
@@ -2806,7 +2806,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/04/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/04/1-8.png",
@@ -2974,7 +2974,7 @@
         "“Max Cultivation XP” takes effect when you gain cultivation XP.",
         "Character Editor works for the selected character."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/12/header-9.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/12/1-13.png",
@@ -3082,7 +3082,7 @@
       "notes": [
         "“Infinite Unit XP” takes effect when units gain XP."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-1.png",
@@ -3197,7 +3197,7 @@
         "“Instant Heal Wound”, and “Instant Heal Poison”, you need walk one step for them to take effect.",
         "“No Hunger”, “No Thirst”, and “No Fatigue”, if you’re already in hunger/thirst/fatigue states before activating these options, you still need to eat/drink/sleep to remove the negative effects."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/08/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/08/1-20.png",
@@ -3266,7 +3266,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/04/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/04/1-38.png",
@@ -3429,7 +3429,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/11/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/11/1-21.png",
@@ -3553,7 +3553,7 @@
         "“Infinite Wood”, “Infinite Tools”, “Infinite Stone”: If these items are displayed at the top left corner, they’ll take effect immediately. Otherwise, you’ll need to open any storage buildings to see the quantities change.",
         "“Infinite Resources”: Open any storage buildings to see the resource quantities change."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/11/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/11/1-1.png",
@@ -3652,7 +3652,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/12/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/12/1-42.png",
@@ -3879,7 +3879,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/04/header_schinese-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/04/1-19.png",
@@ -3998,7 +3998,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/12/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/12/1-31.png",
@@ -4160,7 +4160,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/10/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/10/1-18.png",
@@ -4296,7 +4296,7 @@
         "“Infinite Money”: Takes effect when money value changes.",
         "“Infinite Exp”: Takes effect when you gain exp."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/09/header-6.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/09/1-24.png",
@@ -4491,7 +4491,7 @@
         "Epic Store Version:",
         "When launching the from Epic Store, please click … near the game’s icon and select “Play ARK: No BattlEye AntiCheat, Unofficial Servers Only”."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/02/header-12.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/02/1-26.png",
@@ -4656,7 +4656,7 @@
         "1. Copy “start_protected_game.exe” to game install location\\Game\\ folder (the folder where armoredcore6.exe is located).",
         "2. Start game."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/08/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/08/1-30.png",
@@ -5138,7 +5138,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/05/header_schinese-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/05/1-2-scaled.png",
@@ -5343,7 +5343,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/07/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/07/1-15.png",
@@ -5560,7 +5560,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/12/header-2.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/12/1-3.png",
@@ -5701,7 +5701,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/10/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/10/1-19.png",
@@ -5925,7 +5925,7 @@
         "“Infinite Arrows” requires you have more than 1 arrow for it to work.",
         "“Stealth Mode”: When activated, most enemies will ignore you, but if you attack them, you’ll still be detected."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/11/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/11/1-14.png",
@@ -6061,7 +6061,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/01/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/01/1-10.png",
@@ -6220,7 +6220,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/03/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/03/1-19.png",
@@ -6400,7 +6400,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/11/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/11/1-38.png",
@@ -6682,7 +6682,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-16.png",
@@ -6805,7 +6805,7 @@
         "“Edit Consumables”: Takes effect when you open items menu.",
         "“Infinite Stat Orbs”: Takes effect when you open ascension tree menu."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1.png",
@@ -6893,7 +6893,7 @@
         "“Infinite Bytes” takes effect when you gain bytes.",
         "“Bytes Multiplier”: Note the display gain value is not affected, the actual amount you’re gaining is multiplied."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-26.png",
@@ -7040,7 +7040,7 @@
       "notes": [
         "When “Super Damage/One Hit Kill” is activated, it will remain activated throughout the entire battle. If you want to disable this options, the effect will be restored in the next battle."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/05/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/05/1-8.png",
@@ -7231,7 +7231,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/01/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/01/1-7.png",
@@ -7434,7 +7434,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/02/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/02/1-3.png",
@@ -7631,7 +7631,7 @@
         "“Max Shop Item Development Level”: Takes effect when you sell items to shop development.",
         "“Cole Multiplier”, “Core Shards Multiplier”, “Exp Multiplier”, “Mists Multiplier”: Only affect the cole/core shards/exp/mists gain from battles."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/01/header-12.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/01/1-30.png",
@@ -7858,7 +7858,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/02/header-2.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/02/1-2.png",
@@ -8067,7 +8067,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/03/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/03/1-26.png",
@@ -8254,7 +8254,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/02/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/02/1-4.png",
@@ -8372,7 +8372,7 @@
         "“Max Item Quality” takes effect when you view items. After synthesis, the result item will also be max quality.",
         "“Infinite Exp” takes effect after battle; “Infinite Alchemy Exp”: While activated, your alchemy level will be maxed after synthesis."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/10/header-10.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/10/1-19.png",
@@ -8551,7 +8551,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/03/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/03/1-20.png",
@@ -8669,7 +8669,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/08/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/08/1-6.png",
@@ -8858,7 +8858,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/03/header-3.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/03/1-45.png",
@@ -9047,7 +9047,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/01/header-8.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/01/1-45.png",
@@ -9304,7 +9304,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/02/header-2.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/02/1-19.png",
@@ -9480,7 +9480,7 @@
         "Character/Ship Editor: Open a character/ship status menu, then activate editor options.",
         "Character/Ship Editor: Note the bonus stats will reset when changing equipment, upgrading equipment or skills."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/02/header-7.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/02/1-7.png",
@@ -9611,7 +9611,7 @@
         "3. Launch the game, twice. The first time it will close automatically. The second time it should be running fine.",
         "4. When you’re in the game, re-connect your internet in order to sign in."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1-50.png",
@@ -9811,7 +9811,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/10/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/10/1-52.png",
@@ -10056,7 +10056,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header-9.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-15.png",
@@ -10254,7 +10254,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/05/header-13.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/05/1-19.png",
@@ -10359,7 +10359,7 @@
         "1. Delete “EAAntiCheat.GameServiceLauncher.exe” and “EAAntiCheat.GameServiceLauncher.dll” from the game folder (backup these files if necessary).",
         "2. Launch the game. The game will be launched in offline single player mode."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/08/header-9.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/08/1-84.png",
@@ -10676,7 +10676,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/08/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/08/1.png",
@@ -10866,7 +10866,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/04/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/04/1-40.png",
@@ -11009,7 +11009,7 @@
         "“Infinite Blue Cubes”: Takes effect when the game update blue cubes value.",
         "“Infinite Gacha Tickets”: Takes effect when the game update gacha tickets value."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/03/header_schinese.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/03/1-12.png",
@@ -11217,7 +11217,7 @@
         "“Set Player Speed”: After setting player speed, attack once or go to character menu in order to update movement speed.",
         "“Infinite Resources”: Takes effect when you open inventory, only works for resources you already owned."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/05/header-13.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/05/1-24.png",
@@ -11483,7 +11483,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/08/header_schinese.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/08/1-16.png",
@@ -11628,7 +11628,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/08/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/08/1-53.png",
@@ -11761,7 +11761,7 @@
       "notes": [
         "“Auto Resurrect”, while activated, you will be resurrected at the same place where you die or the nearest ground if you fell off the cliff or death trap."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-61.png",
@@ -11888,7 +11888,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/01/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/01/1-46.png",
@@ -12043,7 +12043,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/06/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/06/1-14.png",
@@ -12180,7 +12180,7 @@
         "“Unlock All Achievements”: Activate before entering achievement menu, you may need to re-enter achievement menu a few times to see the values change.",
         "Beginning at 2019.12.31, the game has updated to 64 bit version, the updated trainer also targets 64 bit version, it will not work on 32 bit old game version (game versions before 2019.12.31). If your game version is 32 bit you can use the old version trainer which can be found here: https://flingtrainer.com/uncategorized/my-trainers-archive/"
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/01/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/01/1.png",
@@ -12259,7 +12259,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/04/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/04/1-28.png",
@@ -12352,7 +12352,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/07/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/07/1-5.png",
@@ -12573,7 +12573,7 @@
         "“Max Drop Rate”: While activated, every enemy will drop 7-10 items. Note: this option does not affect item rarity.",
         "“High Legendary Drop Rate”: While activated, each item dropped from enemies will have 10%-20% chance of being a legendary item."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-6.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-70.png",
@@ -12932,7 +12932,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/09/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/09/1-24.png",
@@ -13171,7 +13171,7 @@
         "“100% Drop Rate (Common Item Drops)”: Note rare items have higher priority, if enemies dropped rare items or if both 100% drop rate options are activated, this option will have no effect.",
         "“Zero Weight”: Change equipment or fight a battle to update the weight value."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/09/header-1.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/09/1-1.png",
@@ -13240,7 +13240,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/12/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/12/1.png",
@@ -13354,7 +13354,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/11/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/11/1-27.png",
@@ -13536,7 +13536,7 @@
         "This game uses EasyAntiCheat protection, in order to launch this game without EAC, please follow these instructions:",
         "Select “Play – Anti-Cheat Disabled” launch option when launching the game from Steam."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/06/header-5.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/06/1-26.png",
@@ -13725,7 +13725,7 @@
         "“Infinite Exp” takes effect when mission end (doesn’t matter if you completed the mission or not).",
         "“Drilling: Max Score” and “Drilling: Max Good Bar” and “Drilling: Max Bad Bar” take effects when score/good/bad bar values update."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/01/header-11.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/01/1-39.png",
@@ -13844,7 +13844,7 @@
       "notes": [
         "“Infinite Ammo” takes effect during ammo reload."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-4.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-4.png",
@@ -13956,7 +13956,7 @@
         "2. Copy “rename.exe” to game directory\\GameData\\ folder.",
         "3. Start game."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/08/header-17.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/08/1-41.png",
@@ -14125,7 +14125,7 @@
         "“Unlock All Buildings”: When activated, you can build locked buildings.",
         "“Infinite Exp”: When activated, you’ll gain 1000 exp every time you gain any exp, which will make you level up instantly."
       ],
-      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/08/header.jpg",
+      "cover_image": "",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/08/1-5.png",
@@ -14283,7 +14283,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/05/header_schinese-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/05/1-19.png",
@@ -14300,7 +14300,7 @@
           "url": "https://flingtrainer.com/downloads/NDCKJkCUXlckDt43V_pCfQ,,",
           "date_added": "2026-08-17 07:28",
           "file_size": "945 KB",
-          "download_count": 10005,
+          "download_count": 10250,
           "is_latest": true
         },
         {
@@ -14309,14 +14309,14 @@
           "url": "https://flingtrainer.com/downloads/z-tavglTsxNi99RcLK1Hyg,,",
           "date_added": "2022-05-20 07:02",
           "file_size": "857 KB",
-          "download_count": 88806,
+          "download_count": 88818,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "336cbafbddc7bec8cec6ce37dcfc3b9e32f4dd49fcb89e5a798ba9447503f217",
       "first_seen": "2026-10-04T10:28:26+00:00",
-      "last_crawled": "2026-10-05T09:19:09+00:00",
+      "last_crawled": "2026-10-07T08:56:44+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -14399,7 +14399,7 @@
         "“Infinite Credit”: Takes effect when you gain or spend credit.",
         "“Credit Multiplier”: Note the display gain amount is not affected, but the actual amount of credit you are getting is multiplied."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/01/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/01/1.png",
@@ -14416,14 +14416,14 @@
           "url": "https://flingtrainer.com/downloads/rqmT6anGW9hetZGh-shszA,,",
           "date_added": "2022-01-12 05:15",
           "file_size": "850 KB",
-          "download_count": 12455,
+          "download_count": 12459,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "3f64325caf4f6acb9c51ff8e475aab8a0ba15f72bdd03d896214c055df892f0b",
       "first_seen": "2026-10-04T10:28:28+00:00",
-      "last_crawled": "2026-10-05T09:19:11+00:00",
+      "last_crawled": "2026-10-07T08:56:46+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -14513,7 +14513,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/05/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/05/1-1.png",
@@ -14530,14 +14530,14 @@
           "url": "https://flingtrainer.com/downloads/T2ZCgTBDwMDxZla3X2TYxQ,,",
           "date_added": "2024-05-05 13:34",
           "file_size": "954 KB",
-          "download_count": 20677,
+          "download_count": 20728,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "a493e957e9d15a66c0e872e4153bc55be468b92a947d60b87b95531ba43b71c8",
       "first_seen": "2026-10-04T10:28:31+00:00",
-      "last_crawled": "2026-10-05T09:19:13+00:00",
+      "last_crawled": "2026-10-07T08:56:49+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -14587,7 +14587,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/10/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/10/1-11.png",
@@ -14604,7 +14604,7 @@
           "url": "https://flingtrainer.com/downloads/cHzU019QhrMOvybc82YF_g,,",
           "date_added": "2024-01-05 07:14",
           "file_size": "967 KB",
-          "download_count": 122005,
+          "download_count": 122225,
           "is_latest": true
         },
         {
@@ -14613,14 +14613,14 @@
           "url": "https://flingtrainer.com/downloads/QvxZ2FTlC2Y1r9DHcAO-Jg,,",
           "date_added": "2023-10-28 13:10",
           "file_size": "945 KB",
-          "download_count": 30088,
+          "download_count": 30104,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "3b6028f6ff9c9d1deb39f3fbeebc8590d7cd242989b7411f150a9db7996b3dd5",
       "first_seen": "2026-10-04T10:28:34+00:00",
-      "last_crawled": "2026-10-05T09:19:16+00:00",
+      "last_crawled": "2026-10-07T08:56:51+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -14805,7 +14805,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/04/header-9.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/04/1-23.png",
@@ -14822,7 +14822,7 @@
           "url": "https://flingtrainer.com/downloads/s8J3TL4ByT0ZsOc6_htFMg,,",
           "date_added": "2026-01-06 02:15",
           "file_size": "919 KB",
-          "download_count": 143004,
+          "download_count": 143693,
           "is_latest": true
         },
         {
@@ -14831,7 +14831,7 @@
           "url": "https://flingtrainer.com/downloads/HtRx6INx0BdwsfxFzyDufg,,",
           "date_added": "2025-05-01 03:10",
           "file_size": "910 KB",
-          "download_count": 425370,
+          "download_count": 425425,
           "is_latest": false
         },
         {
@@ -14840,7 +14840,7 @@
           "url": "https://flingtrainer.com/downloads/Blb-G87p6MAFb2bbMdnbRg,,",
           "date_added": "2025-04-28 02:26",
           "file_size": "909 KB",
-          "download_count": 87425,
+          "download_count": 87429,
           "is_latest": false
         },
         {
@@ -14849,14 +14849,14 @@
           "url": "https://flingtrainer.com/downloads/YS2m7ZdeMsROoFs3ARnyvg,,",
           "date_added": "2025-04-27 18:46",
           "file_size": "908 KB",
-          "download_count": 33098,
+          "download_count": 33101,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "9b487b14c9121433199990a891c5c26199ad27848f93b576228e982e7775d838",
       "first_seen": "2026-10-04T10:28:36+00:00",
-      "last_crawled": "2026-10-05T09:19:18+00:00",
+      "last_crawled": "2026-10-07T08:56:52+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -14911,7 +14911,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/05/header-5.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/05/1-23.png",
@@ -14928,7 +14928,7 @@
           "url": "https://flingtrainer.com/downloads/5EDg8w6l61mFEAhdAG5e3Q,,",
           "date_added": "2025-01-07 02:49",
           "file_size": "905 KB",
-          "download_count": 13199,
+          "download_count": 13235,
           "is_latest": true
         },
         {
@@ -14937,7 +14937,7 @@
           "url": "https://flingtrainer.com/downloads/KaG1rc3Eld39lOIm9AAg_w,,",
           "date_added": "2024-09-29 01:51",
           "file_size": "903 KB",
-          "download_count": 5017,
+          "download_count": 5018,
           "is_latest": false
         },
         {
@@ -14953,7 +14953,7 @@
       "missing_fields": [],
       "content_hash": "cc50a35ff3ad4c5e04a83923ed0efe691a7f0b4bc11293ef98ac741fdf9ec0db",
       "first_seen": "2026-10-04T10:28:38+00:00",
-      "last_crawled": "2026-10-05T09:19:21+00:00",
+      "last_crawled": "2026-10-07T08:56:55+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15198,7 +15198,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/01/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/01/1-10.png",
@@ -15215,7 +15215,7 @@
           "url": "https://flingtrainer.com/downloads/T-mtTM87_0iquNT-coSOaQ,,",
           "date_added": "2026-09-13 15:12",
           "file_size": "976 KB",
-          "download_count": 9837,
+          "download_count": 10095,
           "is_latest": true
         },
         {
@@ -15224,14 +15224,14 @@
           "url": "https://flingtrainer.com/downloads/_QVdnYz7wOaUmMcNCF97vQ,,",
           "date_added": "2026-01-27 09:48",
           "file_size": "943 KB",
-          "download_count": 23089,
+          "download_count": 23096,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "2f574ca5c90698a7992d1909328d5a452f15fb8ccad6f22211f5bef1e2f74627",
       "first_seen": "2026-10-04T10:28:41+00:00",
-      "last_crawled": "2026-10-05T09:19:24+00:00",
+      "last_crawled": "2026-10-07T08:56:57+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15336,7 +15336,7 @@
         "“Infinite Health”, “God Mode”, and focus mode options also work for NPC party members.",
         "“Ignore Upgrade Equipment Requirement”, “Ignore Transform Equipment Requirement”: While activated, you can upgrade/transform equipments even if you don’t have any materials, but if you do have materials, they will be used."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-17.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-68.png",
@@ -15353,7 +15353,7 @@
           "url": "https://flingtrainer.com/downloads/QFkNP6Vf8GcmKWghm5vH8A,,",
           "date_added": "2021-03-16 17:28",
           "file_size": "789 KB",
-          "download_count": 122030,
+          "download_count": 122168,
           "is_latest": true
         },
         {
@@ -15362,7 +15362,7 @@
           "url": "https://flingtrainer.com/downloads/h63fKyZYyAQmGErWgnGFTA,,",
           "date_added": "2020-04-01 09:44",
           "file_size": "778 KB",
-          "download_count": 32729,
+          "download_count": 32733,
           "is_latest": false
         },
         {
@@ -15371,7 +15371,7 @@
           "url": "https://flingtrainer.com/downloads/oqg2Qh3z1gom0cnYkEeAGw,,",
           "date_added": "2020-02-25 17:28",
           "file_size": "664 KB",
-          "download_count": 7894,
+          "download_count": 7896,
           "is_latest": false
         },
         {
@@ -15380,7 +15380,7 @@
           "url": "https://flingtrainer.com/downloads/WTyLL-elsYZe-Ag5Ycriew,,",
           "date_added": "2020-01-28 02:57",
           "file_size": "663 KB",
-          "download_count": 28223,
+          "download_count": 28228,
           "is_latest": false
         },
         {
@@ -15389,7 +15389,7 @@
           "url": "https://flingtrainer.com/downloads/EVj2KfhMM5pt_-vx6rKbJQ,,",
           "date_added": "2019-12-03 13:22",
           "file_size": "659 KB",
-          "download_count": 10823,
+          "download_count": 10829,
           "is_latest": false
         },
         {
@@ -15398,14 +15398,14 @@
           "url": "https://flingtrainer.com/downloads/f4Pgaj_Nt3quKQKp2SRM0g,,",
           "date_added": "2019-10-24 16:05",
           "file_size": "662 KB",
-          "download_count": 16369,
+          "download_count": 16375,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "6a264cec43d8f9b4a5154256eff43a00992c930170a9cb65234eac1da96a4e91",
       "first_seen": "2026-10-04T10:28:43+00:00",
-      "last_crawled": "2026-10-05T09:19:26+00:00",
+      "last_crawled": "2026-10-07T08:57:00+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15488,7 +15488,7 @@
         "Hotkeys and toggle buttons only active during battle (can’t activate cheats in main menu/before battle).",
         "This trainer works for both games in the remastered collection (Command & Conquer and Red Alert)."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/06/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/06/1-15.png",
@@ -15505,7 +15505,7 @@
           "url": "https://flingtrainer.com/downloads/8uQwCx7PW-2qMjSWJbAPlg,,",
           "date_added": "2020-08-11 22:07",
           "file_size": "727 KB",
-          "download_count": 66370,
+          "download_count": 66419,
           "is_latest": true
         },
         {
@@ -15514,14 +15514,14 @@
           "url": "https://flingtrainer.com/downloads/Xgi9MUmqBCKzV3_lx5PRaA,,",
           "date_added": "2020-06-06 03:06",
           "file_size": "757 KB",
-          "download_count": 29679,
+          "download_count": 29689,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "9b617d61a0d547201796ff3a8a8f08aab46cf594b4ddbd733de89444e994e33d",
       "first_seen": "2026-10-04T10:28:48+00:00",
-      "last_crawled": "2026-10-05T09:19:29+00:00",
+      "last_crawled": "2026-10-07T08:57:04+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15601,7 +15601,7 @@
         "“Infinite Grenades”, “Infinite Molotov Cocktails”, “Infinite First Aid Kits” take effects when you use the specific items.",
         "“Unlock All Missions” temporary unlocks all missions, if you start a mission, that mission will be permanently unlocked."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/01/header-12.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/01/1-56.png",
@@ -15618,7 +15618,7 @@
           "url": "https://flingtrainer.com/downloads/qHrD5ZVPSE-aJ91QfV19iQ,,",
           "date_added": "2020-03-05 12:16",
           "file_size": "539 KB",
-          "download_count": 19447,
+          "download_count": 19464,
           "is_latest": true
         },
         {
@@ -15643,7 +15643,7 @@
       "missing_fields": [],
       "content_hash": "f6bf13dbbe9e24f70e67de5050e3361c5613559252739fc30d6210f541ea6130",
       "first_seen": "2026-10-04T10:28:46+00:00",
-      "last_crawled": "2026-10-05T09:19:27+00:00",
+      "last_crawled": "2026-10-07T08:57:02+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15726,7 +15726,7 @@
         "Work for single player mode only!",
         "After activating any options, you need to wait for the game to refresh data in order to see the updated values. You can either build something or train soldiers or just simply wait for it to refresh."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/05/header-16.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/05/1-36.png",
@@ -15743,7 +15743,7 @@
           "url": "https://flingtrainer.com/downloads/O5rIIIoLogJYnM8qgEAKyg,,",
           "date_added": "2019-09-19 18:08",
           "file_size": "677 KB",
-          "download_count": 25113,
+          "download_count": 25150,
           "is_latest": true
         }
       ],
@@ -15752,7 +15752,7 @@
       ],
       "content_hash": "d6115a9021c86a35380708e2de58c123e0abac1af23adf2395d777e10ee8ee4d",
       "first_seen": "2026-10-04T10:28:50+00:00",
-      "last_crawled": "2026-10-05T09:19:31+00:00",
+      "last_crawled": "2026-10-07T08:57:06+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15841,7 +15841,7 @@
         "“Infinite Credits” takes effect when credit changes (gain or spend some credits); “Infinite Rockets” takes effect when shooting rockets.",
         "“Develop/Upgrade Requires No Material” and “Weapon Upgrade No Level Requirements”: If you want to restore the effects after using these options, you’ll need to restart the game."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-15.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-20.png",
@@ -15858,14 +15858,14 @@
           "url": "https://flingtrainer.com/downloads/ArjYtNJau6uaCZ2Ef5KgbA,,",
           "date_added": "2019-09-25 11:40",
           "file_size": "654 KB",
-          "download_count": 12626,
+          "download_count": 12629,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "a156013cfb086c383738946e1435fdc9653bbfc0870c8122988eb3e2d352a463",
       "first_seen": "2026-10-04T10:28:53+00:00",
-      "last_crawled": "2026-10-05T09:19:33+00:00",
+      "last_crawled": "2026-10-07T08:57:08+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -15873,11 +15873,11 @@
       "url": "https://flingtrainer.com/trainer/control-resonant-trainer/",
       "slug": "control-resonant-trainer",
       "game_name": "CONTROL Resonant Trainer",
-      "game_version": "v1.0+",
+      "game_version": "v1.0-v1.4.x+",
       "options_count": 26,
       "options_extracted": 26,
-      "last_updated": "2026-09-24",
-      "last_updated_raw": "2026.09.24",
+      "last_updated": "2026-10-06",
+      "last_updated_raw": "2026.10.06",
       "published_date": "2026-09-24",
       "categories": [
         "Trainer"
@@ -16015,10 +16015,10 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/09/header-8.jpg",
       "screenshots": [
         {
-          "original_url": "https://flingtrainer.com/wp-content/uploads/2026/09/1-11.png",
+          "original_url": "https://flingtrainer.com/wp-content/uploads/2026/09/1-13.png",
           "local_path": "",
           "alt": "CONTROL Resonant Trainer/Cheat",
           "downloaded": false,
@@ -16027,19 +16027,28 @@
       ],
       "downloads": [
         {
+          "file_name": "CONTROL.Resonant.v1.0-v1.4.x.Plus.26.Trainer-FLiNG",
+          "version": "v1.0-v1.4",
+          "url": "https://flingtrainer.com/downloads/3MCCm-HQBWB4jWk3ezWjZQ,,",
+          "date_added": "2026-10-06 18:46",
+          "file_size": "946 KB",
+          "download_count": 1348,
+          "is_latest": true
+        },
+        {
           "file_name": "CONTROL.Resonant.v1.0.Plus.26.Trainer-FLiNG",
           "version": "v1.0",
           "url": "https://flingtrainer.com/downloads/RfsRLMUgW0HZro1wg--q7g,,",
           "date_added": "2026-09-24 21:51",
           "file_size": "946 KB",
-          "download_count": 50759,
-          "is_latest": true
+          "download_count": 53298,
+          "is_latest": false
         }
       ],
       "missing_fields": [],
-      "content_hash": "4e920e0c713431ca517b9d34fc02d6bcb2021619da5a82b0784b10fd99ccec11",
+      "content_hash": "31eab5a24f2f90458f48dadcadcacd35bca31426878e287c027f393b65e087f5",
       "first_seen": "2026-10-04T10:28:55+00:00",
-      "last_crawled": "2026-10-05T09:19:35+00:00",
+      "last_crawled": "2026-10-07T08:57:09+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16123,7 +16132,7 @@
         "“Infinite Materials” only works for materials that you already obtained.",
         "“No Crafting/Upgrading Requirements” should be activated before opening the crafting menu. Or click refresh mods if you are already in crafting menu. If you want to disable this option and restore the effects, you need to restart the game."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/08/header-5.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/08/1-30.png",
@@ -16140,7 +16149,7 @@
           "url": "https://flingtrainer.com/downloads/xUjB9hkxg21p_OUHyXNl2A,,",
           "date_added": "2020-08-28 20:17",
           "file_size": "761 KB",
-          "download_count": 169224,
+          "download_count": 169665,
           "is_latest": true
         },
         {
@@ -16149,7 +16158,7 @@
           "url": "https://flingtrainer.com/downloads/zh4APzN1SQJVi1wWXMgT9g,,",
           "date_added": "2020-05-15 20:45",
           "file_size": "781 KB",
-          "download_count": 22177,
+          "download_count": 22192,
           "is_latest": false
         },
         {
@@ -16158,14 +16167,14 @@
           "url": "https://flingtrainer.com/downloads/JhbRGzh-bTxRk66poEGueA,,",
           "date_added": "2019-08-28 20:22",
           "file_size": "695 KB",
-          "download_count": 72591,
+          "download_count": 72603,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "93f582e4a271b29b7b87d57e07fa76ef0ce1dbc88c5ae09fa04fb2b737fb6283",
       "first_seen": "2026-10-04T10:28:57+00:00",
-      "last_crawled": "2026-10-05T09:19:38+00:00",
+      "last_crawled": "2026-10-07T08:57:12+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16295,7 +16304,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-59.png",
@@ -16312,7 +16321,7 @@
           "url": "https://flingtrainer.com/downloads/iWdW4ZW8A0CvB_-RwKOUkg,,",
           "date_added": "2026-05-03 16:21",
           "file_size": "934 KB",
-          "download_count": 10529,
+          "download_count": 10655,
           "is_latest": true
         },
         {
@@ -16321,7 +16330,7 @@
           "url": "https://flingtrainer.com/downloads/ckjpdfCeG4BUyaVaYV16Fw,,",
           "date_added": "2024-08-30 18:52",
           "file_size": "899 KB",
-          "download_count": 72478,
+          "download_count": 72483,
           "is_latest": false
         },
         {
@@ -16330,14 +16339,14 @@
           "url": "https://flingtrainer.com/downloads/l2iIy4veHRkKx5Egk-f6-A,,",
           "date_added": "2024-02-13 18:10",
           "file_size": "967 KB",
-          "download_count": 18530,
+          "download_count": 18532,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "eb7ac699f33a84c24c9e1f8e38f1d0a392c007655b80d6588a42e8f108993805",
       "first_seen": "2026-10-04T10:28:58+00:00",
-      "last_crawled": "2026-10-05T09:19:41+00:00",
+      "last_crawled": "2026-10-07T08:57:14+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16462,7 +16471,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/09/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/09/1-79.png",
@@ -16479,7 +16488,7 @@
           "url": "https://flingtrainer.com/downloads/7X_44_ueRkiLPAoOpFzolQ,,",
           "date_added": "2026-07-14 19:23",
           "file_size": "711 KB",
-          "download_count": 1529,
+          "download_count": 1539,
           "is_latest": true
         },
         {
@@ -16488,7 +16497,7 @@
           "url": "https://flingtrainer.com/downloads/WYWO4N_Xfj6wG27xgFs2Fg,,",
           "date_added": "2024-01-05 06:56",
           "file_size": "757 KB",
-          "download_count": 10724,
+          "download_count": 10727,
           "is_latest": false
         },
         {
@@ -16549,7 +16558,7 @@
       "missing_fields": [],
       "content_hash": "2f2e89a311f89c0c220cf1eb7a2190581abf3388ec0a73885c13788ca8c3b940",
       "first_seen": "2026-10-04T10:29:00+00:00",
-      "last_crawled": "2026-10-05T09:19:43+00:00",
+      "last_crawled": "2026-10-07T08:57:16+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16629,7 +16638,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/04/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/04/1-22.png",
@@ -16646,7 +16655,7 @@
           "url": "https://flingtrainer.com/downloads/DfXL0sgpJYyTHSW23IGMiw,,",
           "date_added": "2025-12-30 14:59",
           "file_size": "959 KB",
-          "download_count": 7819,
+          "download_count": 7855,
           "is_latest": true
         },
         {
@@ -16655,14 +16664,14 @@
           "url": "https://flingtrainer.com/downloads/XvCJY8a5As3fnFxmFmWkzA,,",
           "date_added": "2025-04-17 01:15",
           "file_size": "900 KB",
-          "download_count": 21532,
+          "download_count": 21533,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "b29afcc4de5122be415f53c49c8fcdc0f37fd8ee8340d31a00e66cc47cb86976",
       "first_seen": "2026-10-04T10:29:03+00:00",
-      "last_crawled": "2026-10-05T09:19:46+00:00",
+      "last_crawled": "2026-10-07T08:57:18+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16772,7 +16781,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/07/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/07/1-8.png",
@@ -16789,7 +16798,7 @@
           "url": "https://flingtrainer.com/downloads/5QFgR1KAAVC6atRJGL0Ohg,,",
           "date_added": "2024-11-24 09:42",
           "file_size": "948 KB",
-          "download_count": 36880,
+          "download_count": 36928,
           "is_latest": true
         },
         {
@@ -16798,7 +16807,7 @@
           "url": "https://flingtrainer.com/downloads/WOYJnxIb7ggLxJOC7iVVwQ,,",
           "date_added": "2024-08-17 04:33",
           "file_size": "980 KB",
-          "download_count": 13936,
+          "download_count": 13938,
           "is_latest": false
         },
         {
@@ -16807,14 +16816,14 @@
           "url": "https://flingtrainer.com/downloads/zlW2yr8gUY4UZlbkI_jrSw,,",
           "date_added": "2024-07-16 13:19",
           "file_size": "968 KB",
-          "download_count": 10038,
+          "download_count": 10040,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "d8eb3342edb605ac4870ff70bf267d8dcb8eeed4ad849d99547c4260dfe81349",
       "first_seen": "2026-10-04T10:29:06+00:00",
-      "last_crawled": "2026-10-05T09:19:48+00:00",
+      "last_crawled": "2026-10-07T08:57:19+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -16894,7 +16903,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/03/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/03/1-27.png",
@@ -16911,7 +16920,7 @@
           "url": "https://flingtrainer.com/downloads/NuHCnCdyCANsuG1N0o0Ztw,,",
           "date_added": "2026-09-04 23:49",
           "file_size": "937 KB",
-          "download_count": 65983,
+          "download_count": 67698,
           "is_latest": true
         },
         {
@@ -16920,7 +16929,7 @@
           "url": "https://flingtrainer.com/downloads/EKQ4KT3f0h9IL3QJtmpdOA,,",
           "date_added": "2026-08-01 21:14",
           "file_size": "934 KB",
-          "download_count": 109785,
+          "download_count": 109970,
           "is_latest": false
         },
         {
@@ -16929,7 +16938,7 @@
           "url": "https://flingtrainer.com/downloads/Nxef_Sz_NvSGvw1yrbvNIg,,",
           "date_added": "2026-07-04 08:51",
           "file_size": "940 KB",
-          "download_count": 43754,
+          "download_count": 43782,
           "is_latest": false
         },
         {
@@ -16938,7 +16947,7 @@
           "url": "https://flingtrainer.com/downloads/VzxLvn5Y40BC8uKZrX0Xpw,,",
           "date_added": "2026-06-19 20:11",
           "file_size": "916 KB",
-          "download_count": 27371,
+          "download_count": 27383,
           "is_latest": false
         },
         {
@@ -16947,7 +16956,7 @@
           "url": "https://flingtrainer.com/downloads/PpgQjYNV1dRj-VuV1eCE_w,,",
           "date_added": "2026-05-23 13:16",
           "file_size": "913 KB",
-          "download_count": 59598,
+          "download_count": 59612,
           "is_latest": false
         },
         {
@@ -16956,7 +16965,7 @@
           "url": "https://flingtrainer.com/downloads/c_UJYqTEvFsp0eXjBcghmw,,",
           "date_added": "2026-05-11 19:02",
           "file_size": "906 KB",
-          "download_count": 44499,
+          "download_count": 44507,
           "is_latest": false
         },
         {
@@ -16965,7 +16974,7 @@
           "url": "https://flingtrainer.com/downloads/8QFRkQ_Yr127RifoLTgqzg,,",
           "date_added": "2026-05-03 17:01",
           "file_size": "905 KB",
-          "download_count": 43078,
+          "download_count": 43087,
           "is_latest": false
         },
         {
@@ -16974,7 +16983,7 @@
           "url": "https://flingtrainer.com/downloads/GCFHgJR7IV6ilzeV54RAVQ,,",
           "date_added": "2026-04-23 23:57",
           "file_size": "904 KB",
-          "download_count": 57773,
+          "download_count": 57782,
           "is_latest": false
         },
         {
@@ -16983,7 +16992,7 @@
           "url": "https://flingtrainer.com/downloads/n2yi0QELAcemCaa2-zR9Qw,,",
           "date_added": "2026-04-04 13:19",
           "file_size": "902 KB",
-          "download_count": 113443,
+          "download_count": 113452,
           "is_latest": false
         },
         {
@@ -16992,7 +17001,7 @@
           "url": "https://flingtrainer.com/downloads/RknZaLWFCEDKy62eM731IQ,,",
           "date_added": "2026-03-30 15:14",
           "file_size": "902 KB",
-          "download_count": 62238,
+          "download_count": 62252,
           "is_latest": false
         },
         {
@@ -17001,7 +17010,7 @@
           "url": "https://flingtrainer.com/downloads/cNbnVjIVTjU4HnMW-yt47A,,",
           "date_added": "2026-03-23 16:54",
           "file_size": "902 KB",
-          "download_count": 78568,
+          "download_count": 78581,
           "is_latest": false
         },
         {
@@ -17010,7 +17019,7 @@
           "url": "https://flingtrainer.com/downloads/TxmkyVtI8ciEhPJFN8-RGw,,",
           "date_added": "2026-03-20 14:14",
           "file_size": "900 KB",
-          "download_count": 51754,
+          "download_count": 51760,
           "is_latest": false
         },
         {
@@ -17019,14 +17028,14 @@
           "url": "https://flingtrainer.com/downloads/R7e9R4wsbPAfvjSVTAiPog,,",
           "date_added": "2026-03-19 17:09",
           "file_size": "899 KB",
-          "download_count": 25797,
+          "download_count": 25812,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "d3b371eae67b7fdfc0872d15fa09e269f9a46308e14dbcba74f10a908317ce0e",
       "first_seen": "2026-10-04T10:29:07+00:00",
-      "last_crawled": "2026-10-05T09:19:51+00:00",
+      "last_crawled": "2026-10-07T08:57:22+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17181,7 +17190,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/12/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/12/1-2.png",
@@ -17198,7 +17207,7 @@
           "url": "https://flingtrainer.com/downloads/e3ojvgMPJtSEy1p5FiNt0Q,,",
           "date_added": "2022-12-20 23:05",
           "file_size": "883 KB",
-          "download_count": 54594,
+          "download_count": 54644,
           "is_latest": true
         }
       ],
@@ -17207,7 +17216,7 @@
       ],
       "content_hash": "958fdc458b256a17bd9ca63e8d7dcdca8b9ede540e0cb38b62514a6c9f74d2cc",
       "first_seen": "2026-10-04T10:29:09+00:00",
-      "last_crawled": "2026-10-05T09:19:53+00:00",
+      "last_crawled": "2026-10-07T08:57:25+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17362,7 +17371,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/09/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/09/1-4.png",
@@ -17379,14 +17388,14 @@
           "url": "https://flingtrainer.com/downloads/1SsocFAsZQ89wj2u3eZhDw,,",
           "date_added": "2025-09-10 22:41",
           "file_size": "892 KB",
-          "download_count": 67176,
+          "download_count": 67263,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "fd660b65a4c9c4859a28c6d7bfd2082528714c5cd53319811bb3c968da964e55",
       "first_seen": "2026-10-04T10:29:11+00:00",
-      "last_crawled": "2026-10-05T09:19:56+00:00",
+      "last_crawled": "2026-10-07T08:57:26+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17480,7 +17489,7 @@
         "“No Skill Cooldown”: Activated before using skill.",
         "“Infinite Gold” and “Infinite Soul Shards” take effects when you gain or spend gold/soul shards."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/10/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/10/1-6.png",
@@ -17497,14 +17506,14 @@
           "url": "https://flingtrainer.com/downloads/BFd7HKpE8FaTibcSfiSTzQ,,",
           "date_added": "2020-10-27 18:02",
           "file_size": "913 KB",
-          "download_count": 8472,
+          "download_count": 8479,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "dfea0f3c3f07528e41f6aa85b4b575d7927e73d59029f7fa64d7d257a72f773e",
       "first_seen": "2026-10-04T10:29:14+00:00",
-      "last_crawled": "2026-10-05T09:19:58+00:00",
+      "last_crawled": "2026-10-07T08:57:29+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17644,7 +17653,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/09/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/09/1-77.png",
@@ -17661,7 +17670,7 @@
           "url": "https://flingtrainer.com/downloads/NieFrP0GpYxGFfJ5ntCmOw,,",
           "date_added": "2025-10-29 19:08",
           "file_size": "832 KB",
-          "download_count": 136590,
+          "download_count": 137670,
           "is_latest": true
         },
         {
@@ -17670,7 +17679,7 @@
           "url": "https://flingtrainer.com/downloads/zKmC619Ppf-XKhsnoWjiDA,,",
           "date_added": "2025-06-04 07:15",
           "file_size": "771 KB",
-          "download_count": 60389,
+          "download_count": 60490,
           "is_latest": false
         },
         {
@@ -17679,7 +17688,7 @@
           "url": "https://flingtrainer.com/downloads/FfIBuXSvgrFwM32k_nE0gA,,",
           "date_added": "2024-09-26 16:15",
           "file_size": "767 KB",
-          "download_count": 55911,
+          "download_count": 55926,
           "is_latest": false
         },
         {
@@ -17688,7 +17697,7 @@
           "url": "https://flingtrainer.com/downloads/X2AVSErAed9yCVDmn5bHuA,,",
           "date_added": "2023-05-23 03:56",
           "file_size": "633 KB",
-          "download_count": 72197,
+          "download_count": 72217,
           "is_latest": false
         },
         {
@@ -17697,7 +17706,7 @@
           "url": "https://flingtrainer.com/downloads/fy3uEVMrOsB_kQMLZFlD3g,,",
           "date_added": "2022-09-11 19:00",
           "file_size": "567 KB",
-          "download_count": 22491,
+          "download_count": 22507,
           "is_latest": false
         },
         {
@@ -17706,7 +17715,7 @@
           "url": "https://flingtrainer.com/downloads/_VokkaACMTqsvEOXcpqPFg,,",
           "date_added": "2020-09-02 20:01",
           "file_size": "627 KB",
-          "download_count": 27408,
+          "download_count": 27424,
           "is_latest": false
         }
       ],
@@ -17715,7 +17724,7 @@
       ],
       "content_hash": "489a558aaf8b44ca0eb8995c41d0201373552b90bd9cd4aac92c31978c3ef1ce",
       "first_seen": "2026-10-04T10:29:15+00:00",
-      "last_crawled": "2026-10-05T09:20:00+00:00",
+      "last_crawled": "2026-10-07T08:57:30+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17785,7 +17794,7 @@
         "“Enable Debug Mode”: While activated, hold F1 in-game to display a list of in-game cheat options and hotkeys.",
         "“One Hit Kill” works on the enemy’s main battleship, not the smaller units."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-11.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-64.png",
@@ -17802,7 +17811,7 @@
           "url": "https://flingtrainer.com/downloads/sSmdr3hBgTI0RKBybppoqw,,",
           "date_added": "2021-01-18 17:56",
           "file_size": "845 KB",
-          "download_count": 6089,
+          "download_count": 6090,
           "is_latest": true
         },
         {
@@ -17818,7 +17827,7 @@
       "missing_fields": [],
       "content_hash": "3e188cd29edaef15d9afc01681b363bf87e0c039e46c0e552077ee56c23cb786",
       "first_seen": "2026-10-04T10:29:18+00:00",
-      "last_crawled": "2026-10-05T09:20:02+00:00",
+      "last_crawled": "2026-10-07T08:57:32+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -17900,7 +17909,7 @@
       "notes": [
         "“Stealth Mode”: If you activate this option after you are detected, you’ll need to get out of battle for it to work."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/09/header-10.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/09/1-30.png",
@@ -17917,7 +17926,7 @@
           "url": "https://flingtrainer.com/downloads/9Zl3riUzCOW_I8IkXK3NVQ,,",
           "date_added": "2021-02-13 16:59",
           "file_size": "800 KB",
-          "download_count": 85691,
+          "download_count": 85733,
           "is_latest": true
         },
         {
@@ -17926,7 +17935,7 @@
           "url": "https://flingtrainer.com/downloads/2N_Ei4G13ZVfhJLBAea8bQ,,",
           "date_added": "2020-10-22 20:42",
           "file_size": "796 KB",
-          "download_count": 26285,
+          "download_count": 26288,
           "is_latest": false
         },
         {
@@ -17935,14 +17944,14 @@
           "url": "https://flingtrainer.com/downloads/1N85gmxJoOo11Va5yS7JDA,,",
           "date_added": "2020-09-21 20:49",
           "file_size": "795 KB",
-          "download_count": 19475,
+          "download_count": 19480,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "ff5c47d2ff945f5bbc15e31cff99592f34daf76deb5c6df175b6d189ea7bd9b7",
       "first_seen": "2026-10-04T10:29:20+00:00",
-      "last_crawled": "2026-10-05T09:20:04+00:00",
+      "last_crawled": "2026-10-07T08:57:34+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18067,7 +18076,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header_alt_assets_5.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-10.png",
@@ -18084,14 +18093,14 @@
           "url": "https://flingtrainer.com/downloads/BjJFrUTqLw6Usr9xNTgyaA,,",
           "date_added": "2024-02-13 01:47",
           "file_size": "1.12 MB",
-          "download_count": 71264,
+          "download_count": 71357,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "a7b8fe6c4a097f03079087331e2510c692b1d83c466245e245de9288fa4d2e1e",
       "first_seen": "2026-10-04T10:29:22+00:00",
-      "last_crawled": "2026-10-05T09:20:05+00:00",
+      "last_crawled": "2026-10-07T08:57:36+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18151,7 +18160,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/06/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/06/1-2.png",
@@ -18168,14 +18177,14 @@
           "url": "https://flingtrainer.com/downloads/WYKDjqtu_4tfl40rCKKTQg,,",
           "date_added": "2022-06-30 14:59",
           "file_size": "815 KB",
-          "download_count": 179153,
+          "download_count": 179482,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "05230c5c0427e29658d2f30c48a7d19c2df96f1621944b3b58181c6775a4cd0c",
       "first_seen": "2026-10-04T10:29:25+00:00",
-      "last_crawled": "2026-10-05T09:20:08+00:00",
+      "last_crawled": "2026-10-07T08:57:38+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18275,7 +18284,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/06/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/06/1-47.png",
@@ -18292,7 +18301,7 @@
           "url": "https://flingtrainer.com/downloads/ZcrYRnmpvnrsHrjcF4NGEg,,",
           "date_added": "2024-07-01 02:03",
           "file_size": "924 KB",
-          "download_count": 9766,
+          "download_count": 9782,
           "is_latest": true
         },
         {
@@ -18326,7 +18335,7 @@
       "missing_fields": [],
       "content_hash": "6b4a5b20e27ef2786e1f9751a6e2c1c2687333c4c6f54ece6e51c8524ec4b33b",
       "first_seen": "2026-10-04T10:29:27+00:00",
-      "last_crawled": "2026-10-05T09:20:10+00:00",
+      "last_crawled": "2026-10-07T08:57:40+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18424,7 +18433,7 @@
         "“Unlimited Health”, “Edit Max Health”: Take effects when health value changes/updates.",
         "“Zero Corruption”: Takes effect when corruption value changes/updates."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/03/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/03/1-13.png",
@@ -18441,7 +18450,7 @@
           "url": "https://flingtrainer.com/downloads/_20rfV9hWB35duOpVZiErQ,,",
           "date_added": "2021-08-06 20:12",
           "file_size": "865 KB",
-          "download_count": 15889,
+          "download_count": 15896,
           "is_latest": true
         },
         {
@@ -18450,7 +18459,7 @@
           "url": "https://flingtrainer.com/downloads/8ebON1pgiu2K9BA9bFB2zQ,,",
           "date_added": "2021-04-18 21:20",
           "file_size": "863 KB",
-          "download_count": 3821,
+          "download_count": 3824,
           "is_latest": false
         },
         {
@@ -18459,14 +18468,14 @@
           "url": "https://flingtrainer.com/downloads/QLnmJiKcCVuBKHE2HVYk-g,,",
           "date_added": "2021-03-06 21:42",
           "file_size": "861 KB",
-          "download_count": 4677,
+          "download_count": 4678,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "de22a94e78b616e7cbfc5acc3b7d85a63848874501eb5ac8b52428aafd0b063d",
       "first_seen": "2026-10-04T10:29:30+00:00",
-      "last_crawled": "2026-10-05T09:20:12+00:00",
+      "last_crawled": "2026-10-07T08:57:43+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18716,7 +18725,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/12/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/12/1-39.png",
@@ -18733,7 +18742,7 @@
           "url": "https://flingtrainer.com/downloads/4MtPPLh_ZZMXwfHXRMuI2w,,",
           "date_added": "2024-09-13 15:32",
           "file_size": "873 KB",
-          "download_count": 2087050,
+          "download_count": 2093349,
           "is_latest": true
         },
         {
@@ -18742,7 +18751,7 @@
           "url": "https://flingtrainer.com/downloads/wF-XfBwU0p47fQWZGj1teQ,,",
           "date_added": "2024-01-20 11:33",
           "file_size": "999 KB",
-          "download_count": 563046,
+          "download_count": 563248,
           "is_latest": false
         },
         {
@@ -18751,7 +18760,7 @@
           "url": "https://flingtrainer.com/downloads/CpYhSbRuE-yPEY3OWySSvA,,",
           "date_added": "2023-12-25 01:03",
           "file_size": "995 KB",
-          "download_count": 73697,
+          "download_count": 73749,
           "is_latest": false
         },
         {
@@ -18760,7 +18769,7 @@
           "url": "https://flingtrainer.com/downloads/aT2bYECi-P0DxBusGUPwZQ,,",
           "date_added": "2023-12-05 07:52",
           "file_size": "996 KB",
-          "download_count": 74045,
+          "download_count": 74066,
           "is_latest": false
         },
         {
@@ -18769,7 +18778,7 @@
           "url": "https://flingtrainer.com/downloads/XAA3nwLVfCHRtY7yIbXxRg,,",
           "date_added": "2023-10-26 19:02",
           "file_size": "976 KB",
-          "download_count": 100290,
+          "download_count": 100304,
           "is_latest": false
         },
         {
@@ -18778,7 +18787,7 @@
           "url": "https://flingtrainer.com/downloads/WFJsNBi9rSVT17G44PoVmQ,,",
           "date_added": "2023-10-07 19:17",
           "file_size": "976 KB",
-          "download_count": 91421,
+          "download_count": 91433,
           "is_latest": false
         },
         {
@@ -18787,7 +18796,7 @@
           "url": "https://flingtrainer.com/downloads/dicOXuwU0wECikAXk8OANg,,",
           "date_added": "2023-09-27 04:35",
           "file_size": "973 KB",
-          "download_count": 121654,
+          "download_count": 121666,
           "is_latest": false
         },
         {
@@ -18796,7 +18805,7 @@
           "url": "https://flingtrainer.com/downloads/S9dtSPWcEXXAAPituv0idA,,",
           "date_added": "2023-09-27 00:42",
           "file_size": "973 KB",
-          "download_count": 12606,
+          "download_count": 12619,
           "is_latest": false
         },
         {
@@ -18805,7 +18814,7 @@
           "url": "https://flingtrainer.com/downloads/mtw3RMxv5Bc14WeaRZRauw,,",
           "date_added": "2023-09-22 02:56",
           "file_size": "972 KB",
-          "download_count": 79278,
+          "download_count": 79294,
           "is_latest": false
         },
         {
@@ -18814,7 +18823,7 @@
           "url": "https://flingtrainer.com/downloads/kKlDzJ-Sx7PfNHBIWqsGHQ,,",
           "date_added": "2023-09-21 23:09",
           "file_size": "972 KB",
-          "download_count": 14903,
+          "download_count": 14912,
           "is_latest": false
         },
         {
@@ -18823,7 +18832,7 @@
           "url": "https://flingtrainer.com/downloads/xLLd1Z0-WLioAysSkBQgUg,,",
           "date_added": "2022-11-11 22:24",
           "file_size": "756 KB",
-          "download_count": 220345,
+          "download_count": 220378,
           "is_latest": false
         },
         {
@@ -18832,7 +18841,7 @@
           "url": "https://flingtrainer.com/downloads/CdOqW9AbTMRH9LbjXva_1A,,",
           "date_added": "2022-09-07 22:22",
           "file_size": "755 KB",
-          "download_count": 101360,
+          "download_count": 101372,
           "is_latest": false
         },
         {
@@ -18841,7 +18850,7 @@
           "url": "https://flingtrainer.com/downloads/21bJ-5UF7lOZrjd2bsxviA,,",
           "date_added": "2022-02-16 16:18",
           "file_size": "875 KB",
-          "download_count": 90270,
+          "download_count": 90280,
           "is_latest": false
         },
         {
@@ -18850,7 +18859,7 @@
           "url": "https://flingtrainer.com/downloads/IKkrpOp3vLY-sAiSWLkkww,,",
           "date_added": "2021-08-19 20:44",
           "file_size": "872 KB",
-          "download_count": 70576,
+          "download_count": 70589,
           "is_latest": false
         },
         {
@@ -18859,7 +18868,7 @@
           "url": "https://flingtrainer.com/downloads/hoK0M-huBvUyPsfCTMAnMA,,",
           "date_added": "2021-03-30 14:21",
           "file_size": "868 KB",
-          "download_count": 74791,
+          "download_count": 74803,
           "is_latest": false
         },
         {
@@ -18868,7 +18877,7 @@
           "url": "https://flingtrainer.com/downloads/6xVeUQZ3kZrWmRZ6aNddgQ,,",
           "date_added": "2020-12-27 09:38",
           "file_size": "861 KB",
-          "download_count": 120567,
+          "download_count": 120574,
           "is_latest": false
         },
         {
@@ -18877,7 +18886,7 @@
           "url": "https://flingtrainer.com/downloads/Oyk_vxmzdAmr9mJ-vLIhJw,,",
           "date_added": "2020-12-20 16:51",
           "file_size": "809 KB",
-          "download_count": 70661,
+          "download_count": 70668,
           "is_latest": false
         },
         {
@@ -18886,7 +18895,7 @@
           "url": "https://flingtrainer.com/downloads/aBt-N1NPx70nj_VMS6tkvA,,",
           "date_added": "2020-12-11 17:48",
           "file_size": "814 KB",
-          "download_count": 102804,
+          "download_count": 102811,
           "is_latest": false
         },
         {
@@ -18895,7 +18904,7 @@
           "url": "https://flingtrainer.com/downloads/5US3NwwZQxTnnoenuF6eyw,,",
           "date_added": "2020-12-10 19:51",
           "file_size": "811 KB",
-          "download_count": 53767,
+          "download_count": 53779,
           "is_latest": false
         },
         {
@@ -18904,14 +18913,14 @@
           "url": "https://flingtrainer.com/downloads/a7wtKWyIGdDWtg16HGf3NQ,,",
           "date_added": "2020-12-10 02:06",
           "file_size": "806 KB",
-          "download_count": 51489,
+          "download_count": 51502,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "43acbbb9b316d7ec5dd4a26afb772e85176a3de576e250b02374cf67c78b8adb",
       "first_seen": "2026-10-04T10:29:32+00:00",
-      "last_crawled": "2026-10-05T09:20:15+00:00",
+      "last_crawled": "2026-10-07T08:57:45+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -18996,7 +19005,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/02/header-9.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/02/1-33.png",
@@ -19013,7 +19022,7 @@
           "url": "https://flingtrainer.com/downloads/z4V-5NId0NU0lKlbFYWPSQ,,",
           "date_added": "2023-12-06 04:45",
           "file_size": "981 KB",
-          "download_count": 13793,
+          "download_count": 13802,
           "is_latest": true
         },
         {
@@ -19038,7 +19047,7 @@
       "missing_fields": [],
       "content_hash": "87d1ed333641e3203ccb2d49199e69165656b239e88ae3f0e09385520d0c800e",
       "first_seen": "2026-10-04T10:29:34+00:00",
-      "last_crawled": "2026-10-05T09:20:17+00:00",
+      "last_crawled": "2026-10-07T08:57:47+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -19253,7 +19262,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/09/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/09/1-14.png",
@@ -19270,7 +19279,7 @@
           "url": "https://flingtrainer.com/downloads/viAyBJoRLaSb5MAi_D9lMg,,",
           "date_added": "2025-09-30 19:11",
           "file_size": "932 KB",
-          "download_count": 17797,
+          "download_count": 17835,
           "is_latest": true
         },
         {
@@ -19279,7 +19288,7 @@
           "url": "https://flingtrainer.com/downloads/1_wuSSbZEdNOJ4JVlzubcA,,",
           "date_added": "2025-09-09 11:28",
           "file_size": "932 KB",
-          "download_count": 15359,
+          "download_count": 15364,
           "is_latest": false
         },
         {
@@ -19288,14 +19297,14 @@
           "url": "https://flingtrainer.com/downloads/Jf-kIGSiifgfA8zWggk6nQ,,",
           "date_added": "2025-09-08 09:24",
           "file_size": "930 KB",
-          "download_count": 7632,
+          "download_count": 7633,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "ca8af4e95bc62c49afdcef5c697c9c784c1eabb9112a00f711b6906d1f0ee16e",
       "first_seen": "2026-10-04T10:29:36+00:00",
-      "last_crawled": "2026-10-05T09:20:19+00:00",
+      "last_crawled": "2026-10-07T08:57:50+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -19465,7 +19474,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/09/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/09/1-11.png",
@@ -19482,7 +19491,7 @@
           "url": "https://flingtrainer.com/downloads/KquruMdbnbCtjz1K88I-ZQ,,",
           "date_added": "2023-01-15 15:19",
           "file_size": "903 KB",
-          "download_count": 522807,
+          "download_count": 523952,
           "is_latest": true
         },
         {
@@ -19491,7 +19500,7 @@
           "url": "https://flingtrainer.com/downloads/k4gmacT2V25VWDv8hX5l2g,,",
           "date_added": "2022-09-19 17:44",
           "file_size": "754 KB",
-          "download_count": 42560,
+          "download_count": 42608,
           "is_latest": false
         }
       ],
@@ -19500,7 +19509,7 @@
       ],
       "content_hash": "7229f37070a24ca6d2d22b9f3a67f5f2079ecbb37b3218808d9c255272181a69",
       "first_seen": "2026-10-04T10:29:46+00:00",
-      "last_crawled": "2026-10-05T09:20:29+00:00",
+      "last_crawled": "2026-10-07T08:57:57+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -19644,7 +19653,7 @@
         "Put steam in offline mode, then launch the game.",
         "When you enter the main menu, you should see a message says “Game will start in offline mode.”, click OK to enter offline mode."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/11/header-10.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/11/1-37.png",
@@ -19661,7 +19670,7 @@
           "url": "https://flingtrainer.com/downloads/y4eKejxfhfDGiyeZEaPHQQ,,",
           "date_added": "2022-11-22 03:09",
           "file_size": "832 KB",
-          "download_count": 235713,
+          "download_count": 236391,
           "is_latest": true
         },
         {
@@ -19670,7 +19679,7 @@
           "url": "https://flingtrainer.com/downloads/niIfbAtwHrN144w9vjPlNw,,",
           "date_added": "2020-11-26 00:45",
           "file_size": "960 KB",
-          "download_count": 85865,
+          "download_count": 85905,
           "is_latest": false
         }
       ],
@@ -19679,7 +19688,7 @@
       ],
       "content_hash": "f3209765964e3c7cee2e6ff03b8d396ce1c9d480188315ce870db60588c71e4e",
       "first_seen": "2026-10-04T10:29:47+00:00",
-      "last_crawled": "2026-10-05T09:20:31+00:00",
+      "last_crawled": "2026-10-07T08:58:00+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -19764,7 +19773,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/11/Header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/11/1-34.png",
@@ -19781,7 +19790,7 @@
           "url": "https://flingtrainer.com/downloads/ZniToVyfJAq72p49FtTq0A,,",
           "date_added": "2025-07-06 02:46",
           "file_size": "988 KB",
-          "download_count": 42213,
+          "download_count": 42343,
           "is_latest": true
         },
         {
@@ -19790,7 +19799,7 @@
           "url": "https://flingtrainer.com/downloads/NULNJDZPPrcXSNEBjFbsRg,,",
           "date_added": "2025-01-30 09:38",
           "file_size": "988 KB",
-          "download_count": 21841,
+          "download_count": 21843,
           "is_latest": false
         },
         {
@@ -19826,7 +19835,7 @@
           "url": "https://flingtrainer.com/downloads/NescSnRzqD2KiuU0lqELLQ,,",
           "date_added": "2022-06-21 15:11",
           "file_size": "915 KB",
-          "download_count": 3597,
+          "download_count": 3598,
           "is_latest": false
         },
         {
@@ -19842,7 +19851,7 @@
       "missing_fields": [],
       "content_hash": "b06b504ebdcbe1cd8e66f8c1256174576d5a989ccfc882e4b2e184300c47c362",
       "first_seen": "2026-10-04T10:29:39+00:00",
-      "last_crawled": "2026-10-05T09:20:21+00:00",
+      "last_crawled": "2026-10-07T08:57:51+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -19934,7 +19943,7 @@
       "notes": [
         "Starting from v25807, the trainer will support 64-bit game version and no longer support 32-bit game version."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/06/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/06/1-29.png",
@@ -19951,7 +19960,7 @@
           "url": "https://flingtrainer.com/downloads/jBNxuwmHRIM8T60cleMTPA,,",
           "date_added": "2026-08-25 22:38",
           "file_size": "1.01 MB",
-          "download_count": 12705,
+          "download_count": 13246,
           "is_latest": true
         },
         {
@@ -19960,7 +19969,7 @@
           "url": "https://flingtrainer.com/downloads/ViwmVcgVMGfwbVMo90YINw,,",
           "date_added": "2025-08-09 12:45",
           "file_size": "959 KB",
-          "download_count": 83772,
+          "download_count": 83788,
           "is_latest": false
         },
         {
@@ -19969,7 +19978,7 @@
           "url": "https://flingtrainer.com/downloads/SZf4w8S7HTJh_zTGq4WZIw,,",
           "date_added": "2025-06-20 22:28",
           "file_size": "865 KB",
-          "download_count": 18783,
+          "download_count": 18789,
           "is_latest": false
         },
         {
@@ -19978,7 +19987,7 @@
           "url": "https://flingtrainer.com/downloads/lK4wMVJsqHH9BWxGBnrRMw,,",
           "date_added": "2020-06-15 16:19",
           "file_size": "743 KB",
-          "download_count": 196526,
+          "download_count": 196533,
           "is_latest": false
         },
         {
@@ -19987,14 +19996,14 @@
           "url": "https://flingtrainer.com/downloads/518d30lI3IaoP0GGi7ZCgw,,",
           "date_added": "2020-06-07 18:49",
           "file_size": "758 KB",
-          "download_count": 22529,
+          "download_count": 22530,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "decc60b505419dddb667d4a1895cf2fcfd3281a39e8542676a0feb5f183479e4",
       "first_seen": "2026-10-04T10:29:42+00:00",
-      "last_crawled": "2026-10-05T09:20:23+00:00",
+      "last_crawled": "2026-10-07T08:57:53+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -20092,7 +20101,7 @@
         "“Infinite Health” and “Infinite Wrath” also work for teammate/2nd character.",
         "“Infinite Ammo” takes effect after shooting."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/12/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/12/1-12.png",
@@ -20109,7 +20118,7 @@
           "url": "https://flingtrainer.com/downloads/cLeXlR2j4QZ8Phyu9P_zWQ,,",
           "date_added": "2019-12-19 18:29",
           "file_size": "633 KB",
-          "download_count": 46311,
+          "download_count": 46343,
           "is_latest": true
         },
         {
@@ -20118,7 +20127,7 @@
           "url": "https://flingtrainer.com/downloads/Aqvu4u0jFR3wJCzOjFNw7g,,",
           "date_added": "2019-12-11 07:14",
           "file_size": "631 KB",
-          "download_count": 8806,
+          "download_count": 8811,
           "is_latest": false
         },
         {
@@ -20127,14 +20136,14 @@
           "url": "https://flingtrainer.com/downloads/PJbEHws85b3Q3qUPU-pjWg,,",
           "date_added": "2019-12-05 21:20",
           "file_size": "631 KB",
-          "download_count": 14073,
+          "download_count": 14078,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "e9a9cd4003ca8c7025275ad42a21db44ae32180fcc0e04731c19304c3df9d755",
       "first_seen": "2026-10-04T10:29:44+00:00",
-      "last_crawled": "2026-10-05T09:20:26+00:00",
+      "last_crawled": "2026-10-07T08:57:55+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -20339,7 +20348,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/07/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/07/1-20.png",
@@ -20356,7 +20365,7 @@
           "url": "https://flingtrainer.com/downloads/MJPoEEUsEDcjynPqScuR_A,,",
           "date_added": "2026-06-25 10:06",
           "file_size": "0.98 MB",
-          "download_count": 108476,
+          "download_count": 109717,
           "is_latest": true
         },
         {
@@ -20365,7 +20374,7 @@
           "url": "https://flingtrainer.com/downloads/PqTfYQ6Vm3fWscbvTn8-aQ,,",
           "date_added": "2026-06-19 20:04",
           "file_size": "983 KB",
-          "download_count": 32819,
+          "download_count": 32859,
           "is_latest": false
         },
         {
@@ -20374,7 +20383,7 @@
           "url": "https://flingtrainer.com/downloads/cvb40dudXqdeiAolusxArA,,",
           "date_added": "2026-01-06 03:04",
           "file_size": "969 KB",
-          "download_count": 100943,
+          "download_count": 100956,
           "is_latest": false
         },
         {
@@ -20383,7 +20392,7 @@
           "url": "https://flingtrainer.com/downloads/NZHDBAEQtS-96C-C3D-yjg,,",
           "date_added": "2023-08-20 10:16",
           "file_size": "1.05 MB",
-          "download_count": 291791,
+          "download_count": 291802,
           "is_latest": false
         },
         {
@@ -20392,7 +20401,7 @@
           "url": "https://flingtrainer.com/downloads/sTnM30l7_PkZVv2UZeEd7w,,",
           "date_added": "2023-07-14 00:48",
           "file_size": "1.05 MB",
-          "download_count": 45064,
+          "download_count": 45066,
           "is_latest": false
         }
       ],
@@ -20401,7 +20410,7 @@
       ],
       "content_hash": "b0560b5bb0e61fcf611eb30cce08296b494b835553bb83c7b88665102d32bf6b",
       "first_seen": "2026-10-04T10:29:49+00:00",
-      "last_crawled": "2026-10-05T09:20:33+00:00",
+      "last_crawled": "2026-10-07T08:58:03+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -20446,7 +20455,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-9.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-73.png",
@@ -20463,7 +20472,7 @@
           "url": "https://flingtrainer.com/downloads/zv9q_rNYSdD6sMimKZfmXw,,",
           "date_added": "2023-01-15 14:43",
           "file_size": "601 KB",
-          "download_count": 11212,
+          "download_count": 11219,
           "is_latest": true
         },
         {
@@ -20472,14 +20481,14 @@
           "url": "https://flingtrainer.com/downloads/I6QTVidqmBODA8Cg5am5Mw,,",
           "date_added": "2019-09-18 16:19",
           "file_size": "605 KB",
-          "download_count": 24203,
+          "download_count": 24204,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "1b04f5a4fc72eba1142b8ef010cf257719ebd81da3142fb2a2eeff79fcf70d3f",
       "first_seen": "2026-10-04T10:29:52+00:00",
-      "last_crawled": "2026-10-05T09:20:35+00:00",
+      "last_crawled": "2026-10-07T08:58:06+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -20669,7 +20678,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/05/header-9.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/05/1-52.png",
@@ -20686,7 +20695,7 @@
           "url": "https://flingtrainer.com/downloads/uvG7Akj6ZMoKn1TxRFCTnA,,",
           "date_added": "2025-04-26 04:09",
           "file_size": "606 KB",
-          "download_count": 195852,
+          "download_count": 196465,
           "is_latest": true
         },
         {
@@ -20695,7 +20704,7 @@
           "url": "https://flingtrainer.com/downloads/C6fDd2up_xFbaHcwxDJnbA,,",
           "date_added": "2021-06-15 19:55",
           "file_size": "808 KB",
-          "download_count": 366684,
+          "download_count": 366721,
           "is_latest": false
         },
         {
@@ -20704,7 +20713,7 @@
           "url": "https://flingtrainer.com/downloads/Z0-l-DJgHGOq4t0V2OCsxQ,,",
           "date_added": "2021-05-26 07:30",
           "file_size": "799 KB",
-          "download_count": 71879,
+          "download_count": 71892,
           "is_latest": false
         },
         {
@@ -20713,7 +20722,7 @@
           "url": "https://flingtrainer.com/downloads/zBmSkwdQNam3pIX7hTUIbg,,",
           "date_added": "2021-05-19 12:48",
           "file_size": "798 KB",
-          "download_count": 87479,
+          "download_count": 87487,
           "is_latest": false
         },
         {
@@ -20722,14 +20731,14 @@
           "url": "https://flingtrainer.com/downloads/cq9zMi4Tbb5ntGDbkxrS5Q,,",
           "date_added": "2021-05-19 10:10",
           "file_size": "797 KB",
-          "download_count": 42385,
+          "download_count": 42395,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "957cbe7725c3e031b97405c4e3846fd07b7b18366e34292111202de46b0e4539",
       "first_seen": "2026-10-04T10:29:53+00:00",
-      "last_crawled": "2026-10-05T09:20:37+00:00",
+      "last_crawled": "2026-10-07T08:58:08+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -20814,7 +20823,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/07/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/07/1-53.png",
@@ -20831,7 +20840,7 @@
           "url": "https://flingtrainer.com/downloads/rgFnnYAL8ObTwAbjjM5AMQ,,",
           "date_added": "2024-10-10 15:53",
           "file_size": "1.24 MB",
-          "download_count": 242593,
+          "download_count": 243339,
           "is_latest": true
         },
         {
@@ -20840,7 +20849,7 @@
           "url": "https://flingtrainer.com/downloads/qde65vUYwxiMU0Nlv1-rsA,,",
           "date_added": "2023-05-06 14:47",
           "file_size": "1.50 MB",
-          "download_count": 138897,
+          "download_count": 139016,
           "is_latest": false
         },
         {
@@ -20849,7 +20858,7 @@
           "url": "https://flingtrainer.com/downloads/jJr6AJ4OgHYpfR1ApInyHg,,",
           "date_added": "2023-03-23 21:35",
           "file_size": "1.50 MB",
-          "download_count": 16336,
+          "download_count": 16360,
           "is_latest": false
         },
         {
@@ -20858,7 +20867,7 @@
           "url": "https://flingtrainer.com/downloads/sTh2ujB2cKNPVq6a4UZxXw,,",
           "date_added": "2023-01-15 15:01",
           "file_size": "1.65 MB",
-          "download_count": 15312,
+          "download_count": 15321,
           "is_latest": false
         },
         {
@@ -20867,7 +20876,7 @@
           "url": "https://flingtrainer.com/downloads/HfYfNIlsitXGkNruqW0OOw,,",
           "date_added": "2021-10-01 19:58",
           "file_size": "1.49 MB",
-          "download_count": 54132,
+          "download_count": 54141,
           "is_latest": false
         },
         {
@@ -20876,7 +20885,7 @@
           "url": "https://flingtrainer.com/downloads/GyFSP8Kx54dtBYENmXWp-A,,",
           "date_added": "2021-02-02 18:07",
           "file_size": "1.49 MB",
-          "download_count": 29794,
+          "download_count": 29801,
           "is_latest": false
         },
         {
@@ -20885,7 +20894,7 @@
           "url": "https://flingtrainer.com/downloads/6scPZBceXferRXaHqMdLhA,,",
           "date_added": "2021-01-06 19:24",
           "file_size": "1.49 MB",
-          "download_count": 7470,
+          "download_count": 7476,
           "is_latest": false
         },
         {
@@ -20894,14 +20903,14 @@
           "url": "https://flingtrainer.com/downloads/kA_j03lWTl8XPTf1d5iPBw,,",
           "date_added": "2020-07-07 23:16",
           "file_size": "745 KB",
-          "download_count": 20497,
+          "download_count": 20505,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "1c0e06f82db8455f5299a01dfec488f0fd2efd92153522b0020df79f6c5c5de7",
       "first_seen": "2026-10-04T10:29:55+00:00",
-      "last_crawled": "2026-10-05T09:20:40+00:00",
+      "last_crawled": "2026-10-07T08:58:11+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21051,7 +21060,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/04/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/04/1-11.png",
@@ -21068,7 +21077,7 @@
           "url": "https://flingtrainer.com/downloads/Xu9VCSzuc0xG8ZTLvt2sww,,",
           "date_added": "2024-10-28 03:29",
           "file_size": "957 KB",
-          "download_count": 374984,
+          "download_count": 375815,
           "is_latest": true
         },
         {
@@ -21077,7 +21086,7 @@
           "url": "https://flingtrainer.com/downloads/EUpWdfE1r71UUn8W7BGIMQ,,",
           "date_added": "2024-04-17 13:11",
           "file_size": "993 KB",
-          "download_count": 52451,
+          "download_count": 52462,
           "is_latest": false
         },
         {
@@ -21086,7 +21095,7 @@
           "url": "https://flingtrainer.com/downloads/HsuTkoaxL4Zzjr7X2qBCqw,,",
           "date_added": "2023-11-08 18:11",
           "file_size": "1.10 MB",
-          "download_count": 30030,
+          "download_count": 30040,
           "is_latest": false
         },
         {
@@ -21113,14 +21122,14 @@
           "url": "https://flingtrainer.com/downloads/8pBQlZw0ESBQEtsb7IywxQ,,",
           "date_added": "2023-04-21 13:15",
           "file_size": "991 KB",
-          "download_count": 10068,
+          "download_count": 10070,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "76aff93c0b44caa9d12bb35ba376eb378147aa6ae53043a03c2e3b6ab5b6817c",
       "first_seen": "2026-10-04T10:29:57+00:00",
-      "last_crawled": "2026-10-05T09:20:41+00:00",
+      "last_crawled": "2026-10-07T08:58:13+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21223,7 +21232,7 @@
         "Unlock All xxx options will temporary unlock items, item lock/unlock state will restore back to normal when these options are disabled.",
         "You still need to purchase Music, Encyclopedia, Trivia even if you use the unlock options. If you purchase them, they will be permanently unlocked."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/02/header-11.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/02/1-14.png",
@@ -21240,14 +21249,14 @@
           "url": "https://flingtrainer.com/downloads/_mkBNpglGNxhb319wJ2dPg,,",
           "date_added": "2020-02-25 19:33",
           "file_size": "544 KB",
-          "download_count": 61391,
+          "download_count": 61435,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "ae24130f55642d38d0c0ec7d40d39ebbda13f8126a8ea40d4865e44d8471484f",
       "first_seen": "2026-10-04T10:29:59+00:00",
-      "last_crawled": "2026-10-05T09:20:44+00:00",
+      "last_crawled": "2026-10-07T08:58:15+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21373,7 +21382,7 @@
         "You may need to update REFramework if the game updates, you can find the latest version on Github:",
         "https://github.com/praydog/REFramework-nightly/releases (Note: for this game, the file is DD2.zip)"
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/08/header-8.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/08/1-8.png",
@@ -21390,14 +21399,14 @@
           "url": "https://flingtrainer.com/downloads/zp8t7ZFjBFD3hBIEqeP-1g,,",
           "date_added": "2025-08-26 00:16",
           "file_size": "5.36 MB",
-          "download_count": 27556,
+          "download_count": 27608,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "d30986075b59a18bba430235d46b03aaca5e568517533e2065d147ba83571cca",
       "first_seen": "2026-10-04T10:30:02+00:00",
-      "last_crawled": "2026-10-05T09:20:47+00:00",
+      "last_crawled": "2026-10-07T08:58:18+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21482,7 +21491,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2023/01/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2023/01/1-5.png",
@@ -21499,7 +21508,7 @@
           "url": "https://flingtrainer.com/downloads/yC92f-VvDW88sL4e9g63dA,,",
           "date_added": "2023-01-30 02:33",
           "file_size": "870 KB",
-          "download_count": 186993,
+          "download_count": 187279,
           "is_latest": true
         },
         {
@@ -21508,14 +21517,14 @@
           "url": "https://flingtrainer.com/downloads/XkprRKGuP0wemh1uPMU6zQ,,",
           "date_added": "2023-01-28 05:12",
           "file_size": "870 KB",
-          "download_count": 23037,
+          "download_count": 23077,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "313d991a2c11163cf5315b4770e9c5233b6a68c1bd3d6a560919023231f4a067",
       "first_seen": "2026-10-04T10:30:03+00:00",
-      "last_crawled": "2026-10-05T09:20:50+00:00",
+      "last_crawled": "2026-10-07T08:58:21+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21594,7 +21603,7 @@
         "“Infinite Items” takes effect when item quantity changes.",
         "“Super Damage/One Hit Kill”: Activate before starting battle or wait for next turn to take effect. This option will change your characters’ stats, if you want to restore their stats, disable this option and then fight a battle."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/08/header_schinese.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/08/1-18.png",
@@ -21611,14 +21620,14 @@
           "url": "https://flingtrainer.com/downloads/qK1x28y52e6qffaO2B_Iwg,,",
           "date_added": "2020-08-20 22:21",
           "file_size": "826 KB",
-          "download_count": 5690,
+          "download_count": 5695,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "53ef3a9ccdd5017ef6d1a25d8da79499bd4fc658914e935b0e33a3f2773d43bc",
       "first_seen": "2026-10-04T10:30:10+00:00",
-      "last_crawled": "2026-10-05T09:20:56+00:00",
+      "last_crawled": "2026-10-07T08:58:27+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21690,7 +21699,7 @@
       "notes": [
         "1. For “100% Dodge Rate” and “Super Damage/One Hit Kill” you need to activate them before battle to take effect. These options will change your characters’ stats, if you want to restore their stats, just disable them then fight a battle."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/05/header-9.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/05/1-5.png",
@@ -21707,7 +21716,7 @@
           "url": "https://flingtrainer.com/downloads/qYJvZ867pOdGRl37tEtCog,,",
           "date_added": "2019-05-17 03:57",
           "file_size": "712 KB",
-          "download_count": 6729,
+          "download_count": 6732,
           "is_latest": true
         }
       ],
@@ -21716,7 +21725,7 @@
       ],
       "content_hash": "4bbfdf165aee1f138367161519f1473ebbb3d4e5448e1cf7280af590a919a9d2",
       "first_seen": "2026-10-04T10:30:08+00:00",
-      "last_crawled": "2026-10-05T09:20:54+00:00",
+      "last_crawled": "2026-10-07T08:58:25+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -21931,7 +21940,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/03/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/03/1-25.png",
@@ -21948,7 +21957,7 @@
           "url": "https://flingtrainer.com/downloads/yby4jHnk4b2rIqDHmHWeAg,,",
           "date_added": "2026-07-08 06:09",
           "file_size": "941 KB",
-          "download_count": 29156,
+          "download_count": 29557,
           "is_latest": true
         },
         {
@@ -21957,7 +21966,7 @@
           "url": "https://flingtrainer.com/downloads/nawtZ0-RoK5lBsEEOWSaoA,,",
           "date_added": "2026-04-06 14:40",
           "file_size": "902 KB",
-          "download_count": 79265,
+          "download_count": 79296,
           "is_latest": false
         },
         {
@@ -21966,7 +21975,7 @@
           "url": "https://flingtrainer.com/downloads/4uGC1rsaNKWniF9sf97Vzg,,",
           "date_added": "2026-04-06 12:41",
           "file_size": "903 KB",
-          "download_count": 2905,
+          "download_count": 2912,
           "is_latest": false
         },
         {
@@ -21975,7 +21984,7 @@
           "url": "https://flingtrainer.com/downloads/_3JtFpZh20nskIvShjlrfA,,",
           "date_added": "2026-03-26 22:05",
           "file_size": "903 KB",
-          "download_count": 54888,
+          "download_count": 54896,
           "is_latest": false
         },
         {
@@ -21984,7 +21993,7 @@
           "url": "https://flingtrainer.com/downloads/pS3KQsepgFYPg9E9rRyVbA,,",
           "date_added": "2026-03-26 15:59",
           "file_size": "903 KB",
-          "download_count": 9269,
+          "download_count": 9271,
           "is_latest": false
         },
         {
@@ -21993,14 +22002,14 @@
           "url": "https://flingtrainer.com/downloads/w7Q1JJItseoikazSGkYTig,,",
           "date_added": "2026-03-19 10:03",
           "file_size": "894 KB",
-          "download_count": 68303,
+          "download_count": 68304,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "12706a33d99be70a0cede94cd14dd0f76f17b02c3ec5d921da081b199f6b034b",
       "first_seen": "2026-10-04T10:30:14+00:00",
-      "last_crawled": "2026-10-05T09:21:01+00:00",
+      "last_crawled": "2026-10-07T08:58:32+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22156,7 +22165,7 @@
         "“Easy Building & Upgrade”: This option will consume your carrying chiral crystals, you can use “Edit Chiral Crystals” and keep it active to have infinite chiral crystals.",
         "“Easy Building & Upgrade” lets you set a custom amount of materials to be added to the construction site. Note this value must be greater than the required materials amount in order to finish building/upgrade."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/07/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/07/1-44.png",
@@ -22173,7 +22182,7 @@
           "url": "https://flingtrainer.com/downloads/urKbGMRckWq14pDAJEgGyQ,,",
           "date_added": "2022-05-11 13:49",
           "file_size": "683 KB",
-          "download_count": 396540,
+          "download_count": 396984,
           "is_latest": true
         },
         {
@@ -22182,7 +22191,7 @@
           "url": "https://flingtrainer.com/downloads/PaeJhXVn8r30aOYp7LkKqg,,",
           "date_added": "2020-12-20 19:00",
           "file_size": "765 KB",
-          "download_count": 107339,
+          "download_count": 107373,
           "is_latest": false
         },
         {
@@ -22191,7 +22200,7 @@
           "url": "https://flingtrainer.com/downloads/kGY6VVr3lSoPqzDmgLgi3A,,",
           "date_added": "2020-08-13 01:50",
           "file_size": "764 KB",
-          "download_count": 53527,
+          "download_count": 53530,
           "is_latest": false
         },
         {
@@ -22209,7 +22218,7 @@
           "url": "https://flingtrainer.com/downloads/3Rf0q_M8I35QbtyFclmZyA,,",
           "date_added": "2020-07-17 15:31",
           "file_size": "754 KB",
-          "download_count": 7288,
+          "download_count": 7292,
           "is_latest": false
         },
         {
@@ -22236,14 +22245,14 @@
           "url": "https://flingtrainer.com/downloads/I48_Qj-g4NIOIO3NSUjiOg,,",
           "date_added": "2020-07-14 18:44",
           "file_size": "750 KB",
-          "download_count": 5901,
+          "download_count": 5902,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "016f74d4f2eef9eae22e4d12cbbe25f9eda7a4aa10432740f27744c97a9a81b2",
       "first_seen": "2026-10-04T10:30:12+00:00",
-      "last_crawled": "2026-10-05T09:20:59+00:00",
+      "last_crawled": "2026-10-07T08:58:29+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22328,7 +22337,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/09/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/09/1-29.png",
@@ -22345,7 +22354,7 @@
           "url": "https://flingtrainer.com/downloads/ZMxutackacqZfc2S8wUmzA,,",
           "date_added": "2022-09-20 22:06",
           "file_size": "749 KB",
-          "download_count": 43300,
+          "download_count": 43324,
           "is_latest": true
         },
         {
@@ -22354,7 +22363,7 @@
           "url": "https://flingtrainer.com/downloads/n9Myq7fK-By19IUfHBsUmQ,,",
           "date_added": "2022-08-01 21:36",
           "file_size": "748 KB",
-          "download_count": 4936,
+          "download_count": 4937,
           "is_latest": false
         },
         {
@@ -22363,7 +22372,7 @@
           "url": "https://flingtrainer.com/downloads/W2rZFxn1xnG4aKdv7LQGtQ,,",
           "date_added": "2022-07-30 10:39",
           "file_size": "744 KB",
-          "download_count": 2140,
+          "download_count": 2142,
           "is_latest": false
         },
         {
@@ -22372,7 +22381,7 @@
           "url": "https://flingtrainer.com/downloads/rg-U4pgC7OxB9V8-qLL3lQ,,",
           "date_added": "2021-11-26 17:55",
           "file_size": "784 KB",
-          "download_count": 28654,
+          "download_count": 28656,
           "is_latest": false
         },
         {
@@ -22381,7 +22390,7 @@
           "url": "https://flingtrainer.com/downloads/o6m2ITcWugzLjuPRHHvprw,,",
           "date_added": "2021-10-18 22:55",
           "file_size": "781 KB",
-          "download_count": 7608,
+          "download_count": 7609,
           "is_latest": false
         },
         {
@@ -22406,7 +22415,7 @@
       "missing_fields": [],
       "content_hash": "e7afbbcb086d753988dc9b0ecec39b5f67db0e7b90dfaa477b649524de1eae99",
       "first_seen": "2026-10-04T10:30:06+00:00",
-      "last_crawled": "2026-10-05T09:20:52+00:00",
+      "last_crawled": "2026-10-07T08:58:22+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22484,7 +22493,7 @@
         "“Infinite Health”: Takes effect when you receive damage.",
         "“Infinite Arrows”: When activated, number of arrows won’t decrease, you need to have at least 1 arrow for it to work."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/07/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/07/1-3.png",
@@ -22501,14 +22510,14 @@
           "url": "https://flingtrainer.com/downloads/7uxboCUHmhN5bPxXl4oD7g,,",
           "date_added": "2021-07-22 19:40",
           "file_size": "967 KB",
-          "download_count": 15317,
+          "download_count": 15414,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "92b1513430a107e1c549489e68511393845c02e32cef98ced1c4e5fcd912c4c1",
       "first_seen": "2026-10-04T10:30:16+00:00",
-      "last_crawled": "2026-10-05T09:21:04+00:00",
+      "last_crawled": "2026-10-07T08:58:34+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22586,7 +22595,7 @@
         "“Super Damage/One Hit Kill”, “Damage Multiplier”: These options will temporary change player’s damage multiplier stat. If you want to restore the stat, disable both of them then attack once, the damage multiplier will reset to 1.",
         "This trainer only works for “Death’s Gambit: Afterlife”, it doesn’t support older game versions (versions without the Afterlife expansion)."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header-4.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1-37.png",
@@ -22603,7 +22612,7 @@
           "url": "https://flingtrainer.com/downloads/diDGxemui7x8pQGj6FN4SA,,",
           "date_added": "2022-06-21 18:08",
           "file_size": "803 KB",
-          "download_count": 18706,
+          "download_count": 18718,
           "is_latest": true
         },
         {
@@ -22612,14 +22621,14 @@
           "url": "https://flingtrainer.com/downloads/T04GTkqY-xUtQi_yCky8Dg,,",
           "date_added": "2021-10-04 20:05",
           "file_size": "747 KB",
-          "download_count": 12145,
+          "download_count": 12148,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "7301256726d1d0a68657674237c1a7f809c116fc56cfb6e6e83158c2abc480b1",
       "first_seen": "2026-10-04T10:30:19+00:00",
-      "last_crawled": "2026-10-05T09:21:06+00:00",
+      "last_crawled": "2026-10-07T08:58:37+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22774,7 +22783,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/02/header-13.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/02/1-56.png",
@@ -22791,7 +22800,7 @@
           "url": "https://flingtrainer.com/downloads/F-L0CuoTSohxJwYFJ1iWyw,,",
           "date_added": "2025-10-22 14:52",
           "file_size": "974 KB",
-          "download_count": 41155,
+          "download_count": 41274,
           "is_latest": true
         },
         {
@@ -22800,14 +22809,14 @@
           "url": "https://flingtrainer.com/downloads/E1ez2I-FDIuu3X8nukUK-w,,",
           "date_added": "2024-02-18 13:00",
           "file_size": "1.05 MB",
-          "download_count": 106387,
+          "download_count": 106404,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "52b65b0a2cd231e11ebc5f863e417e94ab290fa3c622317760f8b42e1df99367",
       "first_seen": "2026-10-04T10:30:21+00:00",
-      "last_crawled": "2026-10-05T09:21:08+00:00",
+      "last_crawled": "2026-10-07T08:58:39+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -22937,7 +22946,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/08/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/08/1-6.png",
@@ -22954,14 +22963,14 @@
           "url": "https://flingtrainer.com/downloads/NiWCBxjkFPZkuRrJ2re8yA,,",
           "date_added": "2025-08-15 00:42",
           "file_size": "972 KB",
-          "download_count": 15244,
+          "download_count": 15296,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "37476534a0a78eac9348cbe7a8dc51d01f59b9480ccc63b201793a4681b7d939",
       "first_seen": "2026-10-04T10:30:26+00:00",
-      "last_crawled": "2026-10-05T09:21:12+00:00",
+      "last_crawled": "2026-10-07T08:58:43+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23056,7 +23065,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header-8.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1-39.png",
@@ -23073,7 +23082,7 @@
           "url": "https://flingtrainer.com/downloads/-eK07vjrsHI1lNJtLY9pYw,,",
           "date_added": "2022-07-19 15:11",
           "file_size": "789 KB",
-          "download_count": 22733,
+          "download_count": 22742,
           "is_latest": true
         },
         {
@@ -23082,7 +23091,7 @@
           "url": "https://flingtrainer.com/downloads/O6J_QW7dWzbe5mP1boaq7g,,",
           "date_added": "2021-11-04 15:15",
           "file_size": "829 KB",
-          "download_count": 12942,
+          "download_count": 12943,
           "is_latest": false
         },
         {
@@ -23098,7 +23107,7 @@
       "missing_fields": [],
       "content_hash": "9cfd9ea77d1bdf4557beef2889f40041e753b4d84c03da7dfe38064a5cc11ff1",
       "first_seen": "2026-10-04T10:30:23+00:00",
-      "last_crawled": "2026-10-05T09:21:09+00:00",
+      "last_crawled": "2026-10-07T08:58:41+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23150,7 +23159,7 @@
       "notes": [
         "“Infinite Ammo” takes effect when you fire your weapon."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/06/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/06/1-6.png",
@@ -23167,14 +23176,14 @@
           "url": "https://flingtrainer.com/downloads/exTMb8o_tA9S2X93K2FlRg,,",
           "date_added": "2020-06-11 16:15",
           "file_size": "878 KB",
-          "download_count": 51122,
+          "download_count": 51150,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "55c04b699c42b48bea0cdec78bef85e2c98fbe53a073d4cedbcacb467315aa00",
       "first_seen": "2026-10-04T10:30:28+00:00",
-      "last_crawled": "2026-10-05T09:21:14+00:00",
+      "last_crawled": "2026-10-07T08:58:46+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23499,7 +23508,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/07/header_schinese.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/07/1-8-scaled.png",
@@ -23516,7 +23525,7 @@
           "url": "https://flingtrainer.com/downloads/QoZ3ueNrbrVVXl8vmT_Ouw,,",
           "date_added": "2026-07-23 10:31",
           "file_size": "978 KB",
-          "download_count": 13902,
+          "download_count": 14078,
           "is_latest": true
         },
         {
@@ -23525,7 +23534,7 @@
           "url": "https://flingtrainer.com/downloads/P3cZCeIbjnxhqt3EjM1hQg,,",
           "date_added": "2026-07-22 20:24",
           "file_size": "975 KB",
-          "download_count": 1854,
+          "download_count": 1858,
           "is_latest": false
         }
       ],
@@ -23534,7 +23543,7 @@
       ],
       "content_hash": "e0a6151e736e7cdf570d1b18a54e2326247f114ee4b1a622e41a4046bf8a5ef1",
       "first_seen": "2026-10-04T10:30:30+00:00",
-      "last_crawled": "2026-10-05T09:21:16+00:00",
+      "last_crawled": "2026-10-07T08:58:48+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23613,7 +23622,7 @@
         "“Edit DNA”: Spend some DNA to see the value change.",
         "“DNA Multiplier”: Note the display DNA amount you’re getting is not affected, but the actual amount is multiplied."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/07/header-12.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/07/1-20.png",
@@ -23630,7 +23639,7 @@
           "url": "https://flingtrainer.com/downloads/EqQm79wrG9lFN56_CLnHjQ,,",
           "date_added": "2020-07-29 05:54",
           "file_size": "774 KB",
-          "download_count": 39577,
+          "download_count": 39599,
           "is_latest": true
         }
       ],
@@ -23639,7 +23648,7 @@
       ],
       "content_hash": "aef056a297c3408b171346688bde010492c679ae26bea389ac48b5978a3a3a38",
       "first_seen": "2026-10-04T10:30:32+00:00",
-      "last_crawled": "2026-10-05T09:21:19+00:00",
+      "last_crawled": "2026-10-07T08:58:49+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23788,7 +23797,7 @@
         "“Infinite Air Jumps”: Note Dante and Nero need to learn the skill Air Hike in order to perform double jumps.",
         "“Infinite Red Orbs”: When activated, start a mission, then you will have infinite red orbs."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/01/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/01/1-79.png",
@@ -23805,7 +23814,7 @@
           "url": "https://flingtrainer.com/downloads/kTPVNSgEtHvRHk0qeer7fA,,",
           "date_added": "2020-12-16 21:45",
           "file_size": "764 KB",
-          "download_count": 462602,
+          "download_count": 463187,
           "is_latest": true
         },
         {
@@ -23814,14 +23823,14 @@
           "url": "https://flingtrainer.com/downloads/Pqxq3qszsv5pbEzl9beKZA,,",
           "date_added": "2020-01-18 18:07",
           "file_size": "642 KB",
-          "download_count": 77926,
+          "download_count": 77951,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "7a12b74975d2bff9fa65016a8ff9694230e7550550379774937e04de8a073e6d",
       "first_seen": "2026-10-04T10:30:34+00:00",
-      "last_crawled": "2026-10-05T09:21:22+00:00",
+      "last_crawled": "2026-10-07T08:58:52+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23900,7 +23909,7 @@
         "“Soul Multiplier”: Requires having at least 1 soul.",
         "“Infinite Keys”: Requires having at least 1 key, takes effect when key value changes."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/05/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/05/1.png",
@@ -23917,14 +23926,14 @@
           "url": "https://flingtrainer.com/downloads/4nH29BaWuJPTkuO5OW71CQ,,",
           "date_added": "2021-05-01 04:17",
           "file_size": "848 KB",
-          "download_count": 8288,
+          "download_count": 8297,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "7406b0f4011c118a11e8294e6367d1f243c70f761eeaf82d16f66e0114e68333",
       "first_seen": "2026-10-04T10:30:36+00:00",
-      "last_crawled": "2026-10-05T09:21:24+00:00",
+      "last_crawled": "2026-10-07T08:58:54+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -23972,7 +23981,7 @@
         "“Infinite Souls/Skill Points” takes effect when you gain souls.",
         "“One Hit Kill”: There maybe scripted events during some boss fights, if you kill the boss too early, you will need to reload the last checkpoint and fight it again without one hit kill."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/09/header-12.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/09/1-17.png",
@@ -23989,14 +23998,14 @@
           "url": "https://flingtrainer.com/downloads/AtaUq6oE0PZp1pFQXVI5yA,,",
           "date_added": "2019-09-23 18:23",
           "file_size": "630 KB",
-          "download_count": 10648,
+          "download_count": 10653,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "f85634c0796f8859759f63402adcc5bcb5965cb3258b430c86a4c93a6287873f",
       "first_seen": "2026-10-04T10:30:39+00:00",
-      "last_crawled": "2026-10-05T09:21:26+00:00",
+      "last_crawled": "2026-10-07T08:58:56+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24046,7 +24055,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2024/03/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2024/03/1-1.png",
@@ -24063,14 +24072,14 @@
           "url": "https://flingtrainer.com/downloads/no90mBY40wECBgYlsBgvJQ,,",
           "date_added": "2024-03-02 06:08",
           "file_size": "1.13 MB",
-          "download_count": 2856,
+          "download_count": 2859,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "f4495aebd93238361e6cd12296bb255a8f4c0ad3efc9c55e2a506306cbd9c994",
       "first_seen": "2026-10-04T10:30:41+00:00",
-      "last_crawled": "2026-10-05T09:21:29+00:00",
+      "last_crawled": "2026-10-07T08:58:57+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24166,7 +24175,7 @@
         "“Infinite Equipment” takes effect when opening item menu, only works for equipment you already have in your inventory.",
         "“No Digivolve Requirements”: Some digivolves require two digimons, this requirement can’t be ignored, you MUST have two digimons for that, the game will crash if you don’t have the other digimon."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/10/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/10/1-20.png",
@@ -24183,14 +24192,14 @@
           "url": "https://flingtrainer.com/downloads/BKC4gsT90XaCPBgjPec-mA,,",
           "date_added": "2019-11-03 19:31",
           "file_size": "556 KB",
-          "download_count": 107774,
+          "download_count": 107833,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "cb6701cb726d757f05b8b51ce47eb605ece719ba315a9403b6de394518e15432",
       "first_seen": "2026-10-04T10:30:43+00:00",
-      "last_crawled": "2026-10-05T09:21:31+00:00",
+      "last_crawled": "2026-10-07T08:58:59+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24425,7 +24434,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/10/header.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/10/1-9.png",
@@ -24442,7 +24451,7 @@
           "url": "https://flingtrainer.com/downloads/f6kUudX1PjYnUIJATbNB5w,,",
           "date_added": "2026-07-14 19:32",
           "file_size": "973 KB",
-          "download_count": 37253,
+          "download_count": 37579,
           "is_latest": true
         },
         {
@@ -24451,7 +24460,7 @@
           "url": "https://flingtrainer.com/downloads/APASlkkUXQ9ydvas1dvxdA,,",
           "date_added": "2025-10-10 14:05",
           "file_size": "939 KB",
-          "download_count": 110364,
+          "download_count": 110397,
           "is_latest": false
         }
       ],
@@ -24460,7 +24469,7 @@
       ],
       "content_hash": "73b489eb2bedbbfa3fb7251ddc7b8102cf5d393283b791a805325e24c29b7964",
       "first_seen": "2026-10-04T10:30:46+00:00",
-      "last_crawled": "2026-10-05T09:21:34+00:00",
+      "last_crawled": "2026-10-07T08:59:01+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24615,7 +24624,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/07/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/07/1-11.png",
@@ -24632,7 +24641,7 @@
           "url": "https://flingtrainer.com/downloads/mLOfWa8KoQadKzSj6rKGag,,",
           "date_added": "2022-09-19 17:35",
           "file_size": "872 KB",
-          "download_count": 13940,
+          "download_count": 13948,
           "is_latest": true
         },
         {
@@ -24641,14 +24650,14 @@
           "url": "https://flingtrainer.com/downloads/cD4ZTA76U4ULj5JneO4jAw,,",
           "date_added": "2022-07-31 07:24",
           "file_size": "856 KB",
-          "download_count": 12684,
+          "download_count": 12686,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "6a889adfc3e1b5a606a325887b8e0307b43ae47d08880344016d9b465235e6ab",
       "first_seen": "2026-10-04T10:30:48+00:00",
-      "last_crawled": "2026-10-05T09:21:36+00:00",
+      "last_crawled": "2026-10-07T08:59:03+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24798,7 +24807,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/06/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/06/1-8.png",
@@ -24815,14 +24824,14 @@
           "url": "https://flingtrainer.com/downloads/YXMfo_EMbFHh9mH09eFMhQ,,",
           "date_added": "2025-06-24 07:15",
           "file_size": "937 KB",
-          "download_count": 17852,
+          "download_count": 17887,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "f60809188024d0e06f243bc641dc4d316af990d423eb4e4029e33ce62b0f51a1",
       "first_seen": "2026-10-04T10:30:51+00:00",
-      "last_crawled": "2026-10-05T09:21:38+00:00",
+      "last_crawled": "2026-10-07T08:59:05+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24887,7 +24896,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/05/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2026/05/1-1.png",
@@ -24904,14 +24913,14 @@
           "url": "https://flingtrainer.com/downloads/wJroBsGW7M1uYmT4fisj9w,,",
           "date_added": "2026-05-12 09:08",
           "file_size": "905 KB",
-          "download_count": 10645,
+          "download_count": 10661,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "fc3ca7a0a7c06efc38e3e0922f857801abfc34363daa7e44ba7427c6fa9e574e",
       "first_seen": "2026-10-04T10:30:53+00:00",
-      "last_crawled": "2026-10-05T09:21:39+00:00",
+      "last_crawled": "2026-10-07T08:59:07+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -24980,7 +24989,7 @@
         "“Max Score” takes effect when you gain score.",
         "“Unlock All Vehicles & Items”: Temporary unlocks everything in the game. For purchasable items, this option unlocks the purchase requirement, you still need to purchase the item in order to use it."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/11/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/11/1-27.png",
@@ -24997,7 +25006,7 @@
           "url": "https://flingtrainer.com/downloads/wYpjNGjbjBe--qhrdUZQ5g,,",
           "date_added": "2021-08-06 21:35",
           "file_size": "843 KB",
-          "download_count": 12044,
+          "download_count": 12053,
           "is_latest": true
         },
         {
@@ -25040,7 +25049,7 @@
       "missing_fields": [],
       "content_hash": "7054f0bd3d740d3839e652f7bc16c0dcc7083c8b778d161e8b2ddc011162b9c7",
       "first_seen": "2026-10-04T10:30:55+00:00",
-      "last_crawled": "2026-10-05T09:21:42+00:00",
+      "last_crawled": "2026-10-07T08:59:09+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25175,7 +25184,7 @@
         "“Infinite Leadership”: Takes effect when you’re in the units menu. This does not affect your character’s leadership stat.",
         "Resource editor options: Takes effect when you open the character menu."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/10/header-13.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/10/1-16.png",
@@ -25192,14 +25201,14 @@
           "url": "https://flingtrainer.com/downloads/b9MaO7-0ukyXvBs7Srr8XQ,,",
           "date_added": "2021-10-23 08:32",
           "file_size": "873 KB",
-          "download_count": 14446,
+          "download_count": 14450,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "122d5dfc29e98a0b18368a0b2e4e64e1f69a5249f533b11781d184e557b6643f",
       "first_seen": "2026-10-04T10:30:57+00:00",
-      "last_crawled": "2026-10-05T09:21:44+00:00",
+      "last_crawled": "2026-10-07T08:59:12+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25249,7 +25258,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/10/header-5.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/10/1-30.png",
@@ -25266,7 +25275,7 @@
           "url": "https://flingtrainer.com/downloads/Fds7lahMtuC-wVe3pWEaqQ,,",
           "date_added": "2025-01-26 06:09",
           "file_size": "922 KB",
-          "download_count": 53846,
+          "download_count": 53955,
           "is_latest": true
         },
         {
@@ -25275,7 +25284,7 @@
           "url": "https://flingtrainer.com/downloads/4jw9d57gs0SDssuZDUUF_w,,",
           "date_added": "2021-04-03 17:31",
           "file_size": "723 KB",
-          "download_count": 54259,
+          "download_count": 54266,
           "is_latest": false
         },
         {
@@ -25284,7 +25293,7 @@
           "url": "https://flingtrainer.com/downloads/aP2Ge5b2eTQyPPT97FKYbw,,",
           "date_added": "2021-01-26 15:52",
           "file_size": "720 KB",
-          "download_count": 7215,
+          "download_count": 7216,
           "is_latest": false
         },
         {
@@ -25300,7 +25309,7 @@
       "missing_fields": [],
       "content_hash": "b53267f67d53805b6bdb0a6343d73cc8c1256d6968b60f5703473a36366521cf",
       "first_seen": "2026-10-04T10:30:59+00:00",
-      "last_crawled": "2026-10-05T09:21:46+00:00",
+      "last_crawled": "2026-10-07T08:59:14+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25485,7 +25494,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/07/header_schinese.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/07/1-1.png",
@@ -25502,7 +25511,7 @@
           "url": "https://flingtrainer.com/downloads/McGTzlfBNAqaBFPEGiawMg,,",
           "date_added": "2022-07-19 14:24",
           "file_size": "782 KB",
-          "download_count": 8343,
+          "download_count": 8347,
           "is_latest": true
         }
       ],
@@ -25511,7 +25520,7 @@
       ],
       "content_hash": "3283ea6c4c749f4bbe17205f41b75604ea0a18f0ca8aad90b070da7628ee2cdc",
       "first_seen": "2026-10-04T10:31:01+00:00",
-      "last_crawled": "2026-10-05T09:21:49+00:00",
+      "last_crawled": "2026-10-07T08:59:17+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25608,7 +25617,7 @@
       "notes": [
         "This trainer is based on Steam game version, some options are compatible with Windows Store game version, but some options are not compatible."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-7.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-7.png",
@@ -25625,14 +25634,14 @@
           "url": "https://flingtrainer.com/downloads/JrNb1lRMYBM91CZ27tf_IQ,,",
           "date_added": "2020-05-13 15:45",
           "file_size": "737 KB",
-          "download_count": 140201,
+          "download_count": 140322,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "dba18651bc4e5b38ba660b18c25b26e21463179d3ad2fed18f1dac78d499e54e",
       "first_seen": "2026-10-04T10:31:02+00:00",
-      "last_crawled": "2026-10-05T09:21:51+00:00",
+      "last_crawled": "2026-10-07T08:59:19+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25742,7 +25751,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2022/09/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2022/09/1-31.png",
@@ -25759,7 +25768,7 @@
           "url": "https://flingtrainer.com/downloads/Vod5lnf6RGUqIZCV-4piBw,,",
           "date_added": "2026-07-31 13:27",
           "file_size": "985 KB",
-          "download_count": 2446,
+          "download_count": 2486,
           "is_latest": true
         },
         {
@@ -25768,7 +25777,7 @@
           "url": "https://flingtrainer.com/downloads/V3XEzhZDCdZkM6H7KPJPCg,,",
           "date_added": "2026-04-09 04:02",
           "file_size": "948 KB",
-          "download_count": 1954,
+          "download_count": 1957,
           "is_latest": false
         },
         {
@@ -25777,7 +25786,7 @@
           "url": "https://flingtrainer.com/downloads/NwkFLa3KY7kYAiwYB5ulDA,,",
           "date_added": "2024-11-27 11:23",
           "file_size": "923 KB",
-          "download_count": 7111,
+          "download_count": 7114,
           "is_latest": false
         },
         {
@@ -25786,7 +25795,7 @@
           "url": "https://flingtrainer.com/downloads/VW6rNi51cfGfDxsH8jmgNg,,",
           "date_added": "2024-08-25 07:49",
           "file_size": "937 KB",
-          "download_count": 3868,
+          "download_count": 3870,
           "is_latest": false
         },
         {
@@ -25795,7 +25804,7 @@
           "url": "https://flingtrainer.com/downloads/TvdsdGvsE6KfUz80OwuXkQ,,",
           "date_added": "2024-05-02 19:08",
           "file_size": "929 KB",
-          "download_count": 4214,
+          "download_count": 4215,
           "is_latest": false
         },
         {
@@ -25811,7 +25820,7 @@
       "missing_fields": [],
       "content_hash": "0d4212f65837e54c7b80e9cda4ac4e1f4d731022869f155eddb8d945012e4381",
       "first_seen": "2026-10-04T10:31:05+00:00",
-      "last_crawled": "2026-10-05T09:21:53+00:00",
+      "last_crawled": "2026-10-07T08:59:21+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -25946,7 +25955,7 @@
         "“Super Stats/Attributes” takes effect when you increase any attribute, all attributes will set to 499 or above.",
         "“Infinite Combat Skill Points”, “Infinite Civil Skill Points”, “Infinite Talent Points” take effect when you spend these points."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2019/10/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2019/10/1-1.png",
@@ -25963,14 +25972,14 @@
           "url": "https://flingtrainer.com/downloads/XIRfki_hPL2ODxI-qCno7A,,",
           "date_added": "2019-10-03 18:49",
           "file_size": "654 KB",
-          "download_count": 225571,
+          "download_count": 225947,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "0b1f2be8c68a15db52792b1d3ccd488f2aa0b795b7796c4046f3538141d2780b",
       "first_seen": "2026-10-04T10:31:07+00:00",
-      "last_crawled": "2026-10-05T09:21:55+00:00",
+      "last_crawled": "2026-10-07T08:59:24+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26027,7 +26036,7 @@
       "notes": [
         "“Worker Stats: Max Appearance”, “Worker Stats: Max Skill”, “Worker Stats: Max Stamina”: Take effects when entering the workers/zinzai menu. Don’t use these options outside of workers menu, otherwise they may affect opponents."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2021/04/header-3.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2021/04/1-5.png",
@@ -26044,14 +26053,14 @@
           "url": "https://flingtrainer.com/downloads/oqaW66tFaWNf2q07MsgPsg,,",
           "date_added": "2021-04-06 20:40",
           "file_size": "760 KB",
-          "download_count": 53912,
+          "download_count": 53944,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "a54ee96adfa30e5a79b64fd6ae70eea9d037c27b68f56eca1ed71454ca9453d5",
       "first_seen": "2026-10-04T10:31:09+00:00",
-      "last_crawled": "2026-10-05T09:21:57+00:00",
+      "last_crawled": "2026-10-07T08:59:26+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26156,7 +26165,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/05/header-1.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/05/1-15.png",
@@ -26173,7 +26182,7 @@
           "url": "https://flingtrainer.com/downloads/gvOxy3voj0NgGTURyQbchA,,",
           "date_added": "2025-12-16 16:18",
           "file_size": "909 KB",
-          "download_count": 2375,
+          "download_count": 2413,
           "is_latest": true
         },
         {
@@ -26182,14 +26191,14 @@
           "url": "https://flingtrainer.com/downloads/CzD2aDYoZiQlOFShru7aNQ,,",
           "date_added": "2025-05-12 11:15",
           "file_size": "896 KB",
-          "download_count": 4846,
+          "download_count": 4854,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "ffde2099a5b59ccdbfdc6ad26911a7faad1afd75bbd9593c3582af3dee49225d",
       "first_seen": "2026-10-04T10:31:11+00:00",
-      "last_crawled": "2026-10-05T09:22:00+00:00",
+      "last_crawled": "2026-10-07T08:59:28+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26314,7 +26323,7 @@
         "“Infinite Blood Punch” takes effect when using blood punch.",
         "“Edit Praetor Suit Points”: you must finish the demon prison mission before using this option, otherwise you’ll need to set it back to zero."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/03/header-8.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/03/1-86.png",
@@ -26331,7 +26340,7 @@
           "url": "https://flingtrainer.com/downloads/SEgKyzvxfN1gVMJzjV3GTw,,",
           "date_added": "2021-10-29 18:47",
           "file_size": "709 KB",
-          "download_count": 195675,
+          "download_count": 195828,
           "is_latest": true
         },
         {
@@ -26340,7 +26349,7 @@
           "url": "https://flingtrainer.com/downloads/4M8xknERc36a3Du0Fco3RQ,,",
           "date_added": "2021-04-20 09:52",
           "file_size": "790 KB",
-          "download_count": 36792,
+          "download_count": 36795,
           "is_latest": false
         },
         {
@@ -26349,7 +26358,7 @@
           "url": "https://flingtrainer.com/downloads/In4fZDP7eAxlVsiRrwjHYg,,",
           "date_added": "2021-03-19 20:00",
           "file_size": "787 KB",
-          "download_count": 10149,
+          "download_count": 10150,
           "is_latest": false
         },
         {
@@ -26358,7 +26367,7 @@
           "url": "https://flingtrainer.com/downloads/rIqLCxd68GjhwM9C58eq1g,,",
           "date_added": "2020-10-24 19:37",
           "file_size": "792 KB",
-          "download_count": 26301,
+          "download_count": 26303,
           "is_latest": false
         },
         {
@@ -26376,7 +26385,7 @@
           "url": "https://flingtrainer.com/downloads/M3Etq3jEDVezdjk0fR4b7g,,",
           "date_added": "2020-03-27 14:08",
           "file_size": "784 KB",
-          "download_count": 56732,
+          "download_count": 56733,
           "is_latest": false
         },
         {
@@ -26385,14 +26394,14 @@
           "url": "https://flingtrainer.com/downloads/HIBhGXMEZplTboVYbcVEIA,,",
           "date_added": "2020-03-21 16:35",
           "file_size": "682 KB",
-          "download_count": 38815,
+          "download_count": 38821,
           "is_latest": false
         }
       ],
       "missing_fields": [],
       "content_hash": "9eeb6efc4da354913b73d8418ac2a77c8bb75eb1891ff00d99f703eec35fd7f9",
       "first_seen": "2026-10-04T10:31:14+00:00",
-      "last_crawled": "2026-10-05T09:22:02+00:00",
+      "last_crawled": "2026-10-07T08:59:31+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26532,7 +26541,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/05/header-2.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/05/1-19.png",
@@ -26549,7 +26558,7 @@
           "url": "https://flingtrainer.com/downloads/-bn10s7ymq4Z8kvyKED39g,,",
           "date_added": "2026-07-08 06:13",
           "file_size": "982 KB",
-          "download_count": 28729,
+          "download_count": 28966,
           "is_latest": true
         },
         {
@@ -26558,7 +26567,7 @@
           "url": "https://flingtrainer.com/downloads/7A6trtJLiMTm9qPifMfLhQ,,",
           "date_added": "2025-12-01 03:22",
           "file_size": "944 KB",
-          "download_count": 45893,
+          "download_count": 45898,
           "is_latest": false
         },
         {
@@ -26567,7 +26576,7 @@
           "url": "https://flingtrainer.com/downloads/_Wxgm4Wp2CrD02pO3U_28A,,",
           "date_added": "2025-10-18 05:57",
           "file_size": "943 KB",
-          "download_count": 6201,
+          "download_count": 6203,
           "is_latest": false
         },
         {
@@ -26576,7 +26585,7 @@
           "url": "https://flingtrainer.com/downloads/KhPUZAHEGsEgE0l4spowdw,,",
           "date_added": "2025-08-09 08:30",
           "file_size": "974 KB",
-          "download_count": 8262,
+          "download_count": 8267,
           "is_latest": false
         },
         {
@@ -26585,7 +26594,7 @@
           "url": "https://flingtrainer.com/downloads/y4PbiajsdHGdthKh6W6DcA,,",
           "date_added": "2025-06-20 20:18",
           "file_size": "883 KB",
-          "download_count": 8974,
+          "download_count": 8977,
           "is_latest": false
         },
         {
@@ -26594,7 +26603,7 @@
           "url": "https://flingtrainer.com/downloads/O2cr6g71vmGfYXnWQMknfw,,",
           "date_added": "2025-05-13 05:12",
           "file_size": "880 KB",
-          "download_count": 33916,
+          "download_count": 33921,
           "is_latest": false
         }
       ],
@@ -26603,7 +26612,7 @@
       ],
       "content_hash": "b01b145eee0b3ae6c8b18ce37777195577cf5da599f10f99691a0aa6f9d44b6f",
       "first_seen": "2026-10-04T10:31:15+00:00",
-      "last_crawled": "2026-10-05T09:22:05+00:00",
+      "last_crawled": "2026-10-07T08:59:33+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26683,7 +26692,7 @@
         }
       ],
       "notes": [],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2025/02/header-5.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2025/02/1-12.png",
@@ -26700,14 +26709,14 @@
           "url": "https://flingtrainer.com/downloads/xyF3fUt1lmbFljwKYST_0Q,,",
           "date_added": "2025-02-27 06:01",
           "file_size": "851 KB",
-          "download_count": 18123,
+          "download_count": 18172,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "d15a6e697a7ba71bcf14cceae3023d166549c0f0d171f752ac05e5f37c04ecf9",
       "first_seen": "2026-10-04T10:31:17+00:00",
-      "last_crawled": "2026-10-05T09:22:07+00:00",
+      "last_crawled": "2026-10-07T08:59:34+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -26771,7 +26780,7 @@
         "“Infinite Skill Points”: your skill points will reset to max (exact value depends on character level) when you open skill menu.",
         "“Infinite Exp” and “Exp Multiplier” take effect when you complete a mission. Note: they will not work when you fail the mission."
       ],
-      "cover_image": "",
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2020/05/header-6.jpg",
       "screenshots": [
         {
           "original_url": "https://flingtrainer.com/wp-content/uploads/2020/05/1-6.png",
@@ -26788,14 +26797,14 @@
           "url": "https://flingtrainer.com/downloads/hj_9BTQkk8h5oU8HVXtrZQ,,",
           "date_added": "2020-05-08 19:20",
           "file_size": "757 KB",
-          "download_count": 15652,
+          "download_count": 15666,
           "is_latest": true
         }
       ],
       "missing_fields": [],
       "content_hash": "c057efb8e3f9c509a19d41c3ebe61abe6bd5ea32b00c7a6249d957df01aa8cbd",
       "first_seen": "2026-10-04T10:31:19+00:00",
-      "last_crawled": "2026-10-05T09:22:09+00:00",
+      "last_crawled": "2026-10-07T08:59:36+00:00",
       "http_status": 200,
       "error": ""
     },
@@ -101047,6 +101056,120 @@
       "content_hash": "0879f4bbbb40a14af52d12413367588a14ba99192cde246aed5044ccd6c000df",
       "first_seen": "2026-10-04T10:47:01+00:00",
       "last_crawled": "2026-10-05T09:37:37+00:00",
+      "http_status": 200,
+      "error": ""
+    },
+    {
+      "url": "https://flingtrainer.com/trainer/star-wars-galactic-racer-trainer/",
+      "slug": "star-wars-galactic-racer-trainer",
+      "game_name": "Star Wars: Galactic Racer Trainer",
+      "game_version": "v1.0+",
+      "options_count": 14,
+      "options_extracted": 14,
+      "last_updated": "2026-10-06",
+      "last_updated_raw": "2026.10.06",
+      "published_date": "2026-10-06",
+      "categories": [
+        "Trainer"
+      ],
+      "options": [
+        {
+          "index": 1,
+          "text": "Num 1 – No Vehicle Explosions",
+          "note": ""
+        },
+        {
+          "index": 2,
+          "text": "Num 2 – Infinite Retries",
+          "note": "When activated, you will have infinite retries after vehicle explosions."
+        },
+        {
+          "index": 3,
+          "text": "Num 3 – Infinite Boost",
+          "note": ""
+        },
+        {
+          "index": 4,
+          "text": "Num 4 – Infinite Energy",
+          "note": ""
+        },
+        {
+          "index": 5,
+          "text": "Num 5 – No Ability Cooldown",
+          "note": "Activate before using abilities."
+        },
+        {
+          "index": 6,
+          "text": "Num 6 – Freeze Race Timer",
+          "note": ""
+        },
+        {
+          "index": 7,
+          "text": "Num 7 – Opponents: Can’t Move",
+          "note": "When activated, opponents will spin in circles. They may still be able to move a little bit after their positions reset."
+        },
+        {
+          "index": 8,
+          "text": "Num 8 – Opponents: Can’t Boost",
+          "note": ""
+        },
+        {
+          "index": 9,
+          "text": "Num 9 – Opponents: Lose Control",
+          "note": "When activated, opponents will steer in random directions."
+        },
+        {
+          "index": 10,
+          "text": "Num 0 – Set Game Speed",
+          "note": ""
+        },
+        {
+          "index": 11,
+          "text": "Ctrl+Num 1 – Edit Credits",
+          "note": ""
+        },
+        {
+          "index": 12,
+          "text": "Ctrl+Num 2 – Shop: Free Restock",
+          "note": ""
+        },
+        {
+          "index": 13,
+          "text": "Ctrl+Num 3 – Edit Tuning Points",
+          "note": "Note: The displayed value may not update immediately. Spend some Tuning Points to update the displayed value."
+        },
+        {
+          "index": 14,
+          "text": "Ctrl+Num 4 – Edit Kit Points",
+          "note": ""
+        }
+      ],
+      "notes": [],
+      "cover_image": "https://flingtrainer.com/wp-content/uploads/2026/10/header-2.jpg",
+      "screenshots": [
+        {
+          "original_url": "https://flingtrainer.com/wp-content/uploads/2026/10/1-2.png",
+          "local_path": "",
+          "alt": "Star Wars: Galactic Racer Trainer/Cheat",
+          "downloaded": false,
+          "bytes": 0
+        }
+      ],
+      "downloads": [
+        {
+          "file_name": "Star.Wars.Galactic.Racer.v1.0.Plus.14.Trainer-FLiNG",
+          "version": "v1.0",
+          "url": "https://flingtrainer.com/downloads/d2c2rXDkvoyvICUZPnXKsA,,",
+          "date_added": "2026-10-06 18:51",
+          "file_size": "926 KB",
+          "download_count": 413,
+          "is_latest": true
+        }
+      ],
+      "missing_fields": [],
+      "content_hash": "bce60aa01c25e53775205b23b39478721d723dde5490f5ab94928cc4b5d6b0f3",
+      "first_seen": "2026-10-07T08:56:41+00:00",
+      "last_crawled": "2026-10-07T08:56:41+00:00",
       "http_status": 200,
       "error": ""
     },
