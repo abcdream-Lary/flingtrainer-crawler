@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-08T09:14:00+00:00",
+  "generated_at": "2026-10-09T09:23:04+00:00",
   "count": 758,
   "meta": {
     "mode": "smart",
-    "started_at": "2026-10-08T09:10:58+00:00",
-    "duration_seconds": 181.9,
+    "started_at": "2026-10-09T09:19:57+00:00",
+    "duration_seconds": 187.7,
     "interrupted": false,
     "site": "https://flingtrainer.com",
     "robots_respected": true,
@@ -14,7 +14,7 @@
       "retries": 0,
       "not_modified": 0,
       "robots_blocked": 0,
-      "bytes": 12054739,
+      "bytes": 11849533,
       "failures": 0
     },
     "changelog_file": null,
