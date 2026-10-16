@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-15T07:38:22+00:00",
-  "count": 759,
+  "generated_at": "2026-10-16T07:24:53+00:00",
+  "count": 760,
   "meta": {
     "mode": "smart",
-    "started_at": "2026-10-15T07:35:12+00:00",
-    "duration_seconds": 190.3,
+    "started_at": "2026-10-16T07:21:48+00:00",
+    "duration_seconds": 184.6,
     "interrupted": false,
     "site": "https://flingtrainer.com",
     "robots_respected": true,
@@ -14,12 +14,12 @@
       "retries": 0,
       "not_modified": 0,
       "robots_blocked": 0,
-      "bytes": 12233696,
+      "bytes": 12015179,
       "failures": 0
     },
-    "changelog_file": "2026-10-15.jsonl",
+    "changelog_file": "2026-10-16.jsonl",
     "failed_log": "data/logs/failed.jsonl",
-    "discovered": 759,
+    "discovered": 760,
     "fetched": 81,
     "parsed": 81,
     "skipped_recent": 0,
@@ -34,6 +34,6 @@
     "targets_new": 1,
     "targets_hinted": 0,
     "targets_refresh": 80,
-    "refresh_pending": 678
+    "refresh_pending": 679
   }
 }
